@@ -1,0 +1,818 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+
+
+<meta charset="utf-8">
+
+
+
+
+<!-- begin SEO -->
+
+
+
+
+
+
+
+
+
+<title>Git/Github.com For Collaboration | Earth Data Science - Earth Lab </title>
+
+
+
+
+
+
+
+<meta property="og:locale" content="en-US">
+<meta property="og:site_name" content="Earth Data Science - Earth Lab">
+<meta property="og:title" content="Git/Github.com For Collaboration">
+
+
+  <link rel="canonical" href="http://localhost:8000/courses/earth-analytics-bootcamp/git-github-collaboration/">
+  <meta property="og:url" content="http://localhost:8000/courses/earth-analytics-bootcamp/git-github-collaboration/">
+
+
+
+  <meta content="     Today  " name="description">
+  <meta property="og:description" content="     Today  ">
+
+
+<!-- twitter cards -->
+
+  <meta name="twitter:site" content="@earthlabcu">
+  <meta name="twitter:title" content="Git/Github.com For Collaboration">
+  <meta name="twitter:description" content="     Today  ">
+  <meta name="twitter:url" content="http://localhost:8000/courses/earth-analytics-bootcamp/git-github-collaboration/">
+
+  
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="https://earthdatascience.org/images/earth_sm_twit.png">
+    <meta name="twitter:image:alt" content="The Earthlab Logo - image of a globe with courses, lessons and tutorials">
+
+    
+  
+
+  
+
+
+
+  
+
+  
+
+
+
+
+
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2019-08-11T00:00:00-06:00">
+  
+    <link rel="next" href="http://localhost:8000/courses/earth-analytics-bootcamp/functions/" title="Functions">
+  
+  
+    <link rel="prev" href="http://localhost:8000/courses/earth-analytics-bootcamp/conditional-statements/control-flow/" title="Control Flow Using Conditional Statements">
+  
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "Person",
+      "name" : "Earth Analytics",
+      "url" : "http://localhost:8000",
+      "sameAs" : null
+    }
+  </script>
+
+
+
+
+
+
+<!-- end SEO -->
+
+
+<link href="http://localhost:8000/feed.xml" type="application/atom+xml" rel="alternate" title="Earth Data Science - Earth Lab Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google-site-verification" content="LfpevjsE0wlELv5KKOZv1T2RhRimGSiRckWv5ZC19GU" />
+<!-- don't use the old cataloged meta tags -->
+<meta name="googlebot" content="noodp">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+
+<!-- For all browsers
+<link rel="stylesheet" href="http://localhost:8000/assets/css/main.css">-->
+<link rel="stylesheet" href="http://localhost:8000/assets/css/main.css">
+
+<meta http-equiv="cleartype" content="on">
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use http://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+  </head>
+
+  <body>
+
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+    
+
+<!-- search bar begin  - turning off for now-->
+
+<div class="search">
+<form role="search" method="get" action="http://localhost:8000/search/">
+    <input id="q" name="q"
+           placeholder="Search earth data science site" type="text">
+</form>
+<!--<span class='cu-boulder'><a href="http://www.colorado.edu/earthlab" target="_blank">Earth Lab University of Colorado - Boulder Home </a></span> -->
+</div>
+
+
+<!-- search bar END -->
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <button><div class="navicon"></div></button>
+        <ul class="visible-links">
+          <li class="masthead__menu-item masthead__menu-item--lg"><a href="http://localhost:8000/"><img src="/images/earth_sm.png" alt="Earth Lab - Earth Data Science" style="height:80%;width:85%"></a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:8000/tutorials/">Tutorials</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:8000/courses/">Courses</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:8000/workshops/">Workshops</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:8000/tools/">Tools</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:8000/blog/">Blog</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:8000/events/">Events</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:8000/about/">About</a></li>
+          
+
+        </ul>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+
+
+
+
+
+
+
+
+
+
+<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs">
+ <ol itemscope itemtype="http://schema.org/BreadcrumbList">
+<a href="http://localhost:8000"></a>
+ 
+ <!-- there is an offset of 1 so subtract 2 from the final crumb number-->
+ 
+   
+   
+     <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+       <a href="http://localhost:8000/" itemprop="item"><span itemprop="name">Home</span></a>
+       <meta itemprop="position" content="" />
+     </li>
+     <span class="sep">/</span>
+   
+    
+        <li><a href="http://localhost:8000/courses/">Courses </a>
+        <span class="sep">/</span></li>
+    
+  
+   
+    
+        <li><a href="http://localhost:8000/courses/earth-analytics-bootcamp/"> Earth analytics bootcamp </a>
+        <span class="sep">/</span></li>
+    
+  
+   
+    
+        <li class="current">Git/Github.com For Collaboration</li>
+    
+  
+</ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+
+
+
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+    
+    
+
+
+    
+
+    
+     <!--  Might be able to delete this This is the code that populates the side bar navigation if there is a class-->
+      
+
+
+
+
+
+<!-- make sure we're only grabbing pages for the course -->
+
+
+
+<!--<h3>Week 9 Lessons</h3>-->
+<!-- i don't think the code below is used as modules is defined lower down as well. -->
+
+<!-- This is how modules are sorted on the left hand side bar -->
+
+
+
+
+
+
+<h5><a href="http://localhost:8000/courses/earth-analytics-bootcamp/" ><i class="fa fa-home" aria-hidden="true"></i> Earth-analytics-bootcamp Home</a></h5>
+
+<!-- Just get the pages from this course -->
+
+
+
+
+
+
+<nav class="nav__list">
+
+
+
+
+
+
+<ul>
+  <li><span class="nav__sub-title"><i class="fa fa-book" aria-hidden="true"></i> Units</span>
+   <ul>
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/get-started-with-open-science/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       1. Get Started with Open Reproducible Science</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/python-variables-lists/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       2. Python Variables and Lists</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/git-github-version-control/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       3. Git/Github.com Workflow For Version Control</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/numpy-arrays/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       4. Numpy Arrays</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/pandas-dataframes/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       5. Pandas Dataframes</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/practice-data-structures/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       6. Practice Working With Data Structures</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/loops/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       7. Loops in Python</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/conditional-statements/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       8. Conditional Statements</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+
+
+      
+       
+      <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/git-github-collaboration/" class='active'> <!--<i class="fa fa-folder-open" aria-hidden="true"></i> -->
+         9. GIT/GITHUB.COM FOR COLLABORATION</a></li>
+        
+
+<div class='active-menu'>
+      <ul>
+        
+        <!-- Note that class-order allows you to sort modules by class order if there are more than 1 in a class -->
+        
+
+        
+
+        
+
+        
+        
+          <li><span class="nav__sub-title grey"><i class="fa fa-caret-down" aria-hidden="true"></i> Git/github for collaboration </span></li>
+        <ul>
+
+      
+      <!-- count lessons -->
+
+        
+        
+        
+
+        
+        
+        
+          
+          <li><a href= http://localhost:8000/courses/earth-analytics-bootcamp/git-github-collaboration/guided-activity-undo-changes/><!--9.1 --> - Guided Activity on Undo Changes in Git</a></li>
+          
+          
+
+        
+        
+        
+          
+          <li><a href= http://localhost:8000/courses/earth-analytics-bootcamp/git-github-collaboration/guided-activity-collaboration/><!--9.2 --> - Guided Activity on Git/Github.com For Collaboration</a></li>
+          
+          
+
+        
+       </ul>
+        
+
+        
+      </ul>
+
+      <!-- BEGIN Learn how to lessons -->
+       <ul>
+         
+         
+       </ul>
+
+
+     </div>
+
+
+      <!-- END BEGIN Learn how to lessons -->
+
+      <!--  -->
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/functions/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       10. Functions</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/practice-dry-code/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       11. Practice Writing DRY Code</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/data-wrangling/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       12. Data Wrangling</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/prep-final-project/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       13. Prepare For Final Project</a></li>
+    
+
+
+      
+
+    
+  </ul></li>
+ </ul>
+
+
+ <ul>
+   <li><span class="nav__sub-title"><i class="fa fa-folder-open" aria-hidden="true"></i> Overview</span>
+    <ul>
+     
+          
+         <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/">
+           Earth Analytics Bootcamp Home </a></li>
+         
+
+     
+          
+         <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-syllabus/">
+           Course Syllabus </a></li>
+         
+
+     
+          
+         <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-pre-course-learning/">
+           Pre-Course Learning Resources </a></li>
+         
+
+     
+          
+         <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-checklist/">
+           Pre-Course Checklist </a></li>
+         
+
+     
+          
+         <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-homework-1/">
+           Homework 1 </a></li>
+         
+
+     
+          
+         <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-homework-2/">
+           Homework 2 </a></li>
+         
+
+     
+          
+         <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-homework-3/">
+           Homework 3 </a></li>
+         
+
+     
+          
+         <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/pep-8-style-guide/">
+           Reference on PEP 8 Style Guide </a></li>
+         
+
+     
+          
+         <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-homework-4/">
+           Homework 4 </a></li>
+         
+
+     
+          
+         <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-final-project/">
+           Final Project </a></li>
+         
+
+     
+   </ul>
+ </li>
+</ul>
+</nav>
+
+<h5><a href="http://localhost:8000/courses/earth-analytics-bootcamp/" ><i class="fa fa-home" aria-hidden="true"></i> earth-analytics-bootcamp Home</a></h5>
+
+    
+
+    
+
+  
+  </div>
+
+
+
+
+
+
+<!-- begin science / science themes side bar nav -->
+
+
+
+  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+
+    <meta itemprop="headline" content="Git/Github.com For Collaboration">
+    <meta itemprop="description" content="     Today  ">
+    <meta itemprop="datePublished" content="August 11, 2019">
+    
+
+    <div class="page__inner-wrap">
+      
+
+        <header>
+          <!-- BEGIN: insert a welcome to the module block on pages that are part of a module set -->
+
+          <!-- END: insert welcome block -->
+          <h1 class="page__title" itemprop="headline">
+            
+             Git/Github.com For Collaboration
+ </h1>
+            
+          
+
+          
+
+        <br/>
+
+        
+
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        <!-- would like to include the TOC automatically but this does weird things-->
+        
+        <aside class="sidebar__right">
+<nav class="toc">
+    <header><h4 class="nav__title"><i class="fa fa-file-text"></i> Today</h4></header>
+<ul class="toc__menu" id="markdown-toc">
+  <li><a href="#welcome-to-day-nine" id="markdown-toc-welcome-to-day-nine"><i class="fa fa-ship" aria-hidden="true"></i> Welcome to Day Nine!</a></li>
+  <li><a href="#learning-objectives" id="markdown-toc-learning-objectives"><i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives</a></li>
+  <li><a href="#-class-schedule" id="markdown-toc--class-schedule"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Class Schedule</a></li>
+</ul>
+
+  </nav>
+</aside>
+
+<div class="notice--info">
+
+  <h2 id="welcome-to-day-nine"><i class="fa fa-ship" aria-hidden="true"></i> Welcome to Day Nine!</h2>
+
+  <p>Welcome to Day Nine of the Earth Analytics Bootcamp! Today, you will learn how to undo changes in <code class="highlighter-rouge">Git</code> and how to use <code class="highlighter-rouge">Git</code>/<code class="highlighter-rouge">Github.com</code> to collaborate with others. Rather than reviewing lessons, you will complete guided activities using <code class="highlighter-rouge">Git</code>/<code class="highlighter-rouge">Github.com</code>.</p>
+
+  <h2 id="learning-objectives"><i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives</h2>
+
+  <p>By completing the activity for today, you will be able to:</p>
+
+  <ul>
+    <li>Undo changes using <code class="highlighter-rouge">Git</code></li>
+    <li>Communicate with others in a collaborative project using <code class="highlighter-rouge">Github.com</code></li>
+  </ul>
+
+</div>
+
+<h2 id="-class-schedule"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Class Schedule</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Topic</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Review Day 8 / Questions</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Guided Activity 1: Undo Changes in <code class="highlighter-rouge">Git</code>/<code class="highlighter-rouge">Github.com</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Guided Activity 2: <code class="highlighter-rouge">Git</code>/<code class="highlighter-rouge">Github.com</code> For Collaboration</td>
+    </tr>
+  </tbody>
+</table>
+
+        
+
+        <!-- if the page is a course lesson, add pagination -->
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+
+
+
+
+
+        
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2019-08-11T00:00:00-06:00">August 11, 2019</time></p>
+        
+      </footer>
+
+      
+
+
+<section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=http://localhost:8000/courses/earth-analytics-bootcamp/git-github-collaboration/" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:8000/courses/earth-analytics-bootcamp/git-github-collaboration/" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://plus.google.com/share?url=http://localhost:8000/courses/earth-analytics-bootcamp/git-github-collaboration/" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:8000/courses/earth-analytics-bootcamp/git-github-collaboration/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+<br><br>
+  <a href="http://bit.ly/2jc5SXy" target="_blank">
+    <img src="http://localhost:8000/images/earth-data-analytics-professional-certificate-banner.png" alt="Get a professional Certificate in Earth Data Analytics at University of Colorado, Boulder" width="40%"></a>
+</section>
+
+
+       
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+
+
+<!-- Adding analytics code -->
+
+        
+
+
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    <li>
+      <strong>&copy; 2018 Earth Lab -
+      <a href="http://localhost:8000/license"> View License. </a>
+      Questions? Feedback? Please file an issue on GitHub.</strong>
+    </li>
+  </ul>
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+    
+      <li><a href="https://twitter.com/earthlabcu"><i class="fa fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+    
+    
+    
+      <li><a href="http://github.com/earthlab"><i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+    
+    
+    <li><a href="http://localhost:8000/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    <script src="http://localhost:8000/assets/js/main.min.js"></script>
+
+
+
+
+
+<script type="text/javascript"
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+</script>
+
+    
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-84081999-1', 'auto');
+    ga('send', 'pageview');
+</script>
+
+
+
+  </body>
+</html>
+

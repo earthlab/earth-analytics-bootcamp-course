@@ -1,0 +1,2626 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+
+
+<meta charset="utf-8">
+
+
+
+
+<!-- begin SEO -->
+
+
+
+
+
+
+
+
+
+<title>Apply Functions to Numpy Arrays | Earth Data Science - Earth Lab </title>
+
+
+
+
+
+
+
+<meta property="og:locale" content="en-US">
+<meta property="og:site_name" content="Earth Data Science - Earth Lab">
+<meta property="og:title" content="Apply Functions to Numpy Arrays">
+
+
+  <link rel="canonical" href="http://localhost:8000/courses/earth-analytics-bootcamp/functions/apply-functions-numpy-arrays/">
+  <meta property="og:url" content="http://localhost:8000/courses/earth-analytics-bootcamp/functions/apply-functions-numpy-arrays/">
+
+
+
+  <meta content="This lesson teaches you how to apply functions to numpy arrays in Python." name="description">
+  <meta property="og:description" content="This lesson teaches you how to apply functions to numpy arrays in Python.">
+
+
+<!-- twitter cards -->
+
+  <meta name="twitter:site" content="@earthlabcu">
+  <meta name="twitter:title" content="Apply Functions to Numpy Arrays">
+  <meta name="twitter:description" content="This lesson teaches you how to apply functions to numpy arrays in Python.">
+  <meta name="twitter:url" content="http://localhost:8000/courses/earth-analytics-bootcamp/functions/apply-functions-numpy-arrays/">
+
+  
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="https://earthdatascience.org/images/earth_sm_twit.png">
+    <meta name="twitter:image:alt" content="The Earthlab Logo - image of a globe with courses, lessons and tutorials">
+
+    
+  
+
+  
+
+
+
+  
+
+  
+
+
+
+
+
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2019-08-11T00:00:00-06:00">
+  
+    <link rel="next" href="http://localhost:8000/courses/earth-analytics-bootcamp/data-wrangling/" title="Data Wrangling">
+  
+  
+    <link rel="prev" href="http://localhost:8000/courses/earth-analytics-bootcamp/functions/write-functions/" title="Write Custom Functions">
+  
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "Person",
+      "name" : "Earth Analytics",
+      "url" : "http://localhost:8000",
+      "sameAs" : null
+    }
+  </script>
+
+
+
+
+
+
+<!-- end SEO -->
+
+
+<link href="http://localhost:8000/feed.xml" type="application/atom+xml" rel="alternate" title="Earth Data Science - Earth Lab Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google-site-verification" content="LfpevjsE0wlELv5KKOZv1T2RhRimGSiRckWv5ZC19GU" />
+<!-- don't use the old cataloged meta tags -->
+<meta name="googlebot" content="noodp">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+
+<!-- For all browsers
+<link rel="stylesheet" href="http://localhost:8000/assets/css/main.css">-->
+<link rel="stylesheet" href="http://localhost:8000/assets/css/main.css">
+
+<meta http-equiv="cleartype" content="on">
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use http://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+  </head>
+
+  <body>
+
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+    
+
+<!-- search bar begin  - turning off for now-->
+
+<div class="search">
+<form role="search" method="get" action="http://localhost:8000/search/">
+    <input id="q" name="q"
+           placeholder="Search earth data science site" type="text">
+</form>
+<!--<span class='cu-boulder'><a href="http://www.colorado.edu/earthlab" target="_blank">Earth Lab University of Colorado - Boulder Home </a></span> -->
+</div>
+
+
+<!-- search bar END -->
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <button><div class="navicon"></div></button>
+        <ul class="visible-links">
+          <li class="masthead__menu-item masthead__menu-item--lg"><a href="http://localhost:8000/"><img src="/images/earth_sm.png" alt="Earth Lab - Earth Data Science" style="height:80%;width:85%"></a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:8000/tutorials/">Tutorials</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:8000/courses/">Courses</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:8000/workshops/">Workshops</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:8000/tools/">Tools</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:8000/blog/">Blog</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:8000/events/">Events</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:8000/about/">About</a></li>
+          
+
+        </ul>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+
+
+
+
+
+
+
+
+
+
+<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs">
+ <ol itemscope itemtype="http://schema.org/BreadcrumbList">
+<a href="http://localhost:8000"></a>
+ 
+ <!-- there is an offset of 1 so subtract 2 from the final crumb number-->
+ 
+   
+   
+     <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+       <a href="http://localhost:8000/" itemprop="item"><span itemprop="name">Home</span></a>
+       <meta itemprop="position" content="" />
+     </li>
+     <span class="sep">/</span>
+   
+    
+        <li><a href="http://localhost:8000/courses/">Courses </a>
+        <span class="sep">/</span></li>
+    
+  
+   
+    
+        <li><a href="http://localhost:8000/courses/earth-analytics-bootcamp/">Earth analytics bootcamp </a>
+        <span class="sep">/</span></li>
+    
+  
+   
+    
+        <li><a href="http://localhost:8000/courses/earth-analytics-bootcamp/functions/"> Week 10.  Functions </a>
+        <span class="sep">/</span></li>
+    
+  
+   
+    
+        <li class="current">Apply Functions to Numpy Arrays</li>
+    
+  
+</ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+
+
+
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+    
+    
+
+
+    
+
+    
+     <!--  Might be able to delete this This is the code that populates the side bar navigation if there is a class-->
+      
+
+
+
+
+
+<!-- make sure we're only grabbing pages for the course -->
+
+
+
+<!--<h3>Week 10 Lessons</h3>-->
+<!-- i don't think the code below is used as modules is defined lower down as well. -->
+
+<!-- This is how modules are sorted on the left hand side bar -->
+
+
+
+
+
+
+<h5><a href="http://localhost:8000/courses/earth-analytics-bootcamp/" ><i class="fa fa-home" aria-hidden="true"></i> Earth-analytics-bootcamp Home</a></h5>
+
+<!-- Just get the pages from this course -->
+
+
+
+
+
+
+<nav class="nav__list">
+
+
+
+
+
+
+<ul>
+  <li><span class="nav__sub-title"><i class="fa fa-book" aria-hidden="true"></i> Units</span>
+   <ul>
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/get-started-with-open-science/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       1. Get Started with Open Reproducible Science</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/python-variables-lists/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       2. Python Variables and Lists</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/git-github-version-control/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       3. Git/Github.com Workflow For Version Control</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/numpy-arrays/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       4. Numpy Arrays</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/pandas-dataframes/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       5. Pandas Dataframes</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/practice-data-structures/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       6. Practice Working With Data Structures</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/loops/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       7. Loops in Python</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/conditional-statements/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       8. Conditional Statements</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/git-github-collaboration/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       9. Git/Github.com For Collaboration</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+
+
+      
+       
+        <li class='active-section'> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/functions/"><i class="fa fa-folder-open" aria-hidden="true"></i>
+           10. FUNCTIONS</a></li>
+        
+
+<div class='active-menu'>
+      <ul>
+        
+        <!-- Note that class-order allows you to sort modules by class order if there are more than 1 in a class -->
+        
+
+        
+
+        
+
+        
+        
+          <li><span class="nav__sub-title grey"><i class="fa fa-caret-down" aria-hidden="true"></i> Functions </span></li>
+        <ul>
+
+      
+      <!-- count lessons -->
+
+        
+        
+        
+
+        
+        
+        
+          
+          <li><a href= http://localhost:8000/courses/earth-analytics-bootcamp/functions/intro-functions/><!--10.1 --> - Intro to Functions</a></li>
+          
+          
+
+        
+        
+        
+          
+          <li><a href= http://localhost:8000/courses/earth-analytics-bootcamp/functions/write-functions/><!--10.2 --> - Write Custom Functions</a></li>
+          
+          
+
+        
+        
+        
+          
+          <li><a href= http://localhost:8000/courses/earth-analytics-bootcamp/functions/apply-functions-numpy-arrays/ class='active'> <!--10.3 -->- Apply Functions to Numpy Arrays</a></li>
+          
+          
+
+        
+       </ul>
+        
+
+        
+      </ul>
+
+      <!-- BEGIN Learn how to lessons -->
+       <ul>
+         
+         
+       </ul>
+
+
+     </div>
+
+
+      <!-- END BEGIN Learn how to lessons -->
+
+      <!--  -->
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/practice-dry-code/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       11. Practice Writing DRY Code</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/data-wrangling/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       12. Data Wrangling</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/prep-final-project/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       13. Prepare For Final Project</a></li>
+    
+
+
+      
+
+    
+  </ul></li>
+ </ul>
+
+
+ <ul>
+   <li><span class="nav__sub-title"><i class="fa fa-folder-open" aria-hidden="true"></i> Overview</span>
+    <ul>
+     
+          
+         <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/">
+           Earth Analytics Bootcamp Home </a></li>
+         
+
+     
+          
+         <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-syllabus/">
+           Course Syllabus </a></li>
+         
+
+     
+          
+         <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-pre-course-learning/">
+           Pre-Course Learning Resources </a></li>
+         
+
+     
+          
+         <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-checklist/">
+           Pre-Course Checklist </a></li>
+         
+
+     
+          
+         <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-homework-1/">
+           Homework 1 </a></li>
+         
+
+     
+          
+         <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-homework-2/">
+           Homework 2 </a></li>
+         
+
+     
+          
+         <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-homework-3/">
+           Homework 3 </a></li>
+         
+
+     
+          
+         <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/pep-8-style-guide/">
+           Reference on PEP 8 Style Guide </a></li>
+         
+
+     
+          
+         <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-homework-4/">
+           Homework 4 </a></li>
+         
+
+     
+          
+         <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-final-project/">
+           Final Project </a></li>
+         
+
+     
+   </ul>
+ </li>
+</ul>
+</nav>
+
+<h5><a href="http://localhost:8000/courses/earth-analytics-bootcamp/" ><i class="fa fa-home" aria-hidden="true"></i> earth-analytics-bootcamp Home</a></h5>
+
+    
+
+    
+
+  
+  </div>
+
+
+
+
+
+
+<!-- begin science / science themes side bar nav -->
+
+
+
+  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+
+    <meta itemprop="headline" content="Apply Functions to Numpy Arrays">
+    <meta itemprop="description" content="This lesson teaches you how to apply functions to numpy arrays in Python.">
+    <meta itemprop="datePublished" content="August 11, 2019">
+    <meta itemprop="dateModified" content="August 22, 2018">
+
+    <div class="page__inner-wrap">
+      
+
+        <header>
+          <!-- BEGIN: insert a welcome to the module block on pages that are part of a module set -->
+
+          <!-- END: insert welcome block -->
+          <h1 class="page__title" itemprop="headline">
+            Lesson 3. 
+             Apply Functions to Numpy Arrays
+ </h1>
+            
+          
+
+          
+            <div class="page__meta">
+              
+              
+              <a href="http://localhost:8000/authors/jenny-palomino">Jenny Palomino</a>, 
+              
+              
+              <a href="http://localhost:8000/authors/leah-wasser">Leah Wasser</a>
+              
+            </div>
+          
+
+        <br/>
+
+        
+
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        <!-- would like to include the TOC automatically but this does weird things-->
+        
+        <aside class="sidebar__right">
+<nav class="toc">
+    <header><h4 class="nav__title"><i class="fa fa-file-text"></i> In This Lesson</h4></header>
+<ul class="toc__menu" id="markdown-toc">
+  <li><a href="#learning-objectives" id="markdown-toc-learning-objectives"><i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives</a></li>
+  <li><a href="#example-recalculate-numpy-array" id="markdown-toc-example-recalculate-numpy-array">Example: Recalculate Numpy Array</a></li>
+  <li><a href="#example-calculate-multiple-statistics-of-numpy-array" id="markdown-toc-example-calculate-multiple-statistics-of-numpy-array">Example: Calculate Multiple Statistics of Numpy Array</a></li>
+  <li><a href="#example-calculate-statistics-across-numpy-array-axes" id="markdown-toc-example-calculate-statistics-across-numpy-array-axes">Example: Calculate Statistics Across Numpy Array Axes</a></li>
+  <li><a href="#optional-challenge-1" id="markdown-toc-optional-challenge-1"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional Challenge 1</a></li>
+  <li><a href="#optional-challenge-2" id="markdown-toc-optional-challenge-2"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional Challenge 2</a></li>
+</ul>
+
+  </nav>
+</aside>
+
+<p>In this lesson, you will learn how to apply custom functions to <code class="highlighter-rouge">numpy arrays</code> in <code class="highlighter-rouge">Python</code> and assign the output of functions to new <code class="highlighter-rouge">numpy arrays</code>.</p>
+
+<div class="notice--success">
+
+  <h2 id="learning-objectives"><i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives</h2>
+
+  <p>After completing this lesson, you will be able to:</p>
+
+  <ul>
+    <li>Apply custom functions to <code class="highlighter-rouge">numpy arrays</code></li>
+    <li>Assign the output of functions to new <code class="highlighter-rouge">numpy arrays</code></li>
+    <li>Use the axes of <code class="highlighter-rouge">numpy arrays</code> to access values across rows or columns</li>
+  </ul>
+
+</div>
+
+<h2 id="example-recalculate-numpy-array">Example: Recalculate Numpy Array</h2>
+
+<p>In the previous lesson, you learned how to write custom functions to calculate results. However, you noticed that your function did not actually update the values of the original data.</p>
+
+<p>To do that, you need to assign the results of the function to a new variable. Luckily, the syntax will look familiar.</p>
+
+<p>For example, take the custom function that converts inches to millimeters (e.g. <code class="highlighter-rouge">in_to_mm</code>). You can provide a <code class="highlighter-rouge">numpy array</code> as the input, and you receive an output that displays the recalculated values.</p>
+
+<div class="language-python input highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># import necessary package</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+
+<span class="c"># input parameter: numpy array for average monthly precip (inches) in 2002 for Boulder, CO</span>
+<span class="n">avg_monthly_precip_2002_in</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.07</span><span class="p">,</span> <span class="mf">0.44</span><span class="p">,</span> <span class="mf">1.50</span><span class="p">,</span> <span class="mf">0.20</span><span class="p">,</span> <span class="mf">3.20</span><span class="p">,</span> <span class="mf">1.18</span><span class="p">,</span> <span class="mf">0.09</span><span class="p">,</span> <span class="mf">1.44</span><span class="p">,</span> <span class="mf">1.52</span><span class="p">,</span> <span class="mf">2.44</span><span class="p">,</span> <span class="mf">0.78</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">])</span>
+
+<span class="c"># print data in `arrayname_in`</span>
+<span class="n">avg_monthly_precip_2002_in</span>
+
+<span class="c"># define function to convert inches to millimeters</span>
+<span class="k">def</span> <span class="nf">in_to_mm</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    
+    <span class="c"># multiply an input parameter by 25.4</span>
+    <span class="c"># function can take a single value, single value variable, or numpy array as input</span>
+    <span class="c"># function can not take list or pandas dataframe as input</span>
+    
+    <span class="k">return</span> <span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="mf">25.4</span><span class="p">)</span>
+
+<span class="c"># call the function to run on numpy array for 2002</span>
+<span class="n">in_to_mm</span><span class="p">(</span><span class="n">avg_monthly_precip_2002_in</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="output execute_result highlighter-rouge"><div class="highlight"><pre class="highlight"><code>array([27.178, 11.176, 38.1  ,  5.08 , 81.28 , 29.972,  2.286, 36.576,
+       38.608, 61.976, 19.812,  0.508])
+</code></pre></div></div>
+
+<p>If you print the data in <code class="highlighter-rouge">avg_monthly_precip_2002_in</code>, you will see that original data was not modified, and only acted as the input parameter for the function.</p>
+
+<p>Also recall that <code class="highlighter-rouge">x</code> is still not an explicit variable. It is simply a placeholder for the input parameter.</p>
+
+<div class="language-python input highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># print data in arrayname</span>
+<span class="n">avg_monthly_precip_2002_in</span>
+
+<span class="c"># uncomment line to run, as it will result in an error</span>
+<span class="c">#print(x)</span>
+</code></pre></div></div>
+
+<div class="output execute_result highlighter-rouge"><div class="highlight"><pre class="highlight"><code>array([1.07, 0.44, 1.5 , 0.2 , 3.2 , 1.18, 0.09, 1.44, 1.52, 2.44, 0.78,
+       0.02])
+</code></pre></div></div>
+
+<p>You can actually assign the results of the function to a new <code class="highlighter-rouge">numpy array</code> by creating a new variable and setting it equal to the results of the function.</p>
+
+<p>To store these values, you need to create a new <code class="highlighter-rouge">numpy array</code> and set it equal to a <code class="highlighter-rouge">numpy array</code> created from function output.</p>
+
+<p>You can do this using the syntax <code class="highlighter-rouge">arrayname = np.array(function(parameter))</code>.</p>
+
+<p>This code line does multiple things at once: it runs the function on the input parameter, and then creates a <code class="highlighter-rouge">numpy array</code> from the output.</p>
+
+<div class="language-python input highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># assign the output of the function to a new array </span>
+<span class="n">avg_monthly_precip_2002_mm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">in_to_mm</span><span class="p">(</span><span class="n">avg_monthly_precip_2002_in</span><span class="p">))</span>
+
+<span class="c"># print data in new array</span>
+<span class="n">avg_monthly_precip_2002_mm</span>
+</code></pre></div></div>
+
+<div class="output execute_result highlighter-rouge"><div class="highlight"><pre class="highlight"><code>array([27.178, 11.176, 38.1  ,  5.08 , 81.28 , 29.972,  2.286, 36.576,
+       38.608, 61.976, 19.812,  0.508])
+</code></pre></div></div>
+
+<p>In this example, the input <code class="highlighter-rouge">numpy array</code> is one-dimensional, as is the <code class="highlighter-rouge">numpy array</code> created from the output.</p>
+
+<p><strong>How can you check that both <code class="highlighter-rouge">avg_monthly_precip_2002_in</code> and <code class="highlighter-rouge">avg_monthly_precip_2002_mm</code> are one-dimensional arrays?</strong></p>
+
+<h2 id="example-calculate-multiple-statistics-of-numpy-array">Example: Calculate Multiple Statistics of Numpy Array</h2>
+
+<p>In the lesson on loops, you learned how to loop through a list to calculate multiple summary statistics such as mean, sum, and median on <code class="highlighter-rouge">numpy arrays</code>.</p>
+
+<p>You can also write a custom function that will run multiple summary functions on an input <code class="highlighter-rouge">numpy array</code> and store the output of the function as a new <code class="highlighter-rouge">numpy array</code>.</p>
+
+<p>As you know that <code class="highlighter-rouge">x</code> was just a placeholder for the input array, you can start to use more specific placeholder names for the input parameter, such as <code class="highlighter-rouge">array</code>.</p>
+
+<div class="language-python input highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># define function to calculate mean of numpy array</span>
+
+<span class="k">def</span> <span class="nf">min_max_stats</span><span class="p">(</span><span class="n">array</span><span class="p">):</span>
+    
+    <span class="c"># calculate min and max of numpy array</span>
+    <span class="c"># function can take a numpy array as input</span>
+    <span class="c"># function can not take list or pandas dataframe as input</span>
+    
+    <span class="n">stat_min</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="nb">min</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+    <span class="n">stat_max</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="nb">max</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+    
+    <span class="k">return</span><span class="p">(</span><span class="n">stat_min</span><span class="p">,</span> <span class="n">stat_max</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Note that you can include multiple lines of code before the return statement, and you can return multiple outputs.</p>
+
+<p>In this example, the function is returning the minimum and maximum values of the input <code class="highlighter-rouge">numpy array</code>, which is an one-dimensional array.</p>
+
+<p>Run the function to see the output.</p>
+
+<div class="language-python input highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># call function with input parameter `avg_monthly_precip_2002_mm`</span>
+<span class="n">min_max_stats</span><span class="p">(</span><span class="n">avg_monthly_precip_2002_mm</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="output execute_result highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(0.508, 81.28)
+</code></pre></div></div>
+
+<p>You can that the summary values are not returned a <code class="highlighter-rouge">numpy array</code>.</p>
+
+<p>This is because the output is simply displaying the summary result of the first statistics (i.e. <code class="highlighter-rouge">min</code>) and then displaying the summary result of the second statistics (i.e. <code class="highlighter-rouge">max</code>).</p>
+
+<p>Once more, to store these values, you need to create a new <code class="highlighter-rouge">numpy array</code> and set it equal to a <code class="highlighter-rouge">numpy array</code> created from function output.</p>
+
+<div class="language-python input highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># call the function with input parameter and create new array from output using the np.array() function</span>
+<span class="n">min_max_precip_2002</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">min_max_stats</span><span class="p">(</span><span class="n">avg_monthly_precip_2002_mm</span><span class="p">))</span>
+
+<span class="c">#print data</span>
+<span class="n">min_max_precip_2002</span>
+</code></pre></div></div>
+
+<div class="output execute_result highlighter-rouge"><div class="highlight"><pre class="highlight"><code>array([ 0.508, 81.28 ])
+</code></pre></div></div>
+
+<p>You can see that the two values returned from the function are now stored as a new one-dimensional array, with the values in the same order that they are provided in the return statement.</p>
+
+<p>You can check the number of dimensions of this new <code class="highlighter-rouge">numpy array</code> using the <code class="highlighter-rouge">.ndim</code> attribute of <code class="highlighter-rouge">numpy arrays</code>, in addition to checking the number of rows and columns with the attribute <code class="highlighter-rouge">.shape</code>.</p>
+
+<div class="language-python input highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># print number of rows/columns using the .shape attribute of numpy arrays</span>
+<span class="n">min_max_precip_2002</span><span class="o">.</span><span class="n">shape</span>
+</code></pre></div></div>
+
+<div class="output execute_result highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(2,)
+</code></pre></div></div>
+
+<div class="language-python input highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># print number of dimensions using the .ndim attribute of numpy arrays</span>
+<span class="n">min_max_precip_2002</span><span class="o">.</span><span class="n">ndim</span>
+</code></pre></div></div>
+
+<div class="output execute_result highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1
+</code></pre></div></div>
+
+<h3 id="two-dimensional-arrays">Two-dimensional Arrays</h3>
+
+<p>You can also run the previously created function on a two-dimensional <code class="highlighter-rouge">numpy array</code> to find the minimum and maximum values across the array.</p>
+
+<p>First, begin by applying your first function <code class="highlighter-rouge">in_to_mm</code> to convert the values and save the output to a new <code class="highlighter-rouge">numpy array</code>.</p>
+
+<div class="language-python input highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># manually create a new numpy array for average monthly precip in 2002 for Boulder, CO</span>
+<span class="n">avg_monthly_precip_2002_2013_in</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">1.07</span><span class="p">,</span> <span class="mf">0.44</span><span class="p">,</span> <span class="mf">1.50</span><span class="p">,</span> <span class="mf">0.20</span><span class="p">,</span> <span class="mf">3.20</span><span class="p">,</span> <span class="mf">1.18</span><span class="p">,</span> <span class="mf">0.09</span><span class="p">,</span> <span class="mf">1.44</span><span class="p">,</span> <span class="mf">1.52</span><span class="p">,</span> <span class="mf">2.44</span><span class="p">,</span> <span class="mf">0.78</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">],</span> 
+                                         <span class="p">[</span><span class="mf">0.27</span><span class="p">,</span> <span class="mf">1.13</span><span class="p">,</span> <span class="mf">1.72</span><span class="p">,</span> <span class="mf">4.14</span><span class="p">,</span> <span class="mf">2.66</span><span class="p">,</span> <span class="mf">0.61</span><span class="p">,</span> <span class="mf">1.03</span><span class="p">,</span> <span class="mf">1.40</span><span class="p">,</span> <span class="mf">18.16</span><span class="p">,</span> <span class="mf">2.24</span><span class="p">,</span> <span class="mf">0.29</span><span class="p">,</span> <span class="mf">0.50</span><span class="p">]</span> <span class="p">])</span>
+
+<span class="c"># call in_to_mm function with input parameter and create new array from output</span>
+<span class="n">avg_monthly_precip_2002_2013_mm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">in_to_mm</span><span class="p">(</span><span class="n">avg_monthly_precip_2002_2013_in</span><span class="p">))</span>
+
+<span class="c">#print data</span>
+<span class="n">avg_monthly_precip_2002_2013_mm</span>
+</code></pre></div></div>
+
+<div class="output execute_result highlighter-rouge"><div class="highlight"><pre class="highlight"><code>array([[ 27.178,  11.176,  38.1  ,   5.08 ,  81.28 ,  29.972,   2.286,
+         36.576,  38.608,  61.976,  19.812,   0.508],
+       [  6.858,  28.702,  43.688, 105.156,  67.564,  15.494,  26.162,
+         35.56 , 461.264,  56.896,   7.366,  12.7  ]])
+</code></pre></div></div>
+
+<p>Then, apply the function <code class="highlighter-rouge">min_max_stats</code> to your new <code class="highlighter-rouge">numpy array</code>.</p>
+
+<div class="language-python input highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># call the min_max_stats function with input parameter</span>
+<span class="n">min_max_stats</span><span class="p">(</span><span class="n">avg_monthly_precip_2002_2013_mm</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="output execute_result highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(0.508, 461.26399999999995)
+</code></pre></div></div>
+
+<p>Notice that the minimum value was identified in the first row of the two-dimensional array, while the maximum value was identified in the second row of the two-dimensional array.</p>
+
+<p><strong>In this example, did you save the output results to a new <code class="highlighter-rouge">numpy array</code>?</strong></p>
+
+<h2 id="example-calculate-statistics-across-numpy-array-axes">Example: Calculate Statistics Across Numpy Array Axes</h2>
+
+<p>You can also expand your function to calculate the statistics separately for each row or each column in the two-dimensional <code class="highlighter-rouge">numpy array</code>, using the axes of <code class="highlighter-rouge">numpy arrays</code>.</p>
+
+<p>This means that you would receive one summary value for each row or each column in the two-dimensional <code class="highlighter-rouge">numpy array</code>.</p>
+
+<h3 id="calculate-across-rows">Calculate Across Rows</h3>
+
+<p>To run a summary statistic for each row of a two-dimensional array, you can add a parameter <code class="highlighter-rouge">axis = 1</code> to the <code class="highlighter-rouge">numpy</code> function that you are using to run the summary statistic.</p>
+
+<p>In the example below, the maximum value for each row is identified using <code class="highlighter-rouge">axis = 1</code> as a parameter in the <code class="highlighter-rouge">np.max()</code> function.</p>
+
+<p>As there were only two rows in the <code class="highlighter-rouge">numpy array</code>, the function will only return two values (i.e. one maximum value for each row in the array). Recall that the data only contained two years of data.</p>
+
+<div class="language-python input highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># define function to calculate max across rows of two-dimensional numpy array</span>
+
+<span class="k">def</span> <span class="nf">max_stats_rows</span><span class="p">(</span><span class="n">array</span><span class="p">):</span>
+    
+    <span class="c"># calculate max of two-dimensional numpy array for each row</span>
+    <span class="c"># function can take a numpy array as input</span>
+    <span class="c"># function can not take list or pandas dataframe as input</span>
+    
+    <span class="n">stat_max_row</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="nb">max</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">stat_max_row</span><span class="p">)</span>
+
+<span class="c"># call the function with input parameter</span>
+<span class="n">max_stats_rows</span><span class="p">(</span><span class="n">avg_monthly_precip_2002_2013_mm</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="output execute_result highlighter-rouge"><div class="highlight"><pre class="highlight"><code>array([ 81.28 , 461.264])
+</code></pre></div></div>
+
+<h3 id="calculate-across-columns">Calculate Across Columns</h3>
+
+<p>Similarly, you can use <code class="highlighter-rouge">axis = 0</code> to run a summary statistic separately for each column of a two-dimensional array.</p>
+
+<p>In the example below, the maximum value for each column of the two-dimensional array is identified using <code class="highlighter-rouge">axis = 0</code> as a parameter in the <code class="highlighter-rouge">np.max()</code> function.</p>
+
+<p>As there were twelve columns in the <code class="highlighter-rouge">numpy array</code>, the function will return twelve values (i.e. one maximum value for each column in the array). Recall that the data contained values for each month of the year.</p>
+
+<div class="language-python input highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># define function to calculate max across columns of two-dimensional numpy array</span>
+
+<span class="k">def</span> <span class="nf">max_stats_columns</span><span class="p">(</span><span class="n">array</span><span class="p">):</span>
+
+    <span class="c"># calculate max of two-dimensional numpy array for each row</span>
+    <span class="c"># function can take a numpy array as input</span>
+    <span class="c"># function can not take list or pandas dataframe as input</span>
+    
+    <span class="n">stat_max_column</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="nb">max</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">stat_max_column</span><span class="p">)</span>
+
+<span class="c"># call the function with input parameter</span>
+<span class="n">max_stats_columns</span><span class="p">(</span><span class="n">avg_monthly_precip_2002_2013_mm</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="output execute_result highlighter-rouge"><div class="highlight"><pre class="highlight"><code>array([ 27.178,  28.702,  43.688, 105.156,  81.28 ,  29.972,  26.162,
+        36.576, 461.264,  61.976,  19.812,  12.7  ])
+</code></pre></div></div>
+
+<h3 id="assign-output-of-function-to-new-numpy-array">Assign Output of Function to New Numpy Array</h3>
+
+<p>Again, notice that when you try to print <code class="highlighter-rouge">stat_max_row</code> or <code class="highlighter-rouge">stat_max_column</code>, you get an error.</p>
+
+<div class="language-python input highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># uncomment line to run, as it will result in an error</span>
+<span class="c">#print(stat_max_row)</span>
+
+<span class="c"># uncomment line to run, as it will result in an error</span>
+<span class="c">#print(stat_max_column)</span>
+</code></pre></div></div>
+
+<p>Although the output of these functions look like one-dimensional arrays, the results have not explicitly been saved as one-dimensional arrays.</p>
+
+<p>Just like in the example earlier, you can assign the results of the function to a new <code class="highlighter-rouge">numpy array</code> by creating a new variable and setting it equal to the results of the function.</p>
+
+<div class="language-python input highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># call the function with input parameter and create new array from output</span>
+<span class="n">year_max_precip_2002_2013</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">max_stats_rows</span><span class="p">(</span><span class="n">avg_monthly_precip_2002_2013_mm</span><span class="p">))</span>
+
+<span class="c"># print data in yearmax_avg_monthly_precip_2002_2013</span>
+<span class="n">year_max_precip_2002_2013</span>
+</code></pre></div></div>
+
+<div class="output execute_result highlighter-rouge"><div class="highlight"><pre class="highlight"><code>array([ 81.28 , 461.264])
+</code></pre></div></div>
+
+<div class="notice--warning">
+
+  <h2 id="optional-challenge-1"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional Challenge 1</h2>
+
+  <p>Test your <code class="highlighter-rouge">Python</code> skills to:</p>
+
+  <ol>
+    <li>
+      <p>Write a function that identifies the <strong>minimum</strong> value of each <strong>column</strong> in a two-dimensional <code class="highlighter-rouge">numpy array</code> (e.g. <code class="highlighter-rouge">avg_monthly_precip_2002_2013_mm</code>).</p>
+    </li>
+    <li>
+      <p>Run the function on <code class="highlighter-rouge">avg_monthly_precip_2002_2013_mm</code> and assign the output to a new <code class="highlighter-rouge">numpy array</code>. Print your new <code class="highlighter-rouge">numpy array</code> to see the minimum values for each columm (i.e. each month of data).</p>
+    </li>
+  </ol>
+
+</div>
+
+<div class="output execute_result highlighter-rouge"><div class="highlight"><pre class="highlight"><code>array([ 6.858, 11.176, 38.1  ,  5.08 , 67.564, 15.494,  2.286, 35.56 ,
+       38.608, 56.896,  7.366,  0.508])
+</code></pre></div></div>
+
+<div class="notice--warning">
+
+  <h2 id="optional-challenge-2"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional Challenge 2</h2>
+
+  <p>Test your <code class="highlighter-rouge">Python</code> skills to:</p>
+
+  <ol>
+    <li>Check that the <code class="highlighter-rouge">numpy array</code> that created from the output in the previous challenge is a one-dimensional array.
+      <ul>
+        <li>Hint: in addition to the attribute <code class="highlighter-rouge">arrayname.shape</code>, you can also run <code class="highlighter-rouge">arrayname.ndim</code> to get an exact number of dimensions.</li>
+      </ul>
+    </li>
+  </ol>
+
+</div>
+
+<div class="output highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Shape of year_min_precip_2002_2013:  (12,)
+Number of dimensions of year_min_precip_2002_2013:  1
+</code></pre></div></div>
+
+
+        
+
+        <!-- if the page is a course lesson, add pagination -->
+
+        
+         <!-- This is clunky code that forces pagination across lesson sets -->
+<!-- NOTE: it won't include slideshows as written which makes sense -->
+<!-- add forced pagination -->
+<!-- first, get total lesson count -->
+
+<div class="previous--next">
+
+
+
+
+
+<!-- if it's page one - then no previous button -->
+<!-- how do i figure out the link? i have to loop through again? -->
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+
+    
+      
+
+      
+      
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+
+    
+      
+        <a href="http://localhost:8000/courses/earth-analytics-bootcamp/functions/write-functions/" class="btn btn--info btn--large btn-success">
+          <i class="fa fa-4 fa-arrow-circle-left fa-4" aria-hidden="true"></i>
+          Write Custom Functions </a>
+      
+
+      
+      
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+
+    
+      
+
+      
+      
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+</div>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <i class="fa fa-fw fa-tags" aria-hidden="true"></i> Tags
+  
+  <span class="a-main-tag">
+  <i class="fa fa-fw fa-tag" aria-hidden="true"></i><a href=http://localhost:8000/tags/reproducible-science-and-programming/>Reproducible science and programming</a>:
+  </span>
+  
+    
+    <a href=http://localhost:8000/tags/reproducible-science-and-programming/python/>python</a> 
+    
+    
+  
+
+
+
+
+
+
+
+
+        
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2018-08-22">August 22, 2018</time></p>
+        
+      </footer>
+
+      
+
+
+<section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=http://localhost:8000/courses/earth-analytics-bootcamp/functions/apply-functions-numpy-arrays/" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:8000/courses/earth-analytics-bootcamp/functions/apply-functions-numpy-arrays/" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://plus.google.com/share?url=http://localhost:8000/courses/earth-analytics-bootcamp/functions/apply-functions-numpy-arrays/" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:8000/courses/earth-analytics-bootcamp/functions/apply-functions-numpy-arrays/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+<br><br>
+  <a href="http://bit.ly/2jc5SXy" target="_blank">
+    <img src="http://localhost:8000/images/earth-data-analytics-professional-certificate-banner.png" alt="Get a professional Certificate in Earth Data Analytics at University of Colorado, Boulder" width="40%"></a>
+</section>
+
+
+       
+    </div>
+
+    
+      
+
+
+<div class="page__comments">
+  <h4 class="page__comments-title">Leave a Comment</h4>
+  
+    <section id="disqus_thread"></section>
+  
+</div>
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      
+        <h4 class="page__related-title">You May Also Enjoy</h4>
+      
+      <div class="grid__wrapper">
+        
+          
+
+
+
+
+<div class="grid__item">
+  
+    <a href="http://localhost:8000/courses/earth-analytics-bootcamp/data-wrangling/data-wrangling-numpy-arrays/">
+  
+    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+      
+      <h2 class="archive__item-title" itemprop="headline">Data Wrangling With Numpy Arrays
+</h2>
+
+
+     
+      
+        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  6 minute read
+	
+</p>
+      
+      <p class="archive__item-excerpt" itemprop="description">This lesson teaches you how to wrangle data (e.g. run multi-task functions, combine) with numpy arrays.
+</p>
+    </article>
+  </a>
+</div>
+
+        
+          
+
+
+
+
+<div class="grid__item">
+  
+    <a href="http://localhost:8000/courses/earth-analytics-bootcamp/data-wrangling/data-wrangling-pandas/">
+  
+    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+      
+      <h2 class="archive__item-title" itemprop="headline">Data Wrangling With Pandas
+</h2>
+
+
+     
+      
+        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  12 minute read
+	
+</p>
+      
+      <p class="archive__item-excerpt" itemprop="description">This lesson teaches you how to wrangle data (e.g. subselect, update, and combine) with pandas dataframes.
+</p>
+    </article>
+  </a>
+</div>
+
+        
+          
+
+
+
+
+<div class="grid__item">
+  
+    <a href="http://localhost:8000/courses/earth-analytics-bootcamp/prep-final-project/">
+  
+    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+      
+      <h2 class="archive__item-title" itemprop="headline">Prepare For Final Project
+</h2>
+
+
+     
+      
+        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  less than 1 minute read
+	
+</p>
+      
+      <p class="archive__item-excerpt" itemprop="description">
+
+     Today
+
+  
+
+
+</p>
+    </article>
+  </a>
+</div>
+
+        
+          
+
+
+
+
+<div class="grid__item">
+  
+    <a href="http://localhost:8000/courses/earth-analytics-bootcamp/data-wrangling/">
+  
+    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+      
+      <h2 class="archive__item-title" itemprop="headline">Data Wrangling
+</h2>
+
+
+     
+      
+        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  1 minute read
+	
+</p>
+      
+      <p class="archive__item-excerpt" itemprop="description">
+
+     Today
+
+  
+
+
+</p>
+    </article>
+  </a>
+</div>
+
+        
+      </div>
+    </div>
+  
+</div>
+
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+
+
+<!-- Adding analytics code -->
+
+        
+
+
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    <li>
+      <strong>&copy; 2018 Earth Lab -
+      <a href="http://localhost:8000/license"> View License. </a>
+      Questions? Feedback? Please file an issue on GitHub.</strong>
+    </li>
+  </ul>
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+    
+      <li><a href="https://twitter.com/earthlabcu"><i class="fa fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+    
+    
+    
+      <li><a href="http://github.com/earthlab"><i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+    
+    
+    <li><a href="http://localhost:8000/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    <script src="http://localhost:8000/assets/js/main.min.js"></script>
+
+
+
+
+
+
+  
+  <script type="text/javascript">
+  	/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  	var disqus_shortname = 'earthlabcu';
+
+  	/* * * DON'T EDIT BELOW THIS LINE * * */
+  	(function() {
+  		var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  		dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  	})();
+
+  	/* * * DON'T EDIT BELOW THIS LINE * * */
+  	(function () {
+  		var s = document.createElement('script'); s.async = true;
+  		s.type = 'text/javascript';
+  		s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  		(document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+  	}());
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+
+<script type="text/javascript"
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+</script>
+
+    
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-84081999-1', 'auto');
+    ga('send', 'pageview');
+</script>
+
+
+
+  </body>
+</html>
+

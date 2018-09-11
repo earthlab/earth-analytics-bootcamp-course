@@ -1,0 +1,2548 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+
+
+<meta charset="utf-8">
+
+
+
+
+<!-- begin SEO -->
+
+
+
+
+
+
+
+
+
+<title>Control Flow Using Conditional Statements | Earth Data Science - Earth Lab </title>
+
+
+
+
+
+
+
+<meta property="og:locale" content="en-US">
+<meta property="og:site_name" content="Earth Data Science - Earth Lab">
+<meta property="og:title" content="Control Flow Using Conditional Statements">
+
+
+  <link rel="canonical" href="http://localhost:8000/courses/earth-analytics-bootcamp/conditional-statements/control-flow/">
+  <meta property="og:url" content="http://localhost:8000/courses/earth-analytics-bootcamp/conditional-statements/control-flow/">
+
+
+
+  <meta content="This lesson teaches you how to control the flow of your code using conditional statements." name="description">
+  <meta property="og:description" content="This lesson teaches you how to control the flow of your code using conditional statements.">
+
+
+<!-- twitter cards -->
+
+  <meta name="twitter:site" content="@earthlabcu">
+  <meta name="twitter:title" content="Control Flow Using Conditional Statements">
+  <meta name="twitter:description" content="This lesson teaches you how to control the flow of your code using conditional statements.">
+  <meta name="twitter:url" content="http://localhost:8000/courses/earth-analytics-bootcamp/conditional-statements/control-flow/">
+
+  
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="https://earthdatascience.org/images/earth_sm_twit.png">
+    <meta name="twitter:image:alt" content="The Earthlab Logo - image of a globe with courses, lessons and tutorials">
+
+    
+  
+
+  
+
+
+
+  
+
+  
+
+
+
+
+
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2019-08-11T00:00:00-06:00">
+  
+    <link rel="next" href="http://localhost:8000/courses/earth-analytics-bootcamp/git-github-collaboration/" title="Git/Github.com For Collaboration">
+  
+  
+    <link rel="prev" href="http://localhost:8000/courses/earth-analytics-bootcamp/conditional-statements/intro-conditional-statements/" title="Intro to Conditional Statements">
+  
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "Person",
+      "name" : "Earth Analytics",
+      "url" : "http://localhost:8000",
+      "sameAs" : null
+    }
+  </script>
+
+
+
+
+
+
+<!-- end SEO -->
+
+
+<link href="http://localhost:8000/feed.xml" type="application/atom+xml" rel="alternate" title="Earth Data Science - Earth Lab Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google-site-verification" content="LfpevjsE0wlELv5KKOZv1T2RhRimGSiRckWv5ZC19GU" />
+<!-- don't use the old cataloged meta tags -->
+<meta name="googlebot" content="noodp">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+
+<!-- For all browsers
+<link rel="stylesheet" href="http://localhost:8000/assets/css/main.css">-->
+<link rel="stylesheet" href="http://localhost:8000/assets/css/main.css">
+
+<meta http-equiv="cleartype" content="on">
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use http://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+  </head>
+
+  <body>
+
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+    
+
+<!-- search bar begin  - turning off for now-->
+
+<div class="search">
+<form role="search" method="get" action="http://localhost:8000/search/">
+    <input id="q" name="q"
+           placeholder="Search earth data science site" type="text">
+</form>
+<!--<span class='cu-boulder'><a href="http://www.colorado.edu/earthlab" target="_blank">Earth Lab University of Colorado - Boulder Home </a></span> -->
+</div>
+
+
+<!-- search bar END -->
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <button><div class="navicon"></div></button>
+        <ul class="visible-links">
+          <li class="masthead__menu-item masthead__menu-item--lg"><a href="http://localhost:8000/"><img src="/images/earth_sm.png" alt="Earth Lab - Earth Data Science" style="height:80%;width:85%"></a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:8000/tutorials/">Tutorials</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:8000/courses/">Courses</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:8000/workshops/">Workshops</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:8000/tools/">Tools</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:8000/blog/">Blog</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:8000/events/">Events</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:8000/about/">About</a></li>
+          
+
+        </ul>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+
+
+
+
+
+
+
+
+
+
+<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs">
+ <ol itemscope itemtype="http://schema.org/BreadcrumbList">
+<a href="http://localhost:8000"></a>
+ 
+ <!-- there is an offset of 1 so subtract 2 from the final crumb number-->
+ 
+   
+   
+     <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+       <a href="http://localhost:8000/" itemprop="item"><span itemprop="name">Home</span></a>
+       <meta itemprop="position" content="" />
+     </li>
+     <span class="sep">/</span>
+   
+    
+        <li><a href="http://localhost:8000/courses/">Courses </a>
+        <span class="sep">/</span></li>
+    
+  
+   
+    
+        <li><a href="http://localhost:8000/courses/earth-analytics-bootcamp/">Earth analytics bootcamp </a>
+        <span class="sep">/</span></li>
+    
+  
+   
+    
+        <li><a href="http://localhost:8000/courses/earth-analytics-bootcamp/conditional-statements/"> Week 8.  Conditional statements </a>
+        <span class="sep">/</span></li>
+    
+  
+   
+    
+        <li class="current">Control Flow Using Conditional Statements</li>
+    
+  
+</ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+
+
+
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+    
+    
+
+
+    
+
+    
+     <!--  Might be able to delete this This is the code that populates the side bar navigation if there is a class-->
+      
+
+
+
+
+
+<!-- make sure we're only grabbing pages for the course -->
+
+
+
+<!--<h3>Week 8 Lessons</h3>-->
+<!-- i don't think the code below is used as modules is defined lower down as well. -->
+
+<!-- This is how modules are sorted on the left hand side bar -->
+
+
+
+
+
+
+<h5><a href="http://localhost:8000/courses/earth-analytics-bootcamp/" ><i class="fa fa-home" aria-hidden="true"></i> Earth-analytics-bootcamp Home</a></h5>
+
+<!-- Just get the pages from this course -->
+
+
+
+
+
+
+<nav class="nav__list">
+
+
+
+
+
+
+<ul>
+  <li><span class="nav__sub-title"><i class="fa fa-book" aria-hidden="true"></i> Units</span>
+   <ul>
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/get-started-with-open-science/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       1. Get Started with Open Reproducible Science</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/python-variables-lists/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       2. Python Variables and Lists</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/git-github-version-control/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       3. Git/Github.com Workflow For Version Control</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/numpy-arrays/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       4. Numpy Arrays</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/pandas-dataframes/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       5. Pandas Dataframes</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/practice-data-structures/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       6. Practice Working With Data Structures</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/loops/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       7. Loops in Python</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+
+
+      
+       
+        <li class='active-section'> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/conditional-statements/"><i class="fa fa-folder-open" aria-hidden="true"></i>
+           8. CONDITIONAL STATEMENTS</a></li>
+        
+
+<div class='active-menu'>
+      <ul>
+        
+        <!-- Note that class-order allows you to sort modules by class order if there are more than 1 in a class -->
+        
+
+        
+
+        
+
+        
+        
+          <li><span class="nav__sub-title grey"><i class="fa fa-caret-down" aria-hidden="true"></i> Conditional statements </span></li>
+        <ul>
+
+      
+      <!-- count lessons -->
+
+        
+        
+        
+
+        
+        
+        
+          
+          <li><a href= http://localhost:8000/courses/earth-analytics-bootcamp/conditional-statements/intro-conditional-statements/><!--8.1 --> - Intro to Conditional Statements</a></li>
+          
+          
+
+        
+        
+        
+          
+          <li><a href= http://localhost:8000/courses/earth-analytics-bootcamp/conditional-statements/control-flow/ class='active'> <!--8.2 -->- Control Flow Using Conditional Statements</a></li>
+          
+          
+
+        
+       </ul>
+        
+
+        
+      </ul>
+
+      <!-- BEGIN Learn how to lessons -->
+       <ul>
+         
+         
+       </ul>
+
+
+     </div>
+
+
+      <!-- END BEGIN Learn how to lessons -->
+
+      <!--  -->
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/git-github-collaboration/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       9. Git/Github.com For Collaboration</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/functions/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       10. Functions</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/practice-dry-code/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       11. Practice Writing DRY Code</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/data-wrangling/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       12. Data Wrangling</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/prep-final-project/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       13. Prepare For Final Project</a></li>
+    
+
+
+      
+
+    
+  </ul></li>
+ </ul>
+
+
+ <ul>
+   <li><span class="nav__sub-title"><i class="fa fa-folder-open" aria-hidden="true"></i> Overview</span>
+    <ul>
+     
+          
+         <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/">
+           Earth Analytics Bootcamp Home </a></li>
+         
+
+     
+          
+         <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-syllabus/">
+           Course Syllabus </a></li>
+         
+
+     
+          
+         <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-pre-course-learning/">
+           Pre-Course Learning Resources </a></li>
+         
+
+     
+          
+         <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-checklist/">
+           Pre-Course Checklist </a></li>
+         
+
+     
+          
+         <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-homework-1/">
+           Homework 1 </a></li>
+         
+
+     
+          
+         <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-homework-2/">
+           Homework 2 </a></li>
+         
+
+     
+          
+         <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-homework-3/">
+           Homework 3 </a></li>
+         
+
+     
+          
+         <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/pep-8-style-guide/">
+           Reference on PEP 8 Style Guide </a></li>
+         
+
+     
+          
+         <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-homework-4/">
+           Homework 4 </a></li>
+         
+
+     
+          
+         <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-final-project/">
+           Final Project </a></li>
+         
+
+     
+   </ul>
+ </li>
+</ul>
+</nav>
+
+<h5><a href="http://localhost:8000/courses/earth-analytics-bootcamp/" ><i class="fa fa-home" aria-hidden="true"></i> earth-analytics-bootcamp Home</a></h5>
+
+    
+
+    
+
+  
+  </div>
+
+
+
+
+
+
+<!-- begin science / science themes side bar nav -->
+
+
+
+  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+
+    <meta itemprop="headline" content="Control Flow Using Conditional Statements">
+    <meta itemprop="description" content="This lesson teaches you how to control the flow of your code using conditional statements.">
+    <meta itemprop="datePublished" content="August 11, 2019">
+    <meta itemprop="dateModified" content="August 16, 2018">
+
+    <div class="page__inner-wrap">
+      
+
+        <header>
+          <!-- BEGIN: insert a welcome to the module block on pages that are part of a module set -->
+
+          <!-- END: insert welcome block -->
+          <h1 class="page__title" itemprop="headline">
+            Lesson 2. 
+             Control Flow Using Conditional Statements
+ </h1>
+            
+          
+
+          
+            <div class="page__meta">
+              
+              
+              <a href="http://localhost:8000/authors/jenny-palomino">Jenny Palomino</a>, 
+              
+              
+              <a href="http://localhost:8000/authors/leah-wasser">Leah Wasser</a>
+              
+            </div>
+          
+
+        <br/>
+
+        
+
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        <!-- would like to include the TOC automatically but this does weird things-->
+        
+        <aside class="sidebar__right">
+<nav class="toc">
+    <header><h4 class="nav__title"><i class="fa fa-file-text"></i> In This Lesson</h4></header>
+<ul class="toc__menu" id="markdown-toc">
+  <li><a href="#learning-objectives" id="markdown-toc-learning-objectives"><i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives</a></li>
+  <li><a href="#what-you-need" id="markdown-toc-what-you-need"><i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need</a></li>
+  <li><a href="#logical-operators" id="markdown-toc-logical-operators">Logical Operators</a></li>
+  <li><a href="#glob-package" id="markdown-toc-glob-package">Glob Package</a></li>
+  <li><a href="#control-flow-with-conditional-statements" id="markdown-toc-control-flow-with-conditional-statements">Control Flow With Conditional Statements</a></li>
+  <li><a href="#optional-challenge-1" id="markdown-toc-optional-challenge-1"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional Challenge 1</a></li>
+  <li><a href="#optional-challenge-2" id="markdown-toc-optional-challenge-2"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional Challenge 2</a></li>
+  <li><a href="#optional-challenge-3" id="markdown-toc-optional-challenge-3"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional Challenge 3</a></li>
+</ul>
+
+  </nav>
+</aside>
+
+<p>In this lesson, you will learn about controlling the flow of your code using conditional statements, in combination with logical operators that check for multiple conditions and with the <code class="highlighter-rouge">glob</code> package that helps you to easily list the names of files and directories on your computer.</p>
+
+<div class="notice--success">
+
+  <h2 id="learning-objectives"><i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives</h2>
+
+  <p>After completing this lesson, you will be able to:</p>
+
+  <ul>
+    <li>Explain how conditional statements can be used to control the flow of code</li>
+    <li>Write conditional statements that include multiple conditions or multiple lines of code, in order to control the flow of code</li>
+  </ul>
+
+  <h2 id="what-you-need"><i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need</h2>
+
+  <p>Be sure that you have completed the lessons on <a href="http://localhost:8000/courses/earth-analytics-bootcamp/loops/intro-dry-code/">Intro to DRY Code</a> and <a href="http://localhost:8000/courses/earth-analytics-bootcamp/conditional-statements/intro-conditional-statements/">Intro to Conditional Statements</a>.</p>
+
+</div>
+
+<h2 id="logical-operators">Logical Operators</h2>
+
+<p>In previous lessons, you used comparison operators, which allow you to compare values such as checking whether one value is greater than another (e.g. <code class="highlighter-rouge">&lt;</code>, <code class="highlighter-rouge">&gt;</code>). You also used assignment operators (e.g. <code class="highlighter-rouge">+=</code>), which allow you to set a variable to a new value based on an arithmetic operation or some other calculation.</p>
+
+<p>In this lesson, you will learn about another type of operator: logical. In conditional statements, logical operators are very useful for checking for multiple conditions as well as creating combinations of conditions to control the flow of code.</p>
+
+<p>For example, you can use:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">and</code> to provide multiple conditions that all have to be met before executing code</li>
+  <li><code class="highlighter-rouge">or</code> to provide multiple conditions, of which only one has to be met before executing code</li>
+  <li><code class="highlighter-rouge">not</code> to execute code only if the stated condition is not met (note: you can use <code class="highlighter-rouge">not</code> in combination with <code class="highlighter-rouge">and</code> or <code class="highlighter-rouge">or</code> to check whether multiple conditions are not met)</li>
+</ul>
+
+<p>In this lesson, you will use these logical operators to write conditional statements that determine whether a specific combination of conditions is met before executing code.</p>
+
+<h2 id="glob-package">Glob Package</h2>
+
+<p>The <code class="highlighter-rouge">glob</code> package in <code class="highlighter-rouge">Python</code> is very useful for creating lists of directory and file names on your computer. It contains a module also called <code class="highlighter-rouge">glob</code> that provides this functionality.</p>
+
+<p>For example, you can use <code class="highlighter-rouge">glob.glob("path/*")</code> to get a list of all items in a directory, and assign this list to a variable called <code class="highlighter-rouge">filelist</code>:</p>
+
+<div class="language-python input highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># import necessary package</span>
+<span class="kn">import</span> <span class="nn">glob</span>
+
+<span class="c"># create a list of all items in the data directory identified by the full path to the directory</span>
+<span class="n">filelist</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s">'/home/jpalomino/earth-analytics-bootcamp/data/*'</span><span class="p">)</span>
+
+<span class="c"># print the new list</span>
+<span class="k">print</span><span class="p">(</span><span class="n">filelist</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="output highlighter-rouge"><div class="highlight"><pre class="highlight"><code>['/home/jpalomino/earth-analytics-bootcamp/data/avg-monthly-precip.txt', '/home/jpalomino/earth-analytics-bootcamp/data/snow-2007-to-2017.csv', '/home/jpalomino/earth-analytics-bootcamp/data/avg-monthly-temp.txt', '/home/jpalomino/earth-analytics-bootcamp/data/monthly-precip-2002-2013.csv', '/home/jpalomino/earth-analytics-bootcamp/data/avg-precip-months-seasons.csv', '/home/jpalomino/earth-analytics-bootcamp/data/snow-2007-to-2017-months-seasons.csv', '/home/jpalomino/earth-analytics-bootcamp/data/avg-temp-months-seasons.csv', '/home/jpalomino/earth-analytics-bootcamp/data/precip-2002-2013-months-seasons.csv', '/home/jpalomino/earth-analytics-bootcamp/data/months.txt']
+</code></pre></div></div>
+
+<p>Note that the <code class="highlighter-rouge">*</code> indicates that you want to list all items in the directory provided, which in this case is the <code class="highlighter-rouge">data</code> directory. Later in this lesson, you will learn how to expand on this syntax to search by keywords.</p>
+
+<p>You can also use <code class="highlighter-rouge">glob.glob</code> in conjunction with <code class="highlighter-rouge">os.chdir</code> to set relative paths. Again, you are specifying that you want to include all items in the subdirectory <code class="highlighter-rouge">data</code>.</p>
+
+<div class="language-python input highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># import necessary packages</span>
+<span class="kn">import</span> <span class="nn">glob</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="c"># set the working directory to the `earth-analytics-bootcamp` directory</span>
+<span class="c"># replaced code below as needed with the path to your working directory</span>
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s">"/home/jpalomino/earth-analytics-bootcamp/"</span><span class="p">)</span>
+
+<span class="c"># create a list of all items in the data directory identified by a relative path to the directory</span>
+<span class="n">filelist</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s">'data/*'</span><span class="p">)</span>
+
+<span class="c"># print the new list</span>
+<span class="k">print</span><span class="p">(</span><span class="n">filelist</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="output highlighter-rouge"><div class="highlight"><pre class="highlight"><code>['data/avg-monthly-precip.txt', 'data/snow-2007-to-2017.csv', 'data/avg-monthly-temp.txt', 'data/monthly-precip-2002-2013.csv', 'data/avg-precip-months-seasons.csv', 'data/snow-2007-to-2017-months-seasons.csv', 'data/avg-temp-months-seasons.csv', 'data/precip-2002-2013-months-seasons.csv', 'data/months.txt']
+</code></pre></div></div>
+
+<h2 id="control-flow-with-conditional-statements">Control Flow With Conditional Statements</h2>
+
+<p>Using <code class="highlighter-rouge">glob.glob</code> to query directory and file names can be very useful to check that a certain file or directory exists before you execute code.</p>
+
+<p>For example, you have seen that in this course, you frequently use the <code class="highlighter-rouge">data</code> directory to download from <code class="highlighter-rouge">Figshare.com</code>.</p>
+
+<p>If you were working toward automating this task, it would be a great idea to check that the <code class="highlighter-rouge">data</code> directory exists before you attempted to download files to it, right?</p>
+
+<p>You can do this easily by using a conditional statement and <code class="highlighter-rouge">glob.glob()</code>.</p>
+
+<p>Rather than specifying a subdirectory name, as in the example above, you will simply ask for everything in the working directory by removing the subdirectory name for <code class="highlighter-rouge">data</code> and replacing it with an asterisk <code class="highlighter-rouge">*</code>.</p>
+
+<div class="language-python input highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># import necessary packages</span>
+<span class="kn">import</span> <span class="nn">glob</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="c"># set the working directory to the `earth-analytics-bootcamp` directory</span>
+<span class="c"># replaced code below as needed with the path to your working directory</span>
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s">"/home/jpalomino/earth-analytics-bootcamp/"</span><span class="p">)</span>
+
+<span class="c"># create a list of all items in the earth-analytics-bootcamp directory </span>
+<span class="n">directorylist</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s">'*'</span><span class="p">)</span>
+
+<span class="c"># print the new list</span>
+<span class="k">print</span><span class="p">(</span><span class="n">directorylist</span><span class="p">)</span>            
+</code></pre></div></div>
+
+<div class="output highlighter-rouge"><div class="highlight"><pre class="highlight"><code>['ea-bootcamp-hw-2-jlpalomino', 'other_data', 'ea-bootcamp-day-1', 'ea-bootcamp-day-5', 'data', 'ea-bootcamp-day-8', 'ea-bootcamp-day-2', 'ea-bootcamp-hw-1', 'ea-bootcamp-hw-2', 'ea-bootcamp-day-4', 'ea-bootcamp-day-7']
+</code></pre></div></div>
+
+<p>Now that you have a list of the items in the directory, you can use this list to check for the <code class="highlighter-rouge">data</code> directory and print a certain message if it is in <code class="highlighter-rouge">directorylist</code>.</p>
+
+<div class="language-python input highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># check whether the data directory name exists in the list and print message accordingly</span>
+<span class="k">if</span> <span class="s">"data"</span> <span class="ow">in</span> <span class="n">directorylist</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"The data directory exists. Proceed!"</span><span class="p">)</span>
+
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"The data directory does NOT exist. Create the data directory before continuing!"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="output highlighter-rouge"><div class="highlight"><pre class="highlight"><code>The data directory exists. Proceed!
+</code></pre></div></div>
+
+<h3 id="multiple-conditions">Multiple Conditions</h3>
+
+<p>You can also use multiple conditions to check for more than directory, such as checking for both the <code class="highlighter-rouge">data</code> directory and the <code class="highlighter-rouge">ea-bootcamp-day-5</code> directory.</p>
+
+<p>Recall that you can combine multiple conditions using <code class="highlighter-rouge">and</code>, and that both conditions have to be true, in order to execute the code under <code class="highlighter-rouge">if</code>.</p>
+
+<p>This means that only one condition has to fail, in order for the conditional statement to execute code under <code class="highlighter-rouge">else</code>.</p>
+
+<div class="language-python input highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># check whether the data directory exists and print message accordingly</span>
+<span class="k">if</span> <span class="s">"data"</span> <span class="ow">in</span> <span class="n">directorylist</span> <span class="ow">and</span> <span class="s">"ea-bootcamp-day-5"</span> <span class="ow">in</span> <span class="n">directorylist</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"Both directories exist. Proceed!"</span><span class="p">)</span>
+
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"One of these directories does NOT exist. Create the necessary directories before continuing!"</span><span class="p">)</span>    
+</code></pre></div></div>
+
+<div class="output highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Both directories exist. Proceed!
+</code></pre></div></div>
+
+<p>You could also add <code class="highlighter-rouge">not</code> to check that items are not in a list before continuing. For example, you can check for some directories that should have been replaced or deleted.</p>
+
+<div class="language-python input highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># check whether old directories that should be removed still exist and print message accordingly</span>
+<span class="k">if</span> <span class="s">"old-data"</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">directorylist</span> <span class="ow">and</span> <span class="s">"old_ea-bootcamp-day-5"</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">directorylist</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"Both directories do NOT exist. Proceed!"</span><span class="p">)</span>
+
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"One of these directories exists. Delete these directories before continuing!"</span><span class="p">)</span>  
+</code></pre></div></div>
+
+<div class="output highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Both directories do NOT exist. Proceed!
+</code></pre></div></div>
+
+<h3 id="search-keywords-using-glob">Search Keywords Using Glob</h3>
+
+<p>Next, imagine that you want to create a list of filenames in the <code class="highlighter-rouge">data</code> directory but you only want the files that include <code class="highlighter-rouge">precip</code> in the filename.</p>
+
+<p>You also know that you should have a certain number of files that include <code class="highlighter-rouge">precip</code> in the filename and you want to check that you have that number before additional code is executed.</p>
+
+<p>For example, at this point in the course, you should have four files in the data directory with <code class="highlighter-rouge">precip</code> in the filename.</p>
+
+<p>Begin by adding a wild card search in your <code class="highlighter-rouge">glob.glob()</code> code line. This easily done by adding the keyword enclosed in asterisks <code class="highlighter-rouge">*</code> to the path (e.g. <code class="highlighter-rouge">/data/*precip*</code>).</p>
+
+<div class="language-python input highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># import necessary packages</span>
+<span class="kn">import</span> <span class="nn">glob</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="c"># set the working directory to the `earth-analytics-bootcamp` directory</span>
+<span class="c"># replaced code below as needed with the path to your working directory</span>
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s">"/home/jpalomino/earth-analytics-bootcamp/"</span><span class="p">)</span>
+
+<span class="c"># create a list of all items in the data directory identified by a relative path to the directory</span>
+<span class="n">filelist</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s">'data/*precip*'</span><span class="p">)</span>
+
+<span class="c"># print the new list</span>
+<span class="k">print</span><span class="p">(</span><span class="n">filelist</span><span class="p">)</span>            
+</code></pre></div></div>
+
+<div class="output highlighter-rouge"><div class="highlight"><pre class="highlight"><code>['data/avg-monthly-precip.txt', 'data/monthly-precip-2002-2013.csv', 'data/avg-precip-months-seasons.csv', 'data/precip-2002-2013-months-seasons.csv']
+</code></pre></div></div>
+
+<p>You can see that <code class="highlighter-rouge">filelist</code> has been created as a <code class="highlighter-rouge">Python</code> list, which means that you can query the length of the list using <code class="highlighter-rouge">len(listname)</code>.</p>
+
+<div class="language-python input highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># print the lenght of filelist</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">filelist</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="output execute_result highlighter-rouge"><div class="highlight"><pre class="highlight"><code>4
+</code></pre></div></div>
+
+<p>Now you can set up a conditional statement to check whether the length of the created list meets a certain criteria before executing additional code.</p>
+
+<p>This can be very useful to check that all of the files that your code will need are in the directory.</p>
+
+<div class="language-python input highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># check if filelist contains four filenames</span>
+<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">filelist</span><span class="p">)</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"The data directory contains the correct number of files with precip in the name. Code can continue to execute."</span><span class="p">)</span>
+    
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"The data directory does NOT contain the correct number of files with precip in the name. Check list of files."</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">filelist</span><span class="p">)</span>    
+</code></pre></div></div>
+
+<div class="output highlighter-rouge"><div class="highlight"><pre class="highlight"><code>The data directory contains the correct number of files with precip in the name. Code can continue to execute.
+</code></pre></div></div>
+
+<div class="notice--warning">
+
+  <h2 id="optional-challenge-1"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional Challenge 1</h2>
+
+  <p>Test your <code class="highlighter-rouge">Python</code> skills to:</p>
+
+  <ol>
+    <li>Use <code class="highlighter-rouge">glob.glob</code> to make a list of all <strong>.csv</strong> files in the <code class="highlighter-rouge">data</code> directory.
+      <ul>
+        <li>Note that rather than specifying a wildcard for the name, you will specify a specific file type using `glob.glob(‘directoryname/*.csv’).</li>
+      </ul>
+    </li>
+  </ol>
+
+</div>
+
+<div class="output highlighter-rouge"><div class="highlight"><pre class="highlight"><code>['data/snow-2007-to-2017.csv', 'data/monthly-precip-2002-2013.csv', 'data/avg-precip-months-seasons.csv', 'data/snow-2007-to-2017-months-seasons.csv', 'data/avg-temp-months-seasons.csv', 'data/precip-2002-2013-months-seasons.csv']
+</code></pre></div></div>
+
+<div class="notice--warning">
+
+  <h2 id="optional-challenge-2"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional Challenge 2</h2>
+
+  <p>Test your <code class="highlighter-rouge">Python</code> skills to:</p>
+
+  <ol>
+    <li>Modify your code from the previous challenge to find only <strong>.csv</strong> files that include <strong>snow</strong> in the filename in the <code class="highlighter-rouge">data</code> directory.</li>
+  </ol>
+
+</div>
+
+<div class="output highlighter-rouge"><div class="highlight"><pre class="highlight"><code>['data/snow-2007-to-2017.csv', 'data/snow-2007-to-2017-months-seasons.csv']
+</code></pre></div></div>
+
+<div class="notice--warning">
+
+  <h2 id="optional-challenge-3"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional Challenge 3</h2>
+
+  <p>Test your <code class="highlighter-rouge">Python</code> skills to:</p>
+
+  <ol>
+    <li>Write a conditional statement to check that the list created in the previous challenge (.csv files with snow in the filename) only includes two files.</li>
+  </ol>
+
+</div>
+
+<div class="output highlighter-rouge"><div class="highlight"><pre class="highlight"><code>The data directory contains the correct number of .csv files with snow in the name. Code can continue to execute.
+</code></pre></div></div>
+
+
+        
+
+        <!-- if the page is a course lesson, add pagination -->
+
+        
+         <!-- This is clunky code that forces pagination across lesson sets -->
+<!-- NOTE: it won't include slideshows as written which makes sense -->
+<!-- add forced pagination -->
+<!-- first, get total lesson count -->
+
+<div class="previous--next">
+
+
+
+
+
+<!-- if it's page one - then no previous button -->
+<!-- how do i figure out the link? i have to loop through again? -->
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+
+    
+      
+
+      
+      
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+
+    
+      
+        <a href="http://localhost:8000/courses/earth-analytics-bootcamp/conditional-statements/intro-conditional-statements/" class="btn btn--info btn--large btn-success">
+          <i class="fa fa-4 fa-arrow-circle-left fa-4" aria-hidden="true"></i>
+          Intro to Conditional Statements </a>
+      
+
+      
+      
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+</div>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <i class="fa fa-fw fa-tags" aria-hidden="true"></i> Tags
+  
+  <span class="a-main-tag">
+  <i class="fa fa-fw fa-tag" aria-hidden="true"></i><a href=http://localhost:8000/tags/reproducible-science-and-programming/>Reproducible science and programming</a>:
+  </span>
+  
+    
+    <a href=http://localhost:8000/tags/reproducible-science-and-programming/python/>python</a> 
+    
+    
+  
+
+
+
+
+
+
+
+
+        
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2018-08-16">August 16, 2018</time></p>
+        
+      </footer>
+
+      
+
+
+<section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=http://localhost:8000/courses/earth-analytics-bootcamp/conditional-statements/control-flow/" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:8000/courses/earth-analytics-bootcamp/conditional-statements/control-flow/" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://plus.google.com/share?url=http://localhost:8000/courses/earth-analytics-bootcamp/conditional-statements/control-flow/" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:8000/courses/earth-analytics-bootcamp/conditional-statements/control-flow/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+<br><br>
+  <a href="http://bit.ly/2jc5SXy" target="_blank">
+    <img src="http://localhost:8000/images/earth-data-analytics-professional-certificate-banner.png" alt="Get a professional Certificate in Earth Data Analytics at University of Colorado, Boulder" width="40%"></a>
+</section>
+
+
+       
+    </div>
+
+    
+      
+
+
+<div class="page__comments">
+  <h4 class="page__comments-title">Leave a Comment</h4>
+  
+    <section id="disqus_thread"></section>
+  
+</div>
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      
+        <h4 class="page__related-title">You May Also Enjoy</h4>
+      
+      <div class="grid__wrapper">
+        
+          
+
+
+
+
+<div class="grid__item">
+  
+    <a href="http://localhost:8000/courses/earth-analytics-bootcamp/data-wrangling/data-wrangling-numpy-arrays/">
+  
+    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+      
+      <h2 class="archive__item-title" itemprop="headline">Data Wrangling With Numpy Arrays
+</h2>
+
+
+     
+      
+        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  6 minute read
+	
+</p>
+      
+      <p class="archive__item-excerpt" itemprop="description">This lesson teaches you how to wrangle data (e.g. run multi-task functions, combine) with numpy arrays.
+</p>
+    </article>
+  </a>
+</div>
+
+        
+          
+
+
+
+
+<div class="grid__item">
+  
+    <a href="http://localhost:8000/courses/earth-analytics-bootcamp/data-wrangling/data-wrangling-pandas/">
+  
+    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+      
+      <h2 class="archive__item-title" itemprop="headline">Data Wrangling With Pandas
+</h2>
+
+
+     
+      
+        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  12 minute read
+	
+</p>
+      
+      <p class="archive__item-excerpt" itemprop="description">This lesson teaches you how to wrangle data (e.g. subselect, update, and combine) with pandas dataframes.
+</p>
+    </article>
+  </a>
+</div>
+
+        
+          
+
+
+
+
+<div class="grid__item">
+  
+    <a href="http://localhost:8000/courses/earth-analytics-bootcamp/prep-final-project/">
+  
+    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+      
+      <h2 class="archive__item-title" itemprop="headline">Prepare For Final Project
+</h2>
+
+
+     
+      
+        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  less than 1 minute read
+	
+</p>
+      
+      <p class="archive__item-excerpt" itemprop="description">
+
+     Today
+
+  
+
+
+</p>
+    </article>
+  </a>
+</div>
+
+        
+          
+
+
+
+
+<div class="grid__item">
+  
+    <a href="http://localhost:8000/courses/earth-analytics-bootcamp/data-wrangling/">
+  
+    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+      
+      <h2 class="archive__item-title" itemprop="headline">Data Wrangling
+</h2>
+
+
+     
+      
+        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  1 minute read
+	
+</p>
+      
+      <p class="archive__item-excerpt" itemprop="description">
+
+     Today
+
+  
+
+
+</p>
+    </article>
+  </a>
+</div>
+
+        
+      </div>
+    </div>
+  
+</div>
+
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+
+
+<!-- Adding analytics code -->
+
+        
+
+
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    <li>
+      <strong>&copy; 2018 Earth Lab -
+      <a href="http://localhost:8000/license"> View License. </a>
+      Questions? Feedback? Please file an issue on GitHub.</strong>
+    </li>
+  </ul>
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+    
+      <li><a href="https://twitter.com/earthlabcu"><i class="fa fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+    
+    
+    
+      <li><a href="http://github.com/earthlab"><i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+    
+    
+    <li><a href="http://localhost:8000/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    <script src="http://localhost:8000/assets/js/main.min.js"></script>
+
+
+
+
+
+
+  
+  <script type="text/javascript">
+  	/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  	var disqus_shortname = 'earthlabcu';
+
+  	/* * * DON'T EDIT BELOW THIS LINE * * */
+  	(function() {
+  		var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  		dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  	})();
+
+  	/* * * DON'T EDIT BELOW THIS LINE * * */
+  	(function () {
+  		var s = document.createElement('script'); s.async = true;
+  		s.type = 'text/javascript';
+  		s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  		(document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+  	}());
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+
+<script type="text/javascript"
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+</script>
+
+    
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-84081999-1', 'auto');
+    ga('send', 'pageview');
+</script>
+
+
+
+  </body>
+</html>
+

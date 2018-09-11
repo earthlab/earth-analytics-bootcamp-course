@@ -1,0 +1,2599 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+
+
+<meta charset="utf-8">
+
+
+
+
+<!-- begin SEO -->
+
+
+
+
+
+
+
+
+
+<title>Intro to Shell | Earth Data Science - Earth Lab </title>
+
+
+
+
+
+
+
+<meta property="og:locale" content="en-US">
+<meta property="og:site_name" content="Earth Data Science - Earth Lab">
+<meta property="og:title" content="Intro to Shell">
+
+
+  <link rel="canonical" href="http://localhost:8000/courses/earth-analytics-bootcamp/get-started-with-open-science/intro-shell/">
+  <meta property="og:url" content="http://localhost:8000/courses/earth-analytics-bootcamp/get-started-with-open-science/intro-shell/">
+
+
+
+  <meta content="This lesson walks you through using Bash/Shell to navigate and manage files and directories on your computer." name="description">
+  <meta property="og:description" content="This lesson walks you through using Bash/Shell to navigate and manage files and directories on your computer.">
+
+
+<!-- twitter cards -->
+
+  <meta name="twitter:site" content="@earthlabcu">
+  <meta name="twitter:title" content="Intro to Shell">
+  <meta name="twitter:description" content="This lesson walks you through using Bash/Shell to navigate and manage files and directories on your computer.">
+  <meta name="twitter:url" content="http://localhost:8000/courses/earth-analytics-bootcamp/get-started-with-open-science/intro-shell/">
+
+  
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="https://earthdatascience.org/images/earth_sm_twit.png">
+    <meta name="twitter:image:alt" content="The Earthlab Logo - image of a globe with courses, lessons and tutorials">
+
+    
+  
+
+  
+
+
+
+  
+
+  
+
+
+
+
+
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2018-07-17T00:00:00-06:00">
+  
+    <link rel="next" href="http://localhost:8000/courses/earth-analytics-bootcamp/get-started-with-open-science/get-files-from-github/" title="Get Files From GitHub">
+  
+  
+    <link rel="prev" href="http://localhost:8000/courses/earth-analytics-bootcamp/get-started-with-open-science/intro-open-science/" title="What Is Open Reproducible Science">
+  
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "Person",
+      "name" : "Earth Analytics",
+      "url" : "http://localhost:8000",
+      "sameAs" : null
+    }
+  </script>
+
+
+
+
+
+
+<!-- end SEO -->
+
+
+<link href="http://localhost:8000/feed.xml" type="application/atom+xml" rel="alternate" title="Earth Data Science - Earth Lab Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google-site-verification" content="LfpevjsE0wlELv5KKOZv1T2RhRimGSiRckWv5ZC19GU" />
+<!-- don't use the old cataloged meta tags -->
+<meta name="googlebot" content="noodp">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+
+<!-- For all browsers
+<link rel="stylesheet" href="http://localhost:8000/assets/css/main.css">-->
+<link rel="stylesheet" href="http://localhost:8000/assets/css/main.css">
+
+<meta http-equiv="cleartype" content="on">
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use http://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+  </head>
+
+  <body>
+
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+    
+
+<!-- search bar begin  - turning off for now-->
+
+<div class="search">
+<form role="search" method="get" action="http://localhost:8000/search/">
+    <input id="q" name="q"
+           placeholder="Search earth data science site" type="text">
+</form>
+<!--<span class='cu-boulder'><a href="http://www.colorado.edu/earthlab" target="_blank">Earth Lab University of Colorado - Boulder Home </a></span> -->
+</div>
+
+
+<!-- search bar END -->
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <button><div class="navicon"></div></button>
+        <ul class="visible-links">
+          <li class="masthead__menu-item masthead__menu-item--lg"><a href="http://localhost:8000/"><img src="/images/earth_sm.png" alt="Earth Lab - Earth Data Science" style="height:80%;width:85%"></a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:8000/tutorials/">Tutorials</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:8000/courses/">Courses</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:8000/workshops/">Workshops</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:8000/tools/">Tools</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:8000/blog/">Blog</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:8000/events/">Events</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:8000/about/">About</a></li>
+          
+
+        </ul>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+
+
+
+
+
+
+
+
+
+
+<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs">
+ <ol itemscope itemtype="http://schema.org/BreadcrumbList">
+<a href="http://localhost:8000"></a>
+ 
+ <!-- there is an offset of 1 so subtract 2 from the final crumb number-->
+ 
+   
+   
+     <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+       <a href="http://localhost:8000/" itemprop="item"><span itemprop="name">Home</span></a>
+       <meta itemprop="position" content="" />
+     </li>
+     <span class="sep">/</span>
+   
+    
+        <li><a href="http://localhost:8000/courses/">Courses </a>
+        <span class="sep">/</span></li>
+    
+  
+   
+    
+        <li><a href="http://localhost:8000/courses/earth-analytics-bootcamp/">Earth analytics bootcamp </a>
+        <span class="sep">/</span></li>
+    
+  
+   
+    
+        <li><a href="http://localhost:8000/courses/earth-analytics-bootcamp/get-started-with-open-science/"> Week 1.  Get started with open science </a>
+        <span class="sep">/</span></li>
+    
+  
+   
+    
+        <li class="current">Intro to Shell</li>
+    
+  
+</ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+
+
+
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+    
+    
+
+
+    
+
+    
+     <!--  Might be able to delete this This is the code that populates the side bar navigation if there is a class-->
+      
+
+
+
+
+
+<!-- make sure we're only grabbing pages for the course -->
+
+
+
+<!--<h3>Week 1 Lessons</h3>-->
+<!-- i don't think the code below is used as modules is defined lower down as well. -->
+
+<!-- This is how modules are sorted on the left hand side bar -->
+
+
+
+
+
+
+<h5><a href="http://localhost:8000/courses/earth-analytics-bootcamp/" ><i class="fa fa-home" aria-hidden="true"></i> Earth-analytics-bootcamp Home</a></h5>
+
+<!-- Just get the pages from this course -->
+
+
+
+
+
+
+<nav class="nav__list">
+
+
+
+
+
+
+<ul>
+  <li><span class="nav__sub-title"><i class="fa fa-book" aria-hidden="true"></i> Units</span>
+   <ul>
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+
+
+      
+       
+        <li class='active-section'> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/get-started-with-open-science/"><i class="fa fa-folder-open" aria-hidden="true"></i>
+           1. GET STARTED WITH OPEN REPRODUCIBLE SCIENCE</a></li>
+        
+
+<div class='active-menu'>
+      <ul>
+        
+        <!-- Note that class-order allows you to sort modules by class order if there are more than 1 in a class -->
+        
+
+        
+
+        
+
+        
+        
+          <li><span class="nav__sub-title grey"><i class="fa fa-caret-down" aria-hidden="true"></i> Get started with open reproducible science </span></li>
+        <ul>
+
+      
+      <!-- count lessons -->
+
+        
+        
+        
+
+        
+        
+        
+          
+          <li><a href= http://localhost:8000/courses/earth-analytics-bootcamp/get-started-with-open-science/intro-open-science/><!--1.1 --> - What Is Open Reproducible Science</a></li>
+          
+          
+
+        
+        
+        
+          
+          <li><a href= http://localhost:8000/courses/earth-analytics-bootcamp/get-started-with-open-science/intro-shell/ class='active'> <!--1.2 -->- Intro to Shell</a></li>
+          
+          
+
+        
+        
+        
+          
+          <li><a href= http://localhost:8000/courses/earth-analytics-bootcamp/get-started-with-open-science/get-files-from-github/><!--1.3 --> - Get Files From GitHub</a></li>
+          
+          
+
+        
+        
+        
+          
+          <li><a href= http://localhost:8000/courses/earth-analytics-bootcamp/get-started-with-open-science/jupyter-notebook-interface/><!--1.4 --> - The Jupyter Notebook Interface</a></li>
+          
+          
+
+        
+       </ul>
+        
+
+        
+      </ul>
+
+      <!-- BEGIN Learn how to lessons -->
+       <ul>
+         
+         
+       </ul>
+
+
+     </div>
+
+
+      <!-- END BEGIN Learn how to lessons -->
+
+      <!--  -->
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/python-variables-lists/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       2. Python Variables and Lists</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/git-github-version-control/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       3. Git/Github.com Workflow For Version Control</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/numpy-arrays/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       4. Numpy Arrays</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/pandas-dataframes/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       5. Pandas Dataframes</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/practice-data-structures/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       6. Practice Working With Data Structures</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/loops/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       7. Loops in Python</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/conditional-statements/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       8. Conditional Statements</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/git-github-collaboration/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       9. Git/Github.com For Collaboration</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/functions/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       10. Functions</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/practice-dry-code/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       11. Practice Writing DRY Code</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/data-wrangling/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       12. Data Wrangling</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/prep-final-project/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       13. Prepare For Final Project</a></li>
+    
+
+
+      
+
+    
+  </ul></li>
+ </ul>
+
+
+ <ul>
+   <li><span class="nav__sub-title"><i class="fa fa-folder-open" aria-hidden="true"></i> Overview</span>
+    <ul>
+     
+          
+         <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/">
+           Earth Analytics Bootcamp Home </a></li>
+         
+
+     
+          
+         <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-syllabus/">
+           Course Syllabus </a></li>
+         
+
+     
+          
+         <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-pre-course-learning/">
+           Pre-Course Learning Resources </a></li>
+         
+
+     
+          
+         <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-checklist/">
+           Pre-Course Checklist </a></li>
+         
+
+     
+          
+         <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-homework-1/">
+           Homework 1 </a></li>
+         
+
+     
+          
+         <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-homework-2/">
+           Homework 2 </a></li>
+         
+
+     
+          
+         <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-homework-3/">
+           Homework 3 </a></li>
+         
+
+     
+          
+         <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/pep-8-style-guide/">
+           Reference on PEP 8 Style Guide </a></li>
+         
+
+     
+          
+         <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-homework-4/">
+           Homework 4 </a></li>
+         
+
+     
+          
+         <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-final-project/">
+           Final Project </a></li>
+         
+
+     
+   </ul>
+ </li>
+</ul>
+</nav>
+
+<h5><a href="http://localhost:8000/courses/earth-analytics-bootcamp/" ><i class="fa fa-home" aria-hidden="true"></i> earth-analytics-bootcamp Home</a></h5>
+
+    
+
+    
+
+  
+  </div>
+
+
+
+
+
+
+<!-- begin science / science themes side bar nav -->
+
+
+
+  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+
+    <meta itemprop="headline" content="Intro to Shell">
+    <meta itemprop="description" content="This lesson walks you through using Bash/Shell to navigate and manage files and directories on your computer.">
+    <meta itemprop="datePublished" content="July 17, 2018">
+    <meta itemprop="dateModified" content="August 08, 2018">
+
+    <div class="page__inner-wrap">
+      
+
+        <header>
+          <!-- BEGIN: insert a welcome to the module block on pages that are part of a module set -->
+
+          <!-- END: insert welcome block -->
+          <h1 class="page__title" itemprop="headline">
+            Lesson 2. 
+             Intro to Shell
+ </h1>
+            
+          
+
+          
+            <div class="page__meta">
+              
+              
+              <a href="http://localhost:8000/authors/jenny-palomino">Jenny Palomino</a>, 
+              
+              
+              <a href="http://localhost:8000/authors/leah-wasser">Leah Wasser</a>, 
+              
+              
+              <a href="http://localhost:8000/authors/martha-morrissey">Martha Morrissey</a>, 
+              
+              
+              <a href="http://localhost:8000/authors/software-carpentry">Software Carpentry</a>
+              
+            </div>
+          
+
+        <br/>
+
+        
+
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        <!-- would like to include the TOC automatically but this does weird things-->
+        
+        <aside class="sidebar__right">
+<nav class="toc">
+    <header><h4 class="nav__title"><i class="fa fa-file-text"></i> In This Lesson</h4></header>
+<ul class="toc__menu" id="markdown-toc">
+  <li><a href="#learning-objectives" id="markdown-toc-learning-objectives"><i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives</a></li>
+  <li><a href="#what-you-need" id="markdown-toc-what-you-need"><i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need</a></li>
+  <li><a href="#shell-bash-and-terminal---an-overview" id="markdown-toc-shell-bash-and-terminal---an-overview">Shell, Bash, and Terminal - An Overview</a></li>
+  <li><a href="#what-is-a-directory" id="markdown-toc-what-is-a-directory">What Is a Directory?</a></li>
+  <li><a href="#open-a-terminal-to-run-bash-commands" id="markdown-toc-open-a-terminal-to-run-bash-commands">Open a Terminal to Run Bash Commands</a></li>
+  <li><a href="#run-bash-commands-in-the-terminal" id="markdown-toc-run-bash-commands-in-the-terminal">Run Bash Commands in the Terminal</a></li>
+  <li><a href="#close-the-terminal" id="markdown-toc-close-the-terminal">Close the Terminal</a></li>
+  <li><a href="#optional-challenge" id="markdown-toc-optional-challenge"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional Challenge</a></li>
+</ul>
+
+  </nav>
+</aside>
+
+<p>In this lesson, you will learn how to use <code class="highlighter-rouge">Bash</code>/<code class="highlighter-rouge">Shell</code> to navigate and manage directories on your computer.</p>
+
+<div class="notice--success">
+
+  <h2 id="learning-objectives"><i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives</h2>
+
+  <p>After completing this lesson, you will be able to:</p>
+  <ul>
+    <li>Explain the roles of <code class="highlighter-rouge">Shell</code>, <code class="highlighter-rouge">Bash</code>, and <code class="highlighter-rouge">Terminal</code> for accessing files and programs on your computer</li>
+    <li>Explain what a directory is</li>
+    <li>Use <code class="highlighter-rouge">Bash</code> to complete the following tasks:
+      <ul>
+        <li>print the current working directory (pwd)</li>
+        <li>navigate between directories on your computer (cd)</li>
+        <li>create new directories (mkdir)</li>
+        <li>print a list of files (and sub-directories) within directories (ls)</li>
+        <li>delete directories (rm -r)</li>
+      </ul>
+    </li>
+  </ul>
+
+  <h2 id="what-you-need"><i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need</h2>
+
+  <p>Be sure that you have completed the instructions on <a href="http://localhost:8000/workshops/setup-earth-analytics-python/setup-git-bash-anaconda/">Setting up Git, Bash, and Anaconda on your computer</a> to install the tools for your operating system (Windows, Mac, Linux).</p>
+
+</div>
+
+<h2 id="shell-bash-and-terminal---an-overview">Shell, Bash, and Terminal - An Overview</h2>
+
+<p>In the lesson on Open Reproducible Science, you learned that <code class="highlighter-rouge">Shell</code> is the primary program that computers use to receive code (i.e. commands) and return information produced by executing these commands (i.e. output).</p>
+
+<p>These commands can be entered via a <code class="highlighter-rouge">Terminal</code> (i.e. Command Line Interface - CLI) or can be executed via software, which provide graphical user interfaces (GUIs) that send commands to the <code class="highlighter-rouge">Shell</code> and receive output back from the <code class="highlighter-rouge">Shell</code> when the command has been executed.</p>
+
+<p><code class="highlighter-rouge">Bash</code> (also known as the “Bourne-Again Shell”) is an implementation of <code class="highlighter-rouge">Shell</code> and provides many commands that can be executed via a <code class="highlighter-rouge">Terminal</code>. You will only use a handful of commands in this course, but more information on the available commands is provided on the bottom of this page under Additional Resources.</p>
+
+<p>There are also many options for terminals, including customized ones like <code class="highlighter-rouge">Git Bash</code>, which Windows users will use in this course.</p>
+
+<h3 id="why-is-shell-important-for-open-reproducible-science">Why Is Shell Important for Open Reproducible Science</h3>
+
+<p><code class="highlighter-rouge">Shell</code> helps you to:</p>
+<ul>
+  <li>easily navigate your computer to access and manage files and folders (i.e. directories)</li>
+  <li>quickly and efficiently work with many files and directories at once</li>
+  <li>run programs that provide more functionality at the command line (e.g. <code class="highlighter-rouge">Git</code>)</li>
+  <li>launch programs from specific directories on your computer (e.g. <code class="highlighter-rouge">Jupyter Notebook</code>)</li>
+  <li>use repeatable commands for these tasks across many different operating systems (Windows, Mac, Linux)</li>
+</ul>
+
+<h2 id="what-is-a-directory">What Is a Directory?</h2>
+
+<p>A directory refers to a folder on a computer that relates to other folders. The term directory considers the relationship between that folder and the folders within it and around it. Directories are hierarchical.</p>
+
+<h3 id="what-is-a-parent-directory">What Is a Parent Directory?</h3>
+
+<p>The term “parent” directory is used to describe the preceding directory in which a sub-directory is created.</p>
+
+<h2 id="open-a-terminal-to-run-bash-commands">Open a Terminal to Run Bash Commands</h2>
+
+<p>The tool that you use to run bash commands will vary depending upon your computer’s operating system.</p>
+
+<h3 id="mac-os-x">Mac (OS X)</h3>
+<p>You can use the program called <code class="highlighter-rouge">Terminal</code>, which can be searched for in Spotlight (or found in /Applications/Utilities) and uses the Bash implementation of Shell. Terminal is installed natively on the MAC OS.</p>
+
+<figure>
+   <a href="https://help.apple.com/assets/58C4E5B4680CE2040551BA60/58C4E5B6680CE2040551BA69/en_US/84239026ca019f46567b86e900f5edd7.png">
+   <img src="https://help.apple.com/assets/58C4E5B4680CE2040551BA60/58C4E5B6680CE2040551BA69/en_US/84239026ca019f46567b86e900f5edd7.png" alt="This is what the Terminal on Mac looks like. Source: Apple.com." /></a>
+   <figcaption>This is what the Terminal on Mac looks like. Source: Apple.com.
+   </figcaption>
+</figure>
+
+<h3 id="linux">Linux</h3>
+
+<p>You can use the program called <code class="highlighter-rouge">Terminal</code> (or <code class="highlighter-rouge">Terminal Emulator</code>), which typically uses the Bash implementation of Shell.</p>
+
+<figure>
+ <a href="http://localhost:8000/images/courses/earth-analytics/bootcamp/terminal/linux-terminal.png" width="125%">
+ <img src="http://localhost:8000/images/courses/earth-analytics/bootcamp/terminal/linux-terminal.png" alt="This is what the Terminal on Linux looks like." width="125%" /></a>
+ <figcaption> This is what the Terminal on Linux looks like.
+ </figcaption>
+</figure>
+
+<h3 id="windows">Windows</h3>
+
+<p>There are many options for running bash on windows. For this course, you will use <code class="highlighter-rouge">Git Bash</code> which comes with your installation of <code class="highlighter-rouge">Git</code>. Instructions for setting this up are here:</p>
+
+<ul>
+  <li><a href="http://localhost:8000/workshops/setup-earth-analytics-python/setup-git-bash-anaconda/" target="_blank">Setting up Git, Bash, and Anaconda on your computer</a></li>
+</ul>
+
+<p>Once you have installed <code class="highlighter-rouge">Git</code> on a Windows machine, you can open this Terminal by searching for <code class="highlighter-rouge">Git Bash</code> in the start menu. Use <code class="highlighter-rouge">Git Bash</code> for all hands-on activities and assignments in this course that ask you to use the <code class="highlighter-rouge">Terminal</code>.</p>
+
+<figure>
+ <a href="http://localhost:8000/images/courses/earth-analytics/bootcamp/terminal/git-bash-terminal.png">
+ <img src="http://localhost:8000/images/courses/earth-analytics/bootcamp/terminal/git-bash-terminal.png" alt="This is what the Git Bash Terminal on Windows looks like." /></a>
+ <figcaption> This is what the Git Bash Terminal on Windows looks like.
+ </figcaption>
+</figure>
+
+<h2 id="run-bash-commands-in-the-terminal">Run Bash Commands in the Terminal</h2>
+<p>The dollar sign ($) is a prompt that shows you that <code class="highlighter-rouge">Bash</code> is waiting for input.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>bash
+    <span class="err">$</span>
+</code></pre></div></div>
+
+<p>Note: depending on your computer’s set-up, you may see a different character as a prompt and/or may add information before the prompt, such as the directory that you are currently in.</p>
+
+<p>When typing commands (either from this course or from other sources), do not type the dollar sign (or other character prompt). Only type the commands that follow it.</p>
+
+<h3 id="test-that-bash-is-available-on-your-computer">Test That Bash Is Available on Your Computer</h3>
+
+<p>Type “bash” into the <code class="highlighter-rouge">Terminal</code>. You will only get a message back if the command is not successful. If the command is successful, you will simply see a new line prompt waiting for more input.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>bash
+    <span class="err">$</span>
+</code></pre></div></div>
+
+<p>Note: In the examples below, the indented lines that follow a prompt and do not start with a dollar sign ($) are the output of the command. The results of the commands below on your computer will be slightly different, depending on your operating system and how you have customized your file system.</p>
+
+<h3 id="print-your-current-working-directory-pwd">Print Your Current Working Directory (<code class="highlighter-rouge">pwd</code>)</h3>
+<p>Your current working directory is the directory where your commands are being executed. It is typically printed as the full path to the directory (meaning that you can see the parent directory). To print the name of the current working directory, use the command <code class="highlighter-rouge">pwd</code>.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">pwd</span> 
+    /users/jpalomino
+</code></pre></div></div>
+
+<p>As this is the first command that you have executed in <code class="highlighter-rouge">Bash</code> today, the result of the <code class="highlighter-rouge">pwd</code> is the full path to your home directory. The home directory is the first directory that you will be in each time you start a new <code class="highlighter-rouge">Bash</code> session.</p>
+
+<p><strong>Windows users:</strong> note that the <code class="highlighter-rouge">Terminal</code> uses forward slashes (<code class="highlighter-rouge">/</code>) to indicate directories within a path. This differs from the Windows File Explorer which uses backslashes (<code class="highlighter-rouge">\</code>) to indicate directories within a path.</p>
+
+<h3 id="change-working-directory-cd">Change Working Directory (<code class="highlighter-rouge">cd</code>)</h3>
+
+<p>To change directories, use the command <code class="highlighter-rouge">cd</code> followed by the name of_directory (e.g. <code class="highlighter-rouge">cd downloads</code>). You can print your current working directory again to check the new path.</p>
+
+<p>For example, you can change the working directory to <code class="highlighter-rouge">documents</code> under your home directory, and then check that the current working directory has been updated.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd </span>documents
+<span class="nv">$ </span><span class="nb">pwd</span>
+    /users/jpalomino/documents
+</code></pre></div></div>
+
+<p>You can go back to the parent directory by using the command <code class="highlighter-rouge">cd ..</code>. The full path to the current working directory is understood by Bash.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd</span> ..
+<span class="nv">$ </span><span class="nb">pwd</span>
+    /users/jpalomino
+</code></pre></div></div>
+
+<p>You can also go back to your home directory (e.g. /users/jpalomino) at any time using the command <code class="highlighter-rouge">cd ~</code> (the character known as the tilde).</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd</span> ~
+<span class="nv">$ </span><span class="nb">pwd</span>
+    /users/jpalomino
+</code></pre></div></div>
+
+<h3 id="create-a-new-directory-mkdir">Create a New Directory (<code class="highlighter-rouge">mkdir</code>)</h3>
+
+<p>The first step in creating a new directory is to navigate to the directory that you would like to be the parent directory to this new directory. Then, use the command <code class="highlighter-rouge">mkdir</code>, followed by the name you would like to give the new directory (e.g. <code class="highlighter-rouge">mkdir directoryname</code>).</p>
+
+<p>For example, you can create new directory under <code class="highlighter-rouge">documents</code> called <code class="highlighter-rouge">assignments</code>. Then, you can navigate into the new directory called <code class="highlighter-rouge">assignments</code>, and print the current working directory to check the new path.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd </span>documents
+<span class="nv">$ </span>mkdir assignments
+<span class="nv">$ </span><span class="nb">cd </span>assignments
+<span class="nv">$ </span><span class="nb">pwd</span>
+    /users/jpalomino/documents/assignments
+</code></pre></div></div>
+
+<p>Use ‘cd ~’ to return to your home directory.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd</span> ~
+<span class="nv">$ </span><span class="nb">pwd</span>
+    /users/jpalomino
+</code></pre></div></div>
+
+<h3 id="machine-readable-directory-names-are-important">Machine Readable Directory Names Are Important</h3>
+
+<p>As you create new directories, consider the names carefully.</p>
+
+<ul>
+  <li>Use names that clearly describe what the directory contains.</li>
+  <li>Don’t use spaces in your names. Instead of spaces, you can use <code class="highlighter-rouge">-</code> or <code class="highlighter-rouge">_</code> to separate words within the name.</li>
+</ul>
+
+<p>In the image below, compare the list of file names on the LEFT to those on the right. Which ones are easier to quickly understand?</p>
+
+<figure>
+   <a href="https://www.earthdatascience.org/images/slide-shows/intro-rr/human-readable-jenny.png">
+   <img src="https://www.earthdatascience.org/images/slide-shows/intro-rr/human-readable-jenny.png" alt="This image displays examples of good and not-so-good names for directories and files. Source: Jenny Bryan, Reproducible Science Curriculum." /></a>
+   <figcaption>This image displays examples of good and not-so-good names for directories and files. Source: Jenny Bryan, Reproducible Science Curriculum.   
+   </figcaption>
+</figure>
+
+<p class="notice--success"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> <strong>Windows Users:</strong> note that the names of your existing directories often begin with upper case letters. When creating new directories, use lower case to follow the lessons more easily and for best results from future programming tasks.</p>
+
+<h3 id="print-a-list-of-all-files-and-sub-directories--ls">Print a List of All Files and Sub-directories  (<code class="highlighter-rouge">ls</code>)</h3>
+
+<p>To see a list of all files and sub-directories within your current working directory, use the command <code class="highlighter-rouge">ls</code>.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">pwd</span>
+    /users/jpalomino
+<span class="nv">$ </span><span class="nb">ls 
+    </span>documents    downloads    
+</code></pre></div></div>
+<p>For example, you can change your current working directory to <code class="highlighter-rouge">documents</code> and print a new list of all files and sub-directories to see our newly created <code class="highlighter-rouge">assignments</code> directory by using the <code class="highlighter-rouge">cd</code> and <code class="highlighter-rouge">ls</code> functions.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd </span>documents
+<span class="nv">$ </span><span class="nb">ls    
+    </span>assignments  
+</code></pre></div></div>
+
+<p>You can also create a new directory under <code class="highlighter-rouge">assignments</code> called <code class="highlighter-rouge">homeworks</code>, and then list the contents of the <code class="highlighter-rouge">assignments</code> directory to see the newly created <code class="highlighter-rouge">homeworks</code>.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd </span>assignments
+<span class="nv">$ </span>mkdir homeworks
+<span class="nv">$ </span><span class="nb">ls    
+    </span>homeworks  
+</code></pre></div></div>
+
+<h3 id="delete-a-directory-rm">Delete a Directory (<code class="highlighter-rouge">rm</code>)</h3>
+
+<p>To delete (i.e. remove) a directory and all the sub-directories and files that it contains, navigate to its parent directory and use the command <code class="highlighter-rouge">rm -r</code>, followed by the name of the directory you want to delete (e.g. <code class="highlighter-rouge">rm -r directoryname</code>).</p>
+
+<p>For example, you can delete the <code class="highlighter-rouge">assignments</code> directory under the <code class="highlighter-rouge">documents</code> directory because it does not meet the requirement of a good name for a directory.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd</span> ~
+<span class="nv">$ </span><span class="nb">cd </span>documents
+<span class="nv">$ </span><span class="nb">pwd</span>
+    /users/jpalomino/documents
+<span class="nv">$ </span><span class="nb">ls    
+    </span>assignments  
+<span class="nv">$ </span>rm <span class="nt">-r</span> assignments
+</code></pre></div></div>
+
+<p>The <code class="highlighter-rouge">rm</code> stands for remove, while the <code class="highlighter-rouge">-r</code> is necessary to tell Bash that it needs to recurse or repeat the command) through a list of all files and sub-directory within the parent directory. This means that the newly created <code class="highlighter-rouge">homeworks</code> directory under <code class="highlighter-rouge">assignments</code> will also be removed.</p>
+
+<h2 id="close-the-terminal">Close the Terminal</h2>
+
+<p>You can close the terminal at any time by typing the command <code class="highlighter-rouge">exit</code> and hitting <code class="highlighter-rouge">Enter</code>.</p>
+
+<p>For now, leave the <code class="highlighter-rouge">Terminal</code> open, so you can complete the rest of this lesson.</p>
+
+<div class="notice--warning">
+
+  <h2 id="optional-challenge"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional Challenge</h2>
+
+  <p>Test your <code class="highlighter-rouge">Bash</code> skills to:</p>
+
+  <ol>
+    <li>
+      <p>Create a new directory called <code class="highlighter-rouge">earth-analytics-bootcamp</code> in your home directory (hint: <code class="highlighter-rouge">cd</code>, <code class="highlighter-rouge">mkdir</code>).</p>
+    </li>
+    <li>
+      <p>Check that <code class="highlighter-rouge">earth-analytics-bootcamp</code> has been successfully created in your home directory (hint: <code class="highlighter-rouge">ls</code>).</p>
+    </li>
+    <li>
+      <p>Change the directory to <code class="highlighter-rouge">earth-analytics-bootcamp</code> and create a new directory called <code class="highlighter-rouge">data</code> (hint: <code class="highlighter-rouge">cd</code>, <code class="highlighter-rouge">mkdir</code>).</p>
+    </li>
+    <li>
+      <p>Check that <code class="highlighter-rouge">data</code> has been successfully created in <code class="highlighter-rouge">earth-analytics-bootcamp</code>  (hint: <code class="highlighter-rouge">ls</code>).</p>
+    </li>
+  </ol>
+
+</div>
+
+        
+
+        <!-- if the page is a course lesson, add pagination -->
+
+        
+         <!-- This is clunky code that forces pagination across lesson sets -->
+<!-- NOTE: it won't include slideshows as written which makes sense -->
+<!-- add forced pagination -->
+<!-- first, get total lesson count -->
+
+<div class="previous--next">
+
+
+
+
+
+<!-- if it's page one - then no previous button -->
+<!-- how do i figure out the link? i have to loop through again? -->
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+    
+
+    
+      
+
+      
+      
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+
+    
+      
+
+      
+      
+       <a href="http://localhost:8000/courses/earth-analytics-bootcamp/get-started-with-open-science/get-files-from-github/" class="btn btn--info btn--large btn-success" style="float:right" >
+         Get Files From GitHub
+         <i class="fa fa-4 fa-arrow-circle-right" aria-hidden="true"></i></a>
+      
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+
+    
+      
+
+      
+      
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+
+    
+      
+        <a href="http://localhost:8000/courses/earth-analytics-bootcamp/get-started-with-open-science/intro-open-science/" class="btn btn--info btn--large btn-success">
+          <i class="fa fa-4 fa-arrow-circle-left fa-4" aria-hidden="true"></i>
+          What Is Open Reproducible Science </a>
+      
+
+      
+      
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+</div>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <i class="fa fa-fw fa-tags" aria-hidden="true"></i> Tags
+  
+  <span class="a-main-tag">
+  <i class="fa fa-fw fa-tag" aria-hidden="true"></i><a href=http://localhost:8000/tags/reproducible-science-and-programming/>Reproducible science and programming</a>:
+  </span>
+  
+    
+    <a href=http://localhost:8000/tags/reproducible-science-and-programming/shell/>shell</a> 
+    
+    
+  
+
+
+
+
+
+
+
+
+        
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2018-08-08">August 08, 2018</time></p>
+        
+      </footer>
+
+      
+
+
+<section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=http://localhost:8000/courses/earth-analytics-bootcamp/get-started-with-open-science/intro-shell/" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:8000/courses/earth-analytics-bootcamp/get-started-with-open-science/intro-shell/" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://plus.google.com/share?url=http://localhost:8000/courses/earth-analytics-bootcamp/get-started-with-open-science/intro-shell/" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:8000/courses/earth-analytics-bootcamp/get-started-with-open-science/intro-shell/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+<br><br>
+  <a href="http://bit.ly/2jc5SXy" target="_blank">
+    <img src="http://localhost:8000/images/earth-data-analytics-professional-certificate-banner.png" alt="Get a professional Certificate in Earth Data Analytics at University of Colorado, Boulder" width="40%"></a>
+</section>
+
+
+       
+    </div>
+
+    
+      
+
+
+<div class="page__comments">
+  <h4 class="page__comments-title">Leave a Comment</h4>
+  
+    <section id="disqus_thread"></section>
+  
+</div>
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      
+        <h4 class="page__related-title">You May Also Enjoy</h4>
+      
+      <div class="grid__wrapper">
+        
+          
+
+
+
+
+<div class="grid__item">
+  
+    <a href="http://localhost:8000/courses/earth-analytics-bootcamp/data-wrangling/data-wrangling-numpy-arrays/">
+  
+    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+      
+      <h2 class="archive__item-title" itemprop="headline">Data Wrangling With Numpy Arrays
+</h2>
+
+
+     
+      
+        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  6 minute read
+	
+</p>
+      
+      <p class="archive__item-excerpt" itemprop="description">This lesson teaches you how to wrangle data (e.g. run multi-task functions, combine) with numpy arrays.
+</p>
+    </article>
+  </a>
+</div>
+
+        
+          
+
+
+
+
+<div class="grid__item">
+  
+    <a href="http://localhost:8000/courses/earth-analytics-bootcamp/data-wrangling/data-wrangling-pandas/">
+  
+    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+      
+      <h2 class="archive__item-title" itemprop="headline">Data Wrangling With Pandas
+</h2>
+
+
+     
+      
+        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  12 minute read
+	
+</p>
+      
+      <p class="archive__item-excerpt" itemprop="description">This lesson teaches you how to wrangle data (e.g. subselect, update, and combine) with pandas dataframes.
+</p>
+    </article>
+  </a>
+</div>
+
+        
+          
+
+
+
+
+<div class="grid__item">
+  
+    <a href="http://localhost:8000/courses/earth-analytics-bootcamp/prep-final-project/">
+  
+    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+      
+      <h2 class="archive__item-title" itemprop="headline">Prepare For Final Project
+</h2>
+
+
+     
+      
+        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  less than 1 minute read
+	
+</p>
+      
+      <p class="archive__item-excerpt" itemprop="description">
+
+     Today
+
+  
+
+
+</p>
+    </article>
+  </a>
+</div>
+
+        
+          
+
+
+
+
+<div class="grid__item">
+  
+    <a href="http://localhost:8000/courses/earth-analytics-bootcamp/data-wrangling/">
+  
+    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+      
+      <h2 class="archive__item-title" itemprop="headline">Data Wrangling
+</h2>
+
+
+     
+      
+        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  1 minute read
+	
+</p>
+      
+      <p class="archive__item-excerpt" itemprop="description">
+
+     Today
+
+  
+
+
+</p>
+    </article>
+  </a>
+</div>
+
+        
+      </div>
+    </div>
+  
+</div>
+
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+
+
+<!-- Adding analytics code -->
+
+        
+
+
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    <li>
+      <strong>&copy; 2018 Earth Lab -
+      <a href="http://localhost:8000/license"> View License. </a>
+      Questions? Feedback? Please file an issue on GitHub.</strong>
+    </li>
+  </ul>
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+    
+      <li><a href="https://twitter.com/earthlabcu"><i class="fa fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+    
+    
+    
+      <li><a href="http://github.com/earthlab"><i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+    
+    
+    <li><a href="http://localhost:8000/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    <script src="http://localhost:8000/assets/js/main.min.js"></script>
+
+
+
+
+
+
+  
+  <script type="text/javascript">
+  	/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  	var disqus_shortname = 'earthlabcu';
+
+  	/* * * DON'T EDIT BELOW THIS LINE * * */
+  	(function() {
+  		var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  		dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  	})();
+
+  	/* * * DON'T EDIT BELOW THIS LINE * * */
+  	(function () {
+  		var s = document.createElement('script'); s.async = true;
+  		s.type = 'text/javascript';
+  		s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  		(document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+  	}());
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+
+<script type="text/javascript"
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+</script>
+
+    
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-84081999-1', 'auto');
+    ga('send', 'pageview');
+</script>
+
+
+
+  </body>
+</html>
+

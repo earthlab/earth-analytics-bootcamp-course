@@ -1,0 +1,2908 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+
+
+<meta charset="utf-8">
+
+
+
+
+<!-- begin SEO -->
+
+
+
+
+
+
+
+
+
+<title>Activity on Dry Code | Earth Data Science - Earth Lab </title>
+
+
+
+
+
+
+
+<meta property="og:locale" content="en-US">
+<meta property="og:site_name" content="Earth Data Science - Earth Lab">
+<meta property="og:title" content="Activity on Dry Code">
+
+
+  <link rel="canonical" href="http://localhost:8000/courses/earth-analytics-bootcamp/practice-dry-code/activity-dry-code/">
+  <meta property="og:url" content="http://localhost:8000/courses/earth-analytics-bootcamp/practice-dry-code/activity-dry-code/">
+
+
+
+  <meta content="This activity provides an opportunity to practice writing DRY code using loops, conditional statements, and functions." name="description">
+  <meta property="og:description" content="This activity provides an opportunity to practice writing DRY code using loops, conditional statements, and functions.">
+
+
+<!-- twitter cards -->
+
+  <meta name="twitter:site" content="@earthlabcu">
+  <meta name="twitter:title" content="Activity on Dry Code">
+  <meta name="twitter:description" content="This activity provides an opportunity to practice writing DRY code using loops, conditional statements, and functions.">
+  <meta name="twitter:url" content="http://localhost:8000/courses/earth-analytics-bootcamp/practice-dry-code/activity-dry-code/">
+
+  
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="https://earthdatascience.org/images/earth_sm_twit.png">
+    <meta name="twitter:image:alt" content="The Earthlab Logo - image of a globe with courses, lessons and tutorials">
+
+    
+  
+
+  
+
+
+
+  
+
+  
+
+
+
+
+
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2018-08-18T00:00:00-06:00">
+  
+    <link rel="next" href="http://localhost:8000/courses/earth-analytics-bootcamp/python-variables-lists/" title="Python Variables and Lists">
+  
+  
+    <link rel="prev" href="http://localhost:8000/courses/earth-analytics-bootcamp/practice-dry-code/" title="Practice Writing DRY Code">
+  
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "Person",
+      "name" : "Earth Analytics",
+      "url" : "http://localhost:8000",
+      "sameAs" : null
+    }
+  </script>
+
+
+
+
+
+
+<!-- end SEO -->
+
+
+<link href="http://localhost:8000/feed.xml" type="application/atom+xml" rel="alternate" title="Earth Data Science - Earth Lab Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google-site-verification" content="LfpevjsE0wlELv5KKOZv1T2RhRimGSiRckWv5ZC19GU" />
+<!-- don't use the old cataloged meta tags -->
+<meta name="googlebot" content="noodp">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+
+<!-- For all browsers
+<link rel="stylesheet" href="http://localhost:8000/assets/css/main.css">-->
+<link rel="stylesheet" href="http://localhost:8000/assets/css/main.css">
+
+<meta http-equiv="cleartype" content="on">
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use http://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+  </head>
+
+  <body>
+
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+    
+
+<!-- search bar begin  - turning off for now-->
+
+<div class="search">
+<form role="search" method="get" action="http://localhost:8000/search/">
+    <input id="q" name="q"
+           placeholder="Search earth data science site" type="text">
+</form>
+<!--<span class='cu-boulder'><a href="http://www.colorado.edu/earthlab" target="_blank">Earth Lab University of Colorado - Boulder Home </a></span> -->
+</div>
+
+
+<!-- search bar END -->
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <button><div class="navicon"></div></button>
+        <ul class="visible-links">
+          <li class="masthead__menu-item masthead__menu-item--lg"><a href="http://localhost:8000/"><img src="/images/earth_sm.png" alt="Earth Lab - Earth Data Science" style="height:80%;width:85%"></a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:8000/tutorials/">Tutorials</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:8000/courses/">Courses</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:8000/workshops/">Workshops</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:8000/tools/">Tools</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:8000/blog/">Blog</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:8000/events/">Events</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:8000/about/">About</a></li>
+          
+
+        </ul>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+
+
+
+
+
+
+
+
+
+
+<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs">
+ <ol itemscope itemtype="http://schema.org/BreadcrumbList">
+<a href="http://localhost:8000"></a>
+ 
+ <!-- there is an offset of 1 so subtract 2 from the final crumb number-->
+ 
+   
+   
+     <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+       <a href="http://localhost:8000/" itemprop="item"><span itemprop="name">Home</span></a>
+       <meta itemprop="position" content="" />
+     </li>
+     <span class="sep">/</span>
+   
+    
+        <li><a href="http://localhost:8000/courses/">Courses </a>
+        <span class="sep">/</span></li>
+    
+  
+   
+    
+        <li><a href="http://localhost:8000/courses/earth-analytics-bootcamp/">Earth analytics bootcamp </a>
+        <span class="sep">/</span></li>
+    
+  
+   
+    
+        <li><a href="http://localhost:8000/courses/earth-analytics-bootcamp/practice-dry-code/"> Week 11.  Practice dry code </a>
+        <span class="sep">/</span></li>
+    
+  
+   
+    
+        <li class="current">Activity on Dry Code</li>
+    
+  
+</ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+
+
+
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+    
+    
+
+
+    
+
+    
+     <!--  Might be able to delete this This is the code that populates the side bar navigation if there is a class-->
+      
+
+
+
+
+
+<!-- make sure we're only grabbing pages for the course -->
+
+
+
+<!--<h3>Week 11 Lessons</h3>-->
+<!-- i don't think the code below is used as modules is defined lower down as well. -->
+
+<!-- This is how modules are sorted on the left hand side bar -->
+
+
+
+
+
+
+<h5><a href="http://localhost:8000/courses/earth-analytics-bootcamp/" ><i class="fa fa-home" aria-hidden="true"></i> Earth-analytics-bootcamp Home</a></h5>
+
+<!-- Just get the pages from this course -->
+
+
+
+
+
+
+<nav class="nav__list">
+
+
+
+
+
+
+<ul>
+  <li><span class="nav__sub-title"><i class="fa fa-book" aria-hidden="true"></i> Units</span>
+   <ul>
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/get-started-with-open-science/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       1. Get Started with Open Reproducible Science</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/python-variables-lists/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       2. Python Variables and Lists</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/git-github-version-control/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       3. Git/Github.com Workflow For Version Control</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/numpy-arrays/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       4. Numpy Arrays</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/pandas-dataframes/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       5. Pandas Dataframes</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/practice-data-structures/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       6. Practice Working With Data Structures</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/loops/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       7. Loops in Python</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/conditional-statements/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       8. Conditional Statements</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/git-github-collaboration/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       9. Git/Github.com For Collaboration</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/functions/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       10. Functions</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+
+
+      
+       
+        <li class='active-section'> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/practice-dry-code/"><i class="fa fa-folder-open" aria-hidden="true"></i>
+           11. PRACTICE WRITING DRY CODE</a></li>
+        
+
+<div class='active-menu'>
+      <ul>
+        
+        <!-- Note that class-order allows you to sort modules by class order if there are more than 1 in a class -->
+        
+
+        
+
+        
+
+        
+        
+          <li><span class="nav__sub-title grey"><i class="fa fa-caret-down" aria-hidden="true"></i> Practice writing dry code </span></li>
+        <ul>
+
+      
+      <!-- count lessons -->
+
+        
+        
+        
+
+        
+        
+        
+          
+          <li><a href= http://localhost:8000/courses/earth-analytics-bootcamp/practice-dry-code/activity-dry-code/ class='active'> <!--11.1 -->- Activity on Dry Code</a></li>
+          
+          
+
+        
+       </ul>
+        
+
+        
+      </ul>
+
+      <!-- BEGIN Learn how to lessons -->
+       <ul>
+         
+         
+       </ul>
+
+
+     </div>
+
+
+      <!-- END BEGIN Learn how to lessons -->
+
+      <!--  -->
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/data-wrangling/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       12. Data Wrangling</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/prep-final-project/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       13. Prepare For Final Project</a></li>
+    
+
+
+      
+
+    
+  </ul></li>
+ </ul>
+
+
+ <ul>
+   <li><span class="nav__sub-title"><i class="fa fa-folder-open" aria-hidden="true"></i> Overview</span>
+    <ul>
+     
+          
+         <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/">
+           Earth Analytics Bootcamp Home </a></li>
+         
+
+     
+          
+         <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-syllabus/">
+           Course Syllabus </a></li>
+         
+
+     
+          
+         <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-pre-course-learning/">
+           Pre-Course Learning Resources </a></li>
+         
+
+     
+          
+         <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-checklist/">
+           Pre-Course Checklist </a></li>
+         
+
+     
+          
+         <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-homework-1/">
+           Homework 1 </a></li>
+         
+
+     
+          
+         <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-homework-2/">
+           Homework 2 </a></li>
+         
+
+     
+          
+         <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-homework-3/">
+           Homework 3 </a></li>
+         
+
+     
+          
+         <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/pep-8-style-guide/">
+           Reference on PEP 8 Style Guide </a></li>
+         
+
+     
+          
+         <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-homework-4/">
+           Homework 4 </a></li>
+         
+
+     
+          
+         <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-final-project/">
+           Final Project </a></li>
+         
+
+     
+   </ul>
+ </li>
+</ul>
+</nav>
+
+<h5><a href="http://localhost:8000/courses/earth-analytics-bootcamp/" ><i class="fa fa-home" aria-hidden="true"></i> earth-analytics-bootcamp Home</a></h5>
+
+    
+
+    
+
+  
+  </div>
+
+
+
+
+
+
+<!-- begin science / science themes side bar nav -->
+
+
+
+  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+
+    <meta itemprop="headline" content="Activity on Dry Code">
+    <meta itemprop="description" content="This activity provides an opportunity to practice writing DRY code using loops, conditional statements, and functions.">
+    <meta itemprop="datePublished" content="August 18, 2018">
+    <meta itemprop="dateModified" content="September 10, 2018">
+
+    <div class="page__inner-wrap">
+      
+
+        <header>
+          <!-- BEGIN: insert a welcome to the module block on pages that are part of a module set -->
+
+          <!-- END: insert welcome block -->
+          <h1 class="page__title" itemprop="headline">
+            Lesson 1. 
+             Activity on Dry Code
+ </h1>
+            
+          
+
+          
+            <div class="page__meta">
+              
+              
+              <a href="http://localhost:8000/authors/jenny-palomino">Jenny Palomino</a>
+              
+            </div>
+          
+
+        <br/>
+
+        
+        <div class="notice--warning header" markdown="1">
+        
+         <h1> <i class="fa fa-6 fa-book" aria-hidden="true"></i> Practice Writing DRY (i.e. Do Not Repeat Yourself) Code in Python - Earth analytics bootcamp course module</h1>
+        Welcome to the first lesson in the <strong>Practice Writing DRY (i.e. Do Not Repeat Yourself) Code in Python</strong> module.
+        This tutorial provides an opportunity to practice writing DRY code using loops, conditional statements, and functions.
+        
+        </div>
+        
+
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        <!-- would like to include the TOC automatically but this does weird things-->
+        
+        <aside class="sidebar__right">
+<nav class="toc">
+    <header><h4 class="nav__title"><i class="fa fa-file-text"></i> In This Lesson</h4></header>
+<ul class="toc__menu" id="markdown-toc">
+  <li><a href="#hands-on-practice-writing-dry-code" id="markdown-toc-hands-on-practice-writing-dry-code"><i class="fa fa-ship" aria-hidden="true"></i> Hands-on Practice Writing DRY Code</a></li>
+  <li><a href="#what-you-need" id="markdown-toc-what-you-need"><i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need</a></li>
+  <li><a href="#part-i-create-and-modify-a-jupyter-notebook" id="markdown-toc-part-i-create-and-modify-a-jupyter-notebook">Part I: Create and Modify a Jupyter Notebook</a></li>
+  <li><a href="#part-2-submit-your-jupyter-notebook-to-github" id="markdown-toc-part-2-submit-your-jupyter-notebook-to-github">Part 2: Submit Your Jupyter Notebook to GitHub</a></li>
+</ul>
+
+  </nav>
+</aside>
+
+<div class="notice--info">
+
+  <h2 id="hands-on-practice-writing-dry-code"><i class="fa fa-ship" aria-hidden="true"></i> Hands-on Practice Writing DRY Code</h2>
+
+  <p>This hands-on activity provides you an opportunity to practice working with the DRY code strategies introduced in this course: loops, conditional statements, and functions.</p>
+
+  <p>While this activity will not be formally graded, you can <strong>earn participation points</strong> for submitting your completed <code class="highlighter-rouge">Jupyter Notebook</code> for this activity.</p>
+
+  <h2 id="what-you-need"><i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need</h2>
+
+  <p>Be sure that you have completed all of the lessons from Days 4-10 for the Earth Analytics Bootcamp. Completing the challenges at the end of the lessons will also help you with this assignment.</p>
+
+  <p>You will need to <strong><code class="highlighter-rouge">fork</code> and <code class="highlighter-rouge">clone</code> a Github repository for this activity</strong>:</p>
+
+  <p><code class="highlighter-rouge">https://github.com/earthlab-education/ea-bootcamp-practice-dry-code</code></p>
+
+</div>
+
+<h2 id="part-i-create-and-modify-a-jupyter-notebook">Part I: Create and Modify a Jupyter Notebook</h2>
+
+<p>Begin by creating a new <code class="highlighter-rouge">Jupyter Notebook</code> in your forked repository (<code class="highlighter-rouge">ea-bootcamp-practice-dry-code</code>).</p>
+
+<p>Rename the file to <code class="highlighter-rouge">firstinitial-lastname-practice-dry-code.ipynb</code> (e.g. <code class="highlighter-rouge">jpalomino-practice-dry-code.ipynb</code>).</p>
+
+<p>Note that <code class="highlighter-rouge">Git</code> will recognize this new <code class="highlighter-rouge">Jupyter Notebook</code> as a new file that can be added, committed, and pushed back to your forked repository on <code class="highlighter-rouge">Github.com</code>.</p>
+
+<h3 id="practice-documentation-of-code-and-functions">Practice Documentation of Code and Functions</h3>
+
+<p>Start with <code class="highlighter-rouge">Markdown</code> cell containing a <code class="highlighter-rouge">Markdown</code> title for this assignment, plus an author name and date in list form. Bold the words for author and date, but do not bold your name and today’s date.</p>
+
+<p>Add a <code class="highlighter-rouge">Markdown</code> cell before each code cell you create to describe the purpose of your code (e.g. what are you accomplishing by executing this code?).</p>
+
+<p><strong>Be sure to add documentation within your functions</strong> using <code class="highlighter-rouge">Python</code> comments to tell the user what the function is doing and and what inputs it can take.</p>
+
+<p>Also, be sure to use clear function names that tell the user what the function does. If you find it useful, you can review the <a href="http://localhost:8000/courses/earth-analytics-bootcamp/pep-8-style-guide/">Earth Analytics Bootcamp reference page on PEP8 Style Guide</a>.</p>
+
+<h3 id="import-python-packages">Import Python Packages</h3>
+
+<p>In the questions below, you will be working with <code class="highlighter-rouge">numpy arrays</code> and <code class="highlighter-rouge">pandas dataframes</code>.</p>
+
+<p>You will also be downloading files using <code class="highlighter-rouge">urllib.request</code> and accessing directories and files on your computer using <code class="highlighter-rouge">os</code>. Last, you will also be creating plots of your data.</p>
+
+<p>Import all of the necessary <code class="highlighter-rouge">Python</code> packages to accomplish these tasks.</p>
+
+<h3 id="get-data">Get Data</h3>
+
+<h4 id="numpy-arrays">Numpy Arrays</h4>
+
+<p>Use <code class="highlighter-rouge">.urllib.request</code> to download the following .csv files of monthly precipitation (inches) and  import the data to <code class="highlighter-rouge">numpy arrays</code>:</p>
+
+<ol>
+  <li>
+    <p><code class="highlighter-rouge">monthly-precip-1988-to-1992.csv</code> from <code class="highlighter-rouge">https://ndownloader.figshare.com/files/12807380</code></p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">monthly-precip-1993-to-1997.csv</code> from <code class="highlighter-rouge">https://ndownloader.figshare.com/files/12807383</code></p>
+  </li>
+</ol>
+
+<p>Each dataset contains a row for each year specified in the dataset name and contains a column for each month (starting with January through December).</p>
+
+<h4 id="pandas-dataframes">Pandas Dataframes</h4>
+
+<p>Use <code class="highlighter-rouge">.urllib.request</code> to download the following .csv files of monthly temperature (Fahrenheit) and import the data to <code class="highlighter-rouge">pandas dataframes</code>:</p>
+
+<ol>
+  <li>
+    <p><code class="highlighter-rouge">temp-1991-to-1995-months.csv</code> from <code class="highlighter-rouge">https://ndownloader.figshare.com/files/12807389</code></p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">temp-1996-to-2000-months.csv</code> from <code class="highlighter-rouge">https://ndownloader.figshare.com/files/12807386</code></p>
+  </li>
+</ol>
+
+<p>Each dataset contains a row for each year specified in the dataset name and a column for each month (starting with January through December).</p>
+
+<p><strong>Note:</strong> you are not required to write a loop to accomplish these tasks. You can follow the same process that you have before to download and import files.</p>
+
+<div class="output execute_result highlighter-rouge"><div class="highlight"><pre class="highlight"><code>array([[0.4 , 1.14, 2.53, 1.48, 3.7 , 0.7 , 0.71, 1.33, 2.02, 0.03, 0.75,
+        2.16],
+       [1.19, 1.27, 0.97, 1.95, 2.68, 2.93, 1.43, 1.63, 3.54, 1.4 , 0.09,
+        1.54],
+       [1.04, 1.32, 4.55, 2.16, 1.73, 0.39, 4.23, 1.13, 1.84, 0.96, 1.6 ,
+        0.75],
+       [1.05, 0.15, 0.43, 2.41, 2.9 , 3.59, 3.11, 2.08, 1.21, 0.93, 3.3 ,
+        0.01],
+       [0.67, 0.  , 5.17, 0.46, 1.7 , 0.96, 1.13, 3.08, 0.02, 0.79, 2.56,
+        0.84]])
+</code></pre></div></div>
+
+<div class="output execute_result highlighter-rouge"><div class="highlight"><pre class="highlight"><code>array([[0.25, 0.9 , 2.15, 2.56, 1.73, 3.38, 1.4 , 1.04, 3.32, 2.42, 2.17,
+        0.55],
+       [0.86, 1.37, 1.61, 3.46, 1.35, 0.93, 0.35, 2.56, 0.54, 1.02, 2.25,
+        0.49],
+       [0.64, 1.53, 1.21, 5.45, 9.59, 4.03, 0.72, 1.45, 2.96, 0.59, 1.51,
+        0.25],
+       [1.89, 0.29, 2.16, 1.49, 4.63, 2.77, 1.96, 0.63, 3.48, 0.28, 1.43,
+        0.37],
+       [0.87, 1.83, 0.91, 5.77, 2.19, 3.69, 1.14, 5.27, 1.92, 2.7 , 1.52,
+        0.68]])
+</code></pre></div></div>
+
+<div class="output execute_result">
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Year</th>
+      <th>January</th>
+      <th>February</th>
+      <th>March</th>
+      <th>April</th>
+      <th>May</th>
+      <th>June</th>
+      <th>July</th>
+      <th>August</th>
+      <th>September</th>
+      <th>October</th>
+      <th>November</th>
+      <th>December</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1991</td>
+      <td>29.9</td>
+      <td>40.9</td>
+      <td>42.8</td>
+      <td>47.8</td>
+      <td>58.2</td>
+      <td>66.6</td>
+      <td>70.5</td>
+      <td>69.2</td>
+      <td>61.7</td>
+      <td>52.1</td>
+      <td>36.8</td>
+      <td>35.3</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1992</td>
+      <td>35.9</td>
+      <td>40.6</td>
+      <td>43.3</td>
+      <td>54.3</td>
+      <td>59.1</td>
+      <td>62.9</td>
+      <td>68.3</td>
+      <td>66.3</td>
+      <td>64.4</td>
+      <td>54.1</td>
+      <td>34.1</td>
+      <td>29.2</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1993</td>
+      <td>28.3</td>
+      <td>30.6</td>
+      <td>42.4</td>
+      <td>47.6</td>
+      <td>57.5</td>
+      <td>64.5</td>
+      <td>69.5</td>
+      <td>67.3</td>
+      <td>58.8</td>
+      <td>48.7</td>
+      <td>35.6</td>
+      <td>35.4</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1994</td>
+      <td>35.5</td>
+      <td>31.9</td>
+      <td>43.9</td>
+      <td>47.6</td>
+      <td>60.8</td>
+      <td>70.0</td>
+      <td>71.2</td>
+      <td>70.9</td>
+      <td>65.0</td>
+      <td>50.6</td>
+      <td>36.6</td>
+      <td>36.1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1995</td>
+      <td>34.5</td>
+      <td>38.3</td>
+      <td>42.1</td>
+      <td>45.1</td>
+      <td>50.9</td>
+      <td>62.4</td>
+      <td>70.5</td>
+      <td>74.0</td>
+      <td>60.4</td>
+      <td>50.5</td>
+      <td>45.0</td>
+      <td>36.3</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="output execute_result">
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Year</th>
+      <th>January</th>
+      <th>February</th>
+      <th>March</th>
+      <th>April</th>
+      <th>May</th>
+      <th>June</th>
+      <th>July</th>
+      <th>August</th>
+      <th>September</th>
+      <th>October</th>
+      <th>November</th>
+      <th>December</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1996</td>
+      <td>29.7</td>
+      <td>37.7</td>
+      <td>37.9</td>
+      <td>50.4</td>
+      <td>58.9</td>
+      <td>66.9</td>
+      <td>71.5</td>
+      <td>69.5</td>
+      <td>60.8</td>
+      <td>53.1</td>
+      <td>40.6</td>
+      <td>36.5</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1997</td>
+      <td>31.3</td>
+      <td>32.8</td>
+      <td>45.5</td>
+      <td>42.8</td>
+      <td>57.4</td>
+      <td>66.5</td>
+      <td>71.4</td>
+      <td>68.7</td>
+      <td>64.0</td>
+      <td>52.7</td>
+      <td>37.9</td>
+      <td>33.9</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1998</td>
+      <td>36.5</td>
+      <td>36.4</td>
+      <td>38.7</td>
+      <td>46.5</td>
+      <td>58.8</td>
+      <td>62.1</td>
+      <td>72.8</td>
+      <td>70.7</td>
+      <td>67.1</td>
+      <td>50.4</td>
+      <td>44.0</td>
+      <td>32.2</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1999</td>
+      <td>36.4</td>
+      <td>42.1</td>
+      <td>46.0</td>
+      <td>44.5</td>
+      <td>55.6</td>
+      <td>64.8</td>
+      <td>73.5</td>
+      <td>69.3</td>
+      <td>58.5</td>
+      <td>51.9</td>
+      <td>48.0</td>
+      <td>36.9</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2000</td>
+      <td>36.4</td>
+      <td>41.0</td>
+      <td>42.9</td>
+      <td>51.2</td>
+      <td>61.0</td>
+      <td>67.4</td>
+      <td>74.7</td>
+      <td>73.0</td>
+      <td>63.1</td>
+      <td>49.6</td>
+      <td>31.4</td>
+      <td>31.2</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h3 id="question-1-use-indexing-to-select-from-numpy-array">Question 1: Use Indexing to Select from Numpy Array</h3>
+
+<p>Select the second row of data (including all columns) from the <code class="highlighter-rouge">numpy array</code> containing the data for 1988 to 1992, and save to a new <code class="highlighter-rouge">numpy array</code>.</p>
+
+<p>Note that using an index series (e.g. <code class="highlighter-rouge">[row_index:row_index, column_index:column_index]</code>) to select the rows and columns will result in a two-dimensional array.</p>
+
+<p>Name your new array appropriately to indicate the year of data that it represents.</p>
+
+<div class="output execute_result highlighter-rouge"><div class="highlight"><pre class="highlight"><code>array([[1.19, 1.27, 0.97, 1.95, 2.68, 2.93, 1.43, 1.63, 3.54, 1.4 , 0.09,
+        1.54]])
+</code></pre></div></div>
+
+<h3 id="question-2-write-a-conditional-statement-to-check-dimensions-of-numpy-array">Question 2: Write a Conditional Statement to Check Dimensions of Numpy Array</h3>
+
+<p>Write a conditional statement that checks whether the <code class="highlighter-rouge">numpy array</code> created in the previous question (i.e. the selection) is a one-dimensional <code class="highlighter-rouge">numpy array</code>.</p>
+
+<p>Print a message stating whether or not the array is one-dimensional.</p>
+
+<p>Hints:</p>
+<ul>
+  <li>It is easier to write this conditional statement using the attribute of <code class="highlighter-rouge">numpy arrays</code> that provides a single value for the dimension (i.e. <code class="highlighter-rouge">.ndim</code>), rather than the shape.</li>
+  <li>Recall how to use the comparison operator to check for equality between values (<code class="highlighter-rouge">==</code>).</li>
+</ul>
+
+<div class="output highlighter-rouge"><div class="highlight"><pre class="highlight"><code>This is NOT a one-dimensional array.
+</code></pre></div></div>
+
+<h3 id="question-3-expand-conditional-statement-to-execute-different-code">Question 3: Expand Conditional Statement to Execute Different Code</h3>
+
+<p>Modify your conditional statement from the previous question, so that your <code class="highlighter-rouge">if</code> and <code class="highlighter-rouge">else</code> statements execute different code, not just printing messages.</p>
+
+<p>For the <code class="highlighter-rouge">if</code> statement, rather than printing a message, print the shape of the <code class="highlighter-rouge">numpy array</code> from the previous question (i.e. the selection).</p>
+
+<p>For the <code class="highlighter-rouge">else</code> statement, rather than printing a message, include the following code lines to be executed (i.e. if the array is not one-dimensional):</p>
+<ul>
+  <li><code class="highlighter-rouge">arrayname_1d = arrayname.flatten()</code></li>
+  <li><code class="highlighter-rouge">print(arrayname_1d.shape)</code></li>
+</ul>
+
+<p>These code lines will flatten a <code class="highlighter-rouge">numpy array</code> (in this case named <code class="highlighter-rouge">arrayname</code>) to a one-dimensional array, save it to a new array called <code class="highlighter-rouge">arrayname_1d</code>, and print the shape of the new array.</p>
+
+<p><strong>Note the result of this conditional statement.</strong></p>
+
+<div class="output highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(12,)
+</code></pre></div></div>
+
+<h3 id="question-4-write-a-conditional-statement-to-check-dimensions-of-two-numpy-arrays">Question 4: Write a Conditional Statement to Check Dimensions of Two Numpy Arrays</h3>
+
+<p>Manually create a one-dimensional <code class="highlighter-rouge">numpy array</code> that contains the month names (i.e. January to December).</p>
+
+<p>Write a conditional statement to check that this new array for month names has the <strong>same shape</strong> as the <code class="highlighter-rouge">numpy array</code> from the previous question (i.e. the selection).</p>
+
+<p>Print a message stating whether are not these arrays have the same shape and can be plotted together.</p>
+
+<p>Hints:</p>
+<ul>
+  <li>Review the Activity on Data Structures from Day 6 if you need to recall how to manually create a <code class="highlighter-rouge">numpy array</code> using <code class="highlighter-rouge">np.array([])</code>.</li>
+  <li>Note that you are creating this new array using text strings, not numeric values.</li>
+  <li>Recall how to use the comparison operator to check for equality between values (<code class="highlighter-rouge">==</code>).</li>
+</ul>
+
+<div class="output highlighter-rouge"><div class="highlight"><pre class="highlight"><code>These arrays have the same shape and can be plotted together.
+</code></pre></div></div>
+
+<h3 id="question-5-practice-pseudo-coding">Question 5: Practice Pseudo Coding</h3>
+
+<p>Reflect on your conditional statement from the previous question.</p>
+
+<p>Write a sentence or two on how you could expand on your conditional statement from the previous question to create a plot from the two <code class="highlighter-rouge">numpy arrays</code> if they do indeed have the same shape.</p>
+
+<p>Hint: what did you do in Question 3 to expand on your conditional statement?</p>
+
+<h3 id="question-6-loop-on-pandas-dataframes">Question 6: Loop on Pandas Dataframes</h3>
+
+<p>Write a loop to run the <code class="highlighter-rouge">info()</code> method on the two <code class="highlighter-rouge">pandas dataframes</code> that you imported in this activity, and print the results.</p>
+
+<p>Hint:</p>
+<ul>
+  <li>Recall that creating a list of items to iterate upon is a good first step to writing a loop.</li>
+  <li>Think about what you are iterating upon in this question - do your list values need <code class="highlighter-rouge">""</code> to indicate text strings, or are you iterating on existing variables?</li>
+</ul>
+
+<div class="output highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 5 entries, 0 to 4
+Data columns (total 13 columns):
+Year         5 non-null int64
+January      5 non-null float64
+February     5 non-null float64
+March        5 non-null float64
+April        5 non-null float64
+May          5 non-null float64
+June         5 non-null float64
+July         5 non-null float64
+August       5 non-null float64
+September    5 non-null float64
+October      5 non-null float64
+November     5 non-null float64
+December     5 non-null float64
+dtypes: float64(12), int64(1)
+memory usage: 600.0 bytes
+None
+
+&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 5 entries, 0 to 4
+Data columns (total 13 columns):
+Year         5 non-null int64
+January      5 non-null float64
+February     5 non-null float64
+March        5 non-null float64
+April        5 non-null float64
+May          5 non-null float64
+June         5 non-null float64
+July         5 non-null float64
+August       5 non-null float64
+September    5 non-null float64
+October      5 non-null float64
+November     5 non-null float64
+December     5 non-null float64
+dtypes: float64(12), int64(1)
+memory usage: 600.0 bytes
+None
+</code></pre></div></div>
+
+<h3 id="question-7-loop-on-columns-in-pandas-dataframes">Question 7: Loop on Columns in Pandas Dataframes</h3>
+
+<p>Write a loop to run the <code class="highlighter-rouge">.describe()</code> method on each column in the pandas dataframe containing the data for 1996 to 2000).</p>
+
+<p>Hint:</p>
+<ul>
+  <li>Recall that creating a list of items to iterate upon is a good first step to writing a loop.</li>
+  <li>Think about what you are iterating upon in this question - do your list values need <code class="highlighter-rouge">""</code> to indicate text strings, or are you iterating on existing variables?</li>
+  <li>Recall that to select columns in <code class="highlighter-rouge">pandas dataframes</code> using implicit variables (i.e. not explicitly created by you), change the syntax from <code class="highlighter-rouge">dataframe.column_name</code> to <code class="highlighter-rouge">dataframe[[column_name]]</code>.</li>
+</ul>
+
+<div class="output highlighter-rouge"><div class="highlight"><pre class="highlight"><code>         January
+count   5.000000
+mean   34.060000
+std     3.298939
+min    29.700000
+25%    31.300000
+50%    36.400000
+75%    36.400000
+max    36.500000
+
+        February
+count   5.000000
+mean   38.000000
+std     3.724916
+min    32.800000
+25%    36.400000
+50%    37.700000
+75%    41.000000
+max    42.100000
+
+           March
+count   5.000000
+mean   42.200000
+std     3.760319
+min    37.900000
+25%    38.700000
+50%    42.900000
+75%    45.500000
+max    46.000000
+
+           April
+count   5.000000
+mean   47.080000
+std     3.650616
+min    42.800000
+25%    44.500000
+50%    46.500000
+75%    50.400000
+max    51.200000
+
+           May
+count   5.0000
+mean   58.3400
+std     1.9995
+min    55.6000
+25%    57.4000
+50%    58.8000
+75%    58.9000
+max    61.0000
+
+            June
+count   5.000000
+mean   65.540000
+std     2.157081
+min    62.100000
+25%    64.800000
+50%    66.500000
+75%    66.900000
+max    67.400000
+
+            July
+count   5.000000
+mean   72.780000
+std     1.391761
+min    71.400000
+25%    71.500000
+50%    72.800000
+75%    73.500000
+max    74.700000
+
+          August
+count   5.000000
+mean   70.240000
+std     1.705286
+min    68.700000
+25%    69.300000
+50%    69.500000
+75%    70.700000
+max    73.000000
+
+       September
+count   5.000000
+mean   62.700000
+std     3.258067
+min    58.500000
+25%    60.800000
+50%    63.100000
+75%    64.000000
+max    67.100000
+
+         October
+count   5.000000
+mean   51.540000
+std     1.497665
+min    49.600000
+25%    50.400000
+50%    51.900000
+75%    52.700000
+max    53.100000
+
+        November
+count   5.000000
+mean   40.380000
+std     6.285062
+min    31.400000
+25%    37.900000
+50%    40.600000
+75%    44.000000
+max    48.000000
+
+       December
+count   5.00000
+mean   34.14000
+std     2.53239
+min    31.20000
+25%    32.20000
+50%    33.90000
+75%    36.50000
+max    36.90000
+</code></pre></div></div>
+
+<h3 id="question-8-write-function-to-summarize-numpy-array-using-axes">Question 8: Write Function to Summarize Numpy Array Using Axes</h3>
+
+<p>Write a function that calculates the mean across columns of a <code class="highlighter-rouge">numpy array</code>.</p>
+
+<p>Hints:</p>
+<ul>
+  <li>Recall which existing <code class="highlighter-rouge">numpy</code> function you can use to calculate a mean. You will include this function within the function you write to answer this question.</li>
+  <li>Review the lessons on functions to see the use of axes to calculate a statistic across the rows or columns of a <code class="highlighter-rouge">numpy array</code>.</li>
+</ul>
+
+<h3 id="question-9-execute-function-and-save-output-to-new-numpy-array">Question 9: Execute Function and Save Output to New Numpy Array</h3>
+
+<p>Run the function created in the previous question (i.e. to calculate mean of columns in a <code class="highlighter-rouge">numpy array</code>) on the <code class="highlighter-rouge">numpy array</code> containing data for 1993 to 1997. Save the output to a new <code class="highlighter-rouge">numpy array</code>.</p>
+
+<div class="output execute_result highlighter-rouge"><div class="highlight"><pre class="highlight"><code>array([0.902, 1.184, 1.608, 3.746, 3.898, 2.96 , 1.114, 2.19 , 2.444,
+       1.402, 1.776, 0.468])
+</code></pre></div></div>
+
+<h3 id="question-10-practice-pseudo-coding">Question 10: Practice Pseudo Coding</h3>
+
+<p>You have already learned how to save the output from one run of a function (see Question 9). What if you wanted to run the function on multiple <code class="highlighter-rouge">numpy arrays</code>?</p>
+
+<p><strong>Write a sentence or two on what you would need to know how to do, in order to save the output from a function that is running on multiple arrays in a loop.</strong></p>
+
+<p>Hint: think about how you can append values to a list using a loop (i.e. create an empty list that gets values appended to it in the loop).</p>
+
+<h2 id="part-2-submit-your-jupyter-notebook-to-github">Part 2: Submit Your Jupyter Notebook to GitHub</h2>
+
+<p>To submit your <code class="highlighter-rouge">Jupyter Notebook</code> for this activity, follow the <code class="highlighter-rouge">Git</code>/<code class="highlighter-rouge">Github</code> workflow from:</p>
+
+<ol>
+  <li>
+    <p><a href="http://localhost:8000/courses/earth-analytics-bootcamp/git-github-version-control/guided-activity-version-control/">Guided Activity on Version Control with Git/GitHub</a> to add, commit, and push your <code class="highlighter-rouge">Jupyter Notebook</code> for this activity to your forked repository (<code class="highlighter-rouge">https://github.com/yourusername/ea-bootcamp-practice-dry-code</code>).</p>
+  </li>
+  <li>
+    <p><a href="http://localhost:8000/courses/earth-analytics-bootcamp/git-github-version-control/guided-activity-pull-request">Guided Activity to Submit Pull Request</a> to submit a pull request of your <code class="highlighter-rouge">Jupyter Notebook</code> for this activity to the Earth Lab repository (<code class="highlighter-rouge">https://github.com/earthlab-education/ea-bootcamp-practice-dry-code</code>).</p>
+  </li>
+</ol>
+
+        
+
+        <!-- if the page is a course lesson, add pagination -->
+
+        
+         <!-- This is clunky code that forces pagination across lesson sets -->
+<!-- NOTE: it won't include slideshows as written which makes sense -->
+<!-- add forced pagination -->
+<!-- first, get total lesson count -->
+
+<div class="previous--next">
+
+
+
+
+
+<!-- if it's page one - then no previous button -->
+<!-- how do i figure out the link? i have to loop through again? -->
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+
+    
+      
+
+      
+      
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+</div>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <i class="fa fa-fw fa-tags" aria-hidden="true"></i> Tags
+  
+  <span class="a-main-tag">
+  <i class="fa fa-fw fa-tag" aria-hidden="true"></i><a href=http://localhost:8000/tags/reproducible-science-and-programming/>Reproducible science and programming</a>:
+  </span>
+  
+    
+    <a href=http://localhost:8000/tags/reproducible-science-and-programming/python/>python</a> 
+    
+    
+  
+
+
+
+
+
+
+
+
+        
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2018-09-10">September 10, 2018</time></p>
+        
+      </footer>
+
+      
+
+
+<section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=http://localhost:8000/courses/earth-analytics-bootcamp/practice-dry-code/activity-dry-code/" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:8000/courses/earth-analytics-bootcamp/practice-dry-code/activity-dry-code/" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://plus.google.com/share?url=http://localhost:8000/courses/earth-analytics-bootcamp/practice-dry-code/activity-dry-code/" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:8000/courses/earth-analytics-bootcamp/practice-dry-code/activity-dry-code/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+<br><br>
+  <a href="http://bit.ly/2jc5SXy" target="_blank">
+    <img src="http://localhost:8000/images/earth-data-analytics-professional-certificate-banner.png" alt="Get a professional Certificate in Earth Data Analytics at University of Colorado, Boulder" width="40%"></a>
+</section>
+
+
+       
+    </div>
+
+    
+      
+
+
+<div class="page__comments">
+  <h4 class="page__comments-title">Leave a Comment</h4>
+  
+    <section id="disqus_thread"></section>
+  
+</div>
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      
+        <h4 class="page__related-title">You May Also Enjoy</h4>
+      
+      <div class="grid__wrapper">
+        
+          
+
+
+
+
+<div class="grid__item">
+  
+    <a href="http://localhost:8000/courses/earth-analytics-bootcamp/data-wrangling/data-wrangling-numpy-arrays/">
+  
+    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+      
+      <h2 class="archive__item-title" itemprop="headline">Data Wrangling With Numpy Arrays
+</h2>
+
+
+     
+      
+        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  6 minute read
+	
+</p>
+      
+      <p class="archive__item-excerpt" itemprop="description">This lesson teaches you how to wrangle data (e.g. run multi-task functions, combine) with numpy arrays.
+</p>
+    </article>
+  </a>
+</div>
+
+        
+          
+
+
+
+
+<div class="grid__item">
+  
+    <a href="http://localhost:8000/courses/earth-analytics-bootcamp/data-wrangling/data-wrangling-pandas/">
+  
+    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+      
+      <h2 class="archive__item-title" itemprop="headline">Data Wrangling With Pandas
+</h2>
+
+
+     
+      
+        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  12 minute read
+	
+</p>
+      
+      <p class="archive__item-excerpt" itemprop="description">This lesson teaches you how to wrangle data (e.g. subselect, update, and combine) with pandas dataframes.
+</p>
+    </article>
+  </a>
+</div>
+
+        
+          
+
+
+
+
+<div class="grid__item">
+  
+    <a href="http://localhost:8000/courses/earth-analytics-bootcamp/prep-final-project/">
+  
+    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+      
+      <h2 class="archive__item-title" itemprop="headline">Prepare For Final Project
+</h2>
+
+
+     
+      
+        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  less than 1 minute read
+	
+</p>
+      
+      <p class="archive__item-excerpt" itemprop="description">
+
+     Today
+
+  
+
+
+</p>
+    </article>
+  </a>
+</div>
+
+        
+          
+
+
+
+
+<div class="grid__item">
+  
+    <a href="http://localhost:8000/courses/earth-analytics-bootcamp/data-wrangling/">
+  
+    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+      
+      <h2 class="archive__item-title" itemprop="headline">Data Wrangling
+</h2>
+
+
+     
+      
+        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  1 minute read
+	
+</p>
+      
+      <p class="archive__item-excerpt" itemprop="description">
+
+     Today
+
+  
+
+
+</p>
+    </article>
+  </a>
+</div>
+
+        
+      </div>
+    </div>
+  
+</div>
+
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+
+
+<!-- Adding analytics code -->
+
+        
+
+
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    <li>
+      <strong>&copy; 2018 Earth Lab -
+      <a href="http://localhost:8000/license"> View License. </a>
+      Questions? Feedback? Please file an issue on GitHub.</strong>
+    </li>
+  </ul>
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+    
+      <li><a href="https://twitter.com/earthlabcu"><i class="fa fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+    
+    
+    
+      <li><a href="http://github.com/earthlab"><i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+    
+    
+    <li><a href="http://localhost:8000/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    <script src="http://localhost:8000/assets/js/main.min.js"></script>
+
+
+
+
+
+
+  
+  <script type="text/javascript">
+  	/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  	var disqus_shortname = 'earthlabcu';
+
+  	/* * * DON'T EDIT BELOW THIS LINE * * */
+  	(function() {
+  		var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  		dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  	})();
+
+  	/* * * DON'T EDIT BELOW THIS LINE * * */
+  	(function () {
+  		var s = document.createElement('script'); s.async = true;
+  		s.type = 'text/javascript';
+  		s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  		(document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+  	}());
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+
+<script type="text/javascript"
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+</script>
+
+    
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-84081999-1', 'auto');
+    ga('send', 'pageview');
+</script>
+
+
+
+  </body>
+</html>
+

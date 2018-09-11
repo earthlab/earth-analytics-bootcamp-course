@@ -1,0 +1,980 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+
+
+<meta charset="utf-8">
+
+
+
+
+<!-- begin SEO -->
+
+
+
+
+
+
+
+
+
+<title>GEOG 4463 & 5463 - Earth Analytics Bootcamp: Homework 1 | Earth Data Science - Earth Lab </title>
+
+
+
+
+
+
+
+<meta property="og:locale" content="en-US">
+<meta property="og:site_name" content="Earth Data Science - Earth Lab">
+<meta property="og:title" content="GEOG 4463 &amp; 5463 - Earth Analytics Bootcamp: Homework 1">
+
+
+  <link rel="canonical" href="http://localhost:8000/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-homework-1/">
+  <meta property="og:url" content="http://localhost:8000/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-homework-1/">
+
+
+
+  <meta content="     In This Lesson  " name="description">
+  <meta property="og:description" content="     In This Lesson  ">
+
+
+<!-- twitter cards -->
+
+  <meta name="twitter:site" content="@earthlabcu">
+  <meta name="twitter:title" content="GEOG 4463 &amp; 5463 - Earth Analytics Bootcamp: Homework 1">
+  <meta name="twitter:description" content="     In This Lesson  ">
+  <meta name="twitter:url" content="http://localhost:8000/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-homework-1/">
+
+  
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="https://earthdatascience.org/images/earth_sm_twit.png">
+    <meta name="twitter:image:alt" content="The Earthlab Logo - image of a globe with courses, lessons and tutorials">
+
+    
+  
+
+  
+
+
+
+  
+
+  
+
+
+
+
+
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2018-07-16T00:00:00-06:00">
+  
+    <link rel="next" href="http://localhost:8000/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-homework-2/" title="GEOG 4463 &amp; 5463 - Earth Analytics Bootcamp: Homework 2">
+  
+  
+    <link rel="prev" href="http://localhost:8000/courses/earth-analytics-python/earth-analytics-syllabus/" title="GEOG 5563 - Earth Analytics: Fall 2018 Syllabus">
+  
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "Person",
+      "name" : "Earth Analytics",
+      "url" : "http://localhost:8000",
+      "sameAs" : null
+    }
+  </script>
+
+
+
+
+
+
+<!-- end SEO -->
+
+
+<link href="http://localhost:8000/feed.xml" type="application/atom+xml" rel="alternate" title="Earth Data Science - Earth Lab Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google-site-verification" content="LfpevjsE0wlELv5KKOZv1T2RhRimGSiRckWv5ZC19GU" />
+<!-- don't use the old cataloged meta tags -->
+<meta name="googlebot" content="noodp">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+
+<!-- For all browsers
+<link rel="stylesheet" href="http://localhost:8000/assets/css/main.css">-->
+<link rel="stylesheet" href="http://localhost:8000/assets/css/main.css">
+
+<meta http-equiv="cleartype" content="on">
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use http://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+  </head>
+
+  <body>
+
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+    
+
+<!-- search bar begin  - turning off for now-->
+
+<div class="search">
+<form role="search" method="get" action="http://localhost:8000/search/">
+    <input id="q" name="q"
+           placeholder="Search earth data science site" type="text">
+</form>
+<!--<span class='cu-boulder'><a href="http://www.colorado.edu/earthlab" target="_blank">Earth Lab University of Colorado - Boulder Home </a></span> -->
+</div>
+
+
+<!-- search bar END -->
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <button><div class="navicon"></div></button>
+        <ul class="visible-links">
+          <li class="masthead__menu-item masthead__menu-item--lg"><a href="http://localhost:8000/"><img src="/images/earth_sm.png" alt="Earth Lab - Earth Data Science" style="height:80%;width:85%"></a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:8000/tutorials/">Tutorials</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:8000/courses/">Courses</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:8000/workshops/">Workshops</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:8000/tools/">Tools</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:8000/blog/">Blog</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:8000/events/">Events</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:8000/about/">About</a></li>
+          
+
+        </ul>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+
+
+
+
+
+
+
+
+
+
+<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs">
+ <ol itemscope itemtype="http://schema.org/BreadcrumbList">
+<a href="http://localhost:8000"></a>
+ 
+ <!-- there is an offset of 1 so subtract 2 from the final crumb number-->
+ 
+   
+   
+     <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+       <a href="http://localhost:8000/" itemprop="item"><span itemprop="name">Home</span></a>
+       <meta itemprop="position" content="" />
+     </li>
+     <span class="sep">/</span>
+   
+    
+        <li><a href="http://localhost:8000/courses/">Courses </a>
+        <span class="sep">/</span></li>
+    
+  
+   
+    
+        <li><a href="http://localhost:8000/courses/earth-analytics-bootcamp/">  Earth analytics bootcamp </a>
+        <span class="sep">/</span></li>
+    
+  
+   
+    
+        <li class="current">GEOG 4463 & 5463 - Earth Analytics Bootcamp: Homework 1</li>
+    
+  
+</ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+
+
+
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+    
+    
+
+
+    
+
+    
+     <!--  Might be able to delete this This is the code that populates the side bar navigation if there is a class-->
+      
+
+
+
+
+
+<!-- make sure we're only grabbing pages for the course -->
+
+
+
+<!--<h3>Week  Lessons</h3>-->
+<!-- i don't think the code below is used as modules is defined lower down as well. -->
+
+<!-- This is how modules are sorted on the left hand side bar -->
+
+
+
+
+
+
+<h5><a href="http://localhost:8000/courses/earth-analytics-bootcamp/" ><i class="fa fa-home" aria-hidden="true"></i> Earth-analytics-bootcamp Home</a></h5>
+
+<!-- Just get the pages from this course -->
+
+
+
+
+
+
+<nav class="nav__list">
+
+
+
+
+
+
+<ul>
+  <li><span class="nav__sub-title"><i class="fa fa-book" aria-hidden="true"></i> Units</span>
+   <ul>
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/get-started-with-open-science/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       1. Get Started with Open Reproducible Science</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/python-variables-lists/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       2. Python Variables and Lists</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/git-github-version-control/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       3. Git/Github.com Workflow For Version Control</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/numpy-arrays/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       4. Numpy Arrays</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/pandas-dataframes/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       5. Pandas Dataframes</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/practice-data-structures/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       6. Practice Working With Data Structures</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/loops/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       7. Loops in Python</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/conditional-statements/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       8. Conditional Statements</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/git-github-collaboration/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       9. Git/Github.com For Collaboration</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/functions/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       10. Functions</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/practice-dry-code/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       11. Practice Writing DRY Code</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/data-wrangling/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       12. Data Wrangling</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/prep-final-project/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       13. Prepare For Final Project</a></li>
+    
+
+
+      
+
+    
+  </ul></li>
+ </ul>
+
+
+ <ul>
+   <li><span class="nav__sub-title"><i class="fa fa-folder-open" aria-hidden="true"></i> Overview</span>
+    <ul>
+     
+          
+         <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/">
+           Earth Analytics Bootcamp Home </a></li>
+         
+
+     
+          
+         <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-syllabus/">
+           Course Syllabus </a></li>
+         
+
+     
+          
+         <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-pre-course-learning/">
+           Pre-Course Learning Resources </a></li>
+         
+
+     
+          
+         <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-checklist/">
+           Pre-Course Checklist </a></li>
+         
+
+     
+          
+         <li><a href="http://localhost:8000/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-homework-1/" class='active'>
+           Homework 1 </a></li>
+         
+
+     
+          
+         <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-homework-2/">
+           Homework 2 </a></li>
+         
+
+     
+          
+         <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-homework-3/">
+           Homework 3 </a></li>
+         
+
+     
+          
+         <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/pep-8-style-guide/">
+           Reference on PEP 8 Style Guide </a></li>
+         
+
+     
+          
+         <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-homework-4/">
+           Homework 4 </a></li>
+         
+
+     
+          
+         <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-final-project/">
+           Final Project </a></li>
+         
+
+     
+   </ul>
+ </li>
+</ul>
+</nav>
+
+<h5><a href="http://localhost:8000/courses/earth-analytics-bootcamp/" ><i class="fa fa-home" aria-hidden="true"></i> earth-analytics-bootcamp Home</a></h5>
+
+    
+
+    
+
+  
+  </div>
+
+
+
+
+
+
+<!-- begin science / science themes side bar nav -->
+
+
+
+  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+
+    <meta itemprop="headline" content="GEOG 4463 &amp; 5463 - Earth Analytics Bootcamp: Homework 1">
+    <meta itemprop="description" content="     In This Lesson  ">
+    <meta itemprop="datePublished" content="July 16, 2018">
+    <meta itemprop="dateModified" content="August 13, 2018">
+
+    <div class="page__inner-wrap">
+      
+
+        <header>
+          <!-- BEGIN: insert a welcome to the module block on pages that are part of a module set -->
+
+          <!-- END: insert welcome block -->
+          <h1 class="page__title" itemprop="headline">
+            
+             GEOG 4463 &amp; 5463 - Earth Analytics Bootcamp: Homework 1
+ </h1>
+            
+          
+
+          
+            <div class="page__meta">
+              
+              
+              <a href="http://localhost:8000/authors/jenny-palomino">Jenny Palomino</a>
+              
+            </div>
+          
+
+        <br/>
+
+        
+
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        <!-- would like to include the TOC automatically but this does weird things-->
+        
+        <aside class="sidebar__right">
+<nav class="toc">
+    <header><h4 class="nav__title"><i class="fa fa-file-text"></i> In This Lesson</h4></header>
+<ul class="toc__menu" id="markdown-toc">
+  <li><a href="#homework-1" id="markdown-toc-homework-1"><i class="fa fa-ship" aria-hidden="true"></i> Homework 1</a></li>
+  <li><a href="#what-you-need" id="markdown-toc-what-you-need"><i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need</a></li>
+  <li><a href="#part-1-complete-homework-1-quiz-on-canvas" id="markdown-toc-part-1-complete-homework-1-quiz-on-canvas">Part 1: Complete Homework 1 Quiz on Canvas</a></li>
+  <li><a href="#part-2-complete-a-jupyter-notebook" id="markdown-toc-part-2-complete-a-jupyter-notebook">Part 2: Complete a Jupyter Notebook</a></li>
+  <li><a href="#part-3-submit-your-jupyter-notebook-to-github" id="markdown-toc-part-3-submit-your-jupyter-notebook-to-github">Part 3: Submit Your Jupyter Notebook to GitHub</a></li>
+</ul>
+
+  </nav>
+</aside>
+
+<div class="notice--info">
+
+  <h2 id="homework-1"><i class="fa fa-ship" aria-hidden="true"></i> Homework 1</h2>
+
+  <p>This assignment has two components:</p>
+
+  <ol>
+    <li>
+      <p>Completing the <a href="https://canvas.colorado.edu/courses/17063/quizzes/38134" target="_blank">Homework 1 Quiz on CANVAS</a>. You need to log into CANVAS to complete this quiz.</p>
+    </li>
+    <li>
+      <p>Completing and submitting the <code class="highlighter-rouge">Jupyter Notebook</code> for Homework 1 (<code class="highlighter-rouge">ea-bootcamp-hw-1.ipynb</code>). You will need follow the instructions below <strong>Part 3: Submit Your Jupyter Notebook to GitHub</strong> to submit this component.</p>
+    </li>
+  </ol>
+
+  <p>You need to <strong>complete both components of this assignment (Homework 1) by Friday, August 10th at 8:00 AM (U.S. Mountain Daylight Time)</strong>. See <a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20180810T08&amp;p1=1243" target="_blank">this link</a>  to convert the due date/time to your local time. Each component contributes 50% to your final grade for Homework 1.</p>
+
+  <h2 id="what-you-need"><i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need</h2>
+
+  <p>Be sure that you have completed all of the lessons from Days 1, 2, and 3 for the Earth Analytics Bootcamp. Completing the challenges at the end of the lessons will also help you with this assignment.</p>
+
+  <p>You will need the <code class="highlighter-rouge">Jupyter Notebook</code> for Homework 1 (<code class="highlighter-rouge">ea-bootcamp-hw-1.ipynb</code>), which is in your forked repository for Homework 1 (<code class="highlighter-rouge">https://github.com/yourusername/ea-bootcamp-hw-1-yourusername</code>).</p>
+
+  <p>If you have not already forked and cloned the repository for Homework 1, complete the following instructions:</p>
+
+  <ol>
+    <li>
+      <p>On Day 1 of the course, you will receive an email invitation to Homework 1 via CANVAS.</p>
+    </li>
+    <li>
+      <p>Accept the invitation, which will create a new private repository that includes your <code class="highlighter-rouge">Github.com</code> username in the name of the repository: <code class="highlighter-rouge">https://github.com/earthlab-education/ea-bootcamp-hw-1-yourusername</code>.</p>
+    </li>
+    <li>
+      <p><code class="highlighter-rouge">Fork</code> this repository to your <code class="highlighter-rouge">GitHub account</code>. Your forked repository will be available on <code class="highlighter-rouge">https://github.com/yourusername/ea-bootcamp-hw-1-yourusername</code>.</p>
+    </li>
+    <li>
+      <p>Clone your forked repository <code class="highlighter-rouge">ea-bootcamp-hw-1-yourusername</code> to the <code class="highlighter-rouge">earth-analytics-bootcamp</code> directory on your computer (hint: <code class="highlighter-rouge">cd</code>, <code class="highlighter-rouge">git clone</code>). This repository will contain the the <code class="highlighter-rouge">Jupyter Notebook</code> for Homework 1 (<code class="highlighter-rouge">ea-bootcamp-hw-1.ipynb</code>).</p>
+    </li>
+  </ol>
+
+</div>
+
+<h2 id="part-1-complete-homework-1-quiz-on-canvas">Part 1: Complete Homework 1 Quiz on Canvas</h2>
+
+<p>Complete the <a href="https://canvas.colorado.edu/courses/17063/quizzes/38134" target="_blank">Homework 1 Quiz on CANVAS.</a> You need to log into CANVAS to see this quiz. This component contributes 50 points to your homework grade (out of a total possible points of 100).</p>
+
+<p>This component will test your <code class="highlighter-rouge">Shell</code>, <code class="highlighter-rouge">Jupyter Notebook</code> and <code class="highlighter-rouge">Git</code> skills from Days 1 to 3.</p>
+
+<h2 id="part-2-complete-a-jupyter-notebook">Part 2: Complete a Jupyter Notebook</h2>
+
+<p>The second part of this homework assignment will involve you working on a set of questions in a <code class="highlighter-rouge">Jupyter Notebook</code>. Open <code class="highlighter-rouge">ea-bootcamp-hw-1.ipynb</code> in your <code class="highlighter-rouge">ea-bootcamp-hw-1-yourusername</code> repository, and follow the instructions in the notebook (which are also listed below).</p>
+
+<p>All new cells should be added after this <code class="highlighter-rouge">Markdown</code> cell with the instructions and in the order specified.</p>
+
+<p>For code cells, <strong>be sure to add <code class="highlighter-rouge">Python</code> comments to document each code block</strong> and use appropriate variable names that are short and concise but also clearly indicate the kind of data contained in the variable. Review the variable names that you have seen throughout the lessons.</p>
+
+<p>The possible points earned for each question are listed; this component contributes 50 points to your homework grade (out of a total possible points of 100).</p>
+
+<p>This component will test your <code class="highlighter-rouge">Jupyter Notebook</code> and <code class="highlighter-rouge">Python</code> skills from Days 1 to 3.</p>
+
+<h3 id="question-1---rename-jupyter-notebook-files-2-pts">Question 1 - Rename Jupyter Notebook Files (2 pts)</h3>
+
+<p>Rename your <code class="highlighter-rouge">Jupyter Notebook</code> file for Homework 1 (<code class="highlighter-rouge">ea-bootcamp-hw-1.ipynb</code>) by adding your first initial and last name to the filename (e.g. <code class="highlighter-rouge">jpalomino-ea-bootcamp-hw-1.ipynb</code>).</p>
+
+<h3 id="question-2---markdown-styling-2-pts">Question 2 - Markdown Styling (2 pts)</h3>
+
+<p>Add a new <code class="highlighter-rouge">Markdown</code> cell below and add <code class="highlighter-rouge">Markdown</code> for:</p>
+<ul>
+  <li>A title for the notebook.</li>
+  <li>A <strong>bullet list</strong> with:
+    <ul>
+      <li>A bold word for <code class="highlighter-rouge">Author:</code> and then add text for your name.</li>
+      <li>A bold word for <code class="highlighter-rouge">Date:</code> and then add text for today’s date.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="question-3---open-reproducible-science-4-pts">Question 3 - Open Reproducible Science (4 pts)</h3>
+
+<p>Add a new <code class="highlighter-rouge">Markdown</code> cell below, and answer the following questions using a <strong>numbered list</strong>.</p>
+
+<ul>
+  <li>
+    <p>In 1-2 sentences, define open reproducible science.</p>
+  </li>
+  <li>
+    <p>In 1-2 sentences, choose one of the tools that you have learned (i.e. <code class="highlighter-rouge">Shell</code>, <code class="highlighter-rouge">Git</code>/<code class="highlighter-rouge">GitHub</code>, <code class="highlighter-rouge">Jupyter Notebook</code>, <code class="highlighter-rouge">Python</code>) and explain how it supports open reproducible science.</p>
+  </li>
+</ul>
+
+<h3 id="question-4---import-necessary-python-packages-4-pts">Question 4 - Import Necessary Python Packages (4 pts)</h3>
+
+<p>Add a new code cell below, and add <code class="highlighter-rouge">Python</code> code to:</p>
+
+<ul>
+  <li>Import the <code class="highlighter-rouge">os</code> package.</li>
+  <li>Import the <code class="highlighter-rouge">matplotlib.pyplot</code> module using the alias <code class="highlighter-rouge">plt</code>.</li>
+</ul>
+
+<h3 id="question-5---print-current-working-directory-2-pts">Question 5 - Print Current Working Directory (2 pts)</h3>
+
+<p>Add a new code cell below, and add the appropriate <code class="highlighter-rouge">Python</code> function to print your current working directory, which should be the full path to the <code class="highlighter-rouge">ea-bootcamp-hw-1-yourusername</code> directory.</p>
+
+<h3 id="question-6---create-variables-4-pts">Question 6 - Create Variables (4 pts)</h3>
+
+<p>For this question, you will use data on average monthly temperature for <a href="https://www.esrl.noaa.gov/psd/boulder/Boulder.mm.html" target="_blank">Boulder, Colorado, provided by the U.S. National Oceanic and Atmospheric Administration (NOAA).</a></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Month</th>
+      <th>Temperature (Fahrenheit)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Jan</td>
+      <td>32.0</td>
+    </tr>
+    <tr>
+      <td>Feb</td>
+      <td>35.6</td>
+    </tr>
+    <tr>
+      <td>Mar</td>
+      <td>41.0</td>
+    </tr>
+    <tr>
+      <td>Apr</td>
+      <td>49.2</td>
+    </tr>
+    <tr>
+      <td>May</td>
+      <td>57.9</td>
+    </tr>
+    <tr>
+      <td>June</td>
+      <td>67.2</td>
+    </tr>
+    <tr>
+      <td>July</td>
+      <td>73.0</td>
+    </tr>
+    <tr>
+      <td>Aug</td>
+      <td>71.1</td>
+    </tr>
+    <tr>
+      <td>Sept</td>
+      <td>62.1</td>
+    </tr>
+    <tr>
+      <td>Oct</td>
+      <td>52.9</td>
+    </tr>
+    <tr>
+      <td>Nov</td>
+      <td>40.8</td>
+    </tr>
+    <tr>
+      <td>Dec</td>
+      <td>33.8</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Add a new code cell below, and add <code class="highlighter-rouge">Python</code> code to:</p>
+
+<ul>
+  <li>Create new variables for monthly average temperature (Fahrenheit) for January through December.</li>
+  <li>Print the variable for December.</li>
+</ul>
+
+<div class="output highlighter-rouge"><div class="highlight"><pre class="highlight"><code>33.8
+</code></pre></div></div>
+
+<h3 id="question-7---run-calculations-on-variables-10-pts">Question 7 - Run Calculations on Variables (10 pts)</h3>
+
+<p>Add a new code cell below, and add <code class="highlighter-rouge">Python</code> code to:</p>
+
+<ul>
+  <li>Convert the variable values from Fahrenheit to Celsius using the following equation:
+    <ul>
+      <li>Celsius = (Fahrenheit - 32) / 1.8</li>
+      <li>Note that including <code class="highlighter-rouge">Fahrenheit - 32</code> within parenthesis <code class="highlighter-rouge">()</code> tells <code class="highlighter-rouge">Python</code> to execute that calculation first.</li>
+    </ul>
+  </li>
+  <li>Print the new variable for December.</li>
+</ul>
+
+<div class="output highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0.9999999999999984
+</code></pre></div></div>
+
+<h3 id="question-8---create-lists-6-pts">Question 8 - Create Lists (6 pts)</h3>
+
+<p>Add a new code cell below, and add <code class="highlighter-rouge">Python</code> code to:</p>
+
+<ul>
+  <li>Create a new list for average monthly temperature for Boulder, CO from the variables containing the Celsius values.</li>
+  <li>Print the temperature list.</li>
+  <li>Create another list for the month names using <strong>full-length</strong> month names (e.g. January).</li>
+  <li>Print the month name list.</li>
+</ul>
+
+<div class="output highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[0.0, 2.000000000000001, 5.0, 9.555555555555557, 14.388888888888888, 19.555555555555557, 22.77777777777778, 21.722222222222218, 16.72222222222222, 11.61111111111111, 4.8888888888888875, 0.9999999999999984]
+['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+</code></pre></div></div>
+
+<h3 id="question-9---plot-data-from-lists-12-pts">Question 9 - Plot Data From Lists (12 pts)</h3>
+
+<p>Add a new code cell below, and add <code class="highlighter-rouge">Python</code> code to:</p>
+
+<ul>
+  <li>Create a <strong>red bar</strong> plot of the average monthly temperature for Boulder, CO using the lists created in Question 8 (units in Celsius).</li>
+  <li>Be sure to include a title for your plot.</li>
+  <li>Be sure to include labels for the x- and y-axes, <strong>including the units for the temperature (Celsius)</strong>.</li>
+  <li>Rotate the x-axis markers, so that the spacing along the x-axis is more appealing with long month names.</li>
+</ul>
+
+<p class="output display_data"><img src="http://localhost:8000//images/courses/earth-analytics-bootcamp/00-course-overview/2018-07-16-co-04-homework-1_8_0.png" alt="png" /></p>
+
+<h3 id="question-10---discuss-plot-4-pts">Question 10 - Discuss Plot (4 pts)</h3>
+
+<p>Add a new <code class="highlighter-rouge">Markdown</code> cell below, and answer the following questions (4-6 sentences).</p>
+
+<ol>
+  <li>
+    <p>Which months have the lowest and the highest temperatures? How much of a difference is there between the lowest and highest temperatures?</p>
+  </li>
+  <li>
+    <p>Given that Boulder, CO is in the Northern Hemisphere, are these results surprising? How might the results look different if you were plotting data from a location in the Southern Hemisphere?</p>
+  </li>
+  <li>
+    <p>Given the Boulder, CO is at a moderately high latitude (~40 degrees North), are these results surprising? How might the results look different if you were plotting data from a location closer to the equator? (Hint: think about the difference between the lowest and highest temperatures)</p>
+  </li>
+</ol>
+
+<p>To answer these questions, it can help to review the <a href="https://www.google.com/maps/place/Boulder,+CO/@18.3736306,-81.2965677,3.85z/data=!4m5!3m4!1s0x876b8d4e278dafd3:0xc8393b7ca01b8058!8m2!3d40.0149856!4d-105.2705456" target="_blank">location of Boulder Colorado on Google Maps</a>.</p>
+
+<h2 id="part-3-submit-your-jupyter-notebook-to-github">Part 3: Submit Your Jupyter Notebook to GitHub</h2>
+
+<p>To submit your <code class="highlighter-rouge">Jupyter Notebook</code> for Homework 1, follow the <code class="highlighter-rouge">Git</code>/<code class="highlighter-rouge">Github</code> workflow from:</p>
+
+<ol>
+  <li>
+    <p><a href="http://localhost:8000/courses/earth-analytics-bootcamp/git-github-version-control/guided-activity-version-control/">Guided Activity on Version Control with Git/GitHub</a> to add, commit, and push your <code class="highlighter-rouge">Jupyter Notebook</code> for Homework 1 to your forked repository for Homework 1 (<code class="highlighter-rouge">https://github.com/yourusername/ea-bootcamp-hw-1-yourusername</code>).</p>
+  </li>
+  <li>
+    <p><a href="http://localhost:8000/courses/earth-analytics-bootcamp/git-github-version-control/guided-activity-pull-request">Guided Activity to Submit Pull Request</a> to submit a pull request of your <code class="highlighter-rouge">Jupyter Notebook</code> for Homework 1 to the Earth Lab repository for Homework 1 (<code class="highlighter-rouge">https://github.com/earthlab-education/ea-bootcamp-hw-1-yourusername</code>).</p>
+  </li>
+</ol>
+
+        
+
+        <!-- if the page is a course lesson, add pagination -->
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+
+
+
+
+
+        
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2018-08-13">August 13, 2018</time></p>
+        
+      </footer>
+
+      
+
+
+<section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=http://localhost:8000/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-homework-1/" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:8000/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-homework-1/" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://plus.google.com/share?url=http://localhost:8000/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-homework-1/" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:8000/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-homework-1/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+<br><br>
+  <a href="http://bit.ly/2jc5SXy" target="_blank">
+    <img src="http://localhost:8000/images/earth-data-analytics-professional-certificate-banner.png" alt="Get a professional Certificate in Earth Data Analytics at University of Colorado, Boulder" width="40%"></a>
+</section>
+
+
+       
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+
+
+<!-- Adding analytics code -->
+
+        
+
+
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    <li>
+      <strong>&copy; 2018 Earth Lab -
+      <a href="http://localhost:8000/license"> View License. </a>
+      Questions? Feedback? Please file an issue on GitHub.</strong>
+    </li>
+  </ul>
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+    
+      <li><a href="https://twitter.com/earthlabcu"><i class="fa fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+    
+    
+    
+      <li><a href="http://github.com/earthlab"><i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+    
+    
+    <li><a href="http://localhost:8000/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    <script src="http://localhost:8000/assets/js/main.min.js"></script>
+
+
+
+
+
+<script type="text/javascript"
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+</script>
+
+    
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-84081999-1', 'auto');
+    ga('send', 'pageview');
+</script>
+
+
+
+  </body>
+</html>
+
