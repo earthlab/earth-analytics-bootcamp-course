@@ -1,0 +1,2454 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+
+
+<meta charset="utf-8">
+
+
+
+
+<!-- begin SEO -->
+
+
+
+
+
+
+
+
+
+<title>Write Custom Functions | Earth Data Science - Earth Lab </title>
+
+
+
+
+
+
+
+<meta property="og:locale" content="en-US">
+<meta property="og:site_name" content="Earth Data Science - Earth Lab">
+<meta property="og:title" content="Write Custom Functions">
+
+
+  <link rel="canonical" href="http://localhost:8000/courses/earth-analytics-bootcamp/functions/write-functions/">
+  <meta property="og:url" content="http://localhost:8000/courses/earth-analytics-bootcamp/functions/write-functions/">
+
+
+
+  <meta content="This lesson teaches you how to write custom functions in Python." name="description">
+  <meta property="og:description" content="This lesson teaches you how to write custom functions in Python.">
+
+
+<!-- twitter cards -->
+
+  <meta name="twitter:site" content="@earthlabcu">
+  <meta name="twitter:title" content="Write Custom Functions">
+  <meta name="twitter:description" content="This lesson teaches you how to write custom functions in Python.">
+  <meta name="twitter:url" content="http://localhost:8000/courses/earth-analytics-bootcamp/functions/write-functions/">
+
+  
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="https://earthdatascience.org/images/earth_sm_twit.png">
+    <meta name="twitter:image:alt" content="The Earthlab Logo - image of a globe with courses, lessons and tutorials">
+
+    
+  
+
+  
+
+
+
+  
+
+  
+
+
+
+
+
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2019-08-11T00:00:00-06:00">
+  
+    <link rel="next" href="http://localhost:8000/courses/earth-analytics-bootcamp/functions/apply-functions-numpy-arrays/" title="Apply Functions to Numpy Arrays">
+  
+  
+    <link rel="prev" href="http://localhost:8000/courses/earth-analytics-bootcamp/functions/intro-functions/" title="Intro to Functions">
+  
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "Person",
+      "name" : "Earth Analytics",
+      "url" : "http://localhost:8000",
+      "sameAs" : null
+    }
+  </script>
+
+
+
+
+
+
+<!-- end SEO -->
+
+
+<link href="http://localhost:8000/feed.xml" type="application/atom+xml" rel="alternate" title="Earth Data Science - Earth Lab Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google-site-verification" content="LfpevjsE0wlELv5KKOZv1T2RhRimGSiRckWv5ZC19GU" />
+<!-- don't use the old cataloged meta tags -->
+<meta name="googlebot" content="noodp">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+
+<!-- For all browsers
+<link rel="stylesheet" href="http://localhost:8000/assets/css/main.css">-->
+<link rel="stylesheet" href="http://localhost:8000/assets/css/main.css">
+
+<meta http-equiv="cleartype" content="on">
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use http://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+  </head>
+
+  <body>
+
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+    
+
+<!-- search bar begin  - turning off for now-->
+
+<div class="search">
+<form role="search" method="get" action="http://localhost:8000/search/">
+    <input id="q" name="q"
+           placeholder="Search earth data science site" type="text">
+</form>
+<!--<span class='cu-boulder'><a href="http://www.colorado.edu/earthlab" target="_blank">Earth Lab University of Colorado - Boulder Home </a></span> -->
+</div>
+
+
+<!-- search bar END -->
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <button><div class="navicon"></div></button>
+        <ul class="visible-links">
+          <li class="masthead__menu-item masthead__menu-item--lg"><a href="http://localhost:8000/"><img src="/images/earth_sm.png" alt="Earth Lab - Earth Data Science" style="height:80%;width:85%"></a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:8000/tutorials/">Tutorials</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:8000/courses/">Courses</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:8000/workshops/">Workshops</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:8000/tools/">Tools</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:8000/blog/">Blog</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:8000/events/">Events</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:8000/about/">About</a></li>
+          
+
+        </ul>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+
+
+
+
+
+
+
+
+
+
+<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs">
+ <ol itemscope itemtype="http://schema.org/BreadcrumbList">
+<a href="http://localhost:8000"></a>
+ 
+ <!-- there is an offset of 1 so subtract 2 from the final crumb number-->
+ 
+   
+   
+     <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+       <a href="http://localhost:8000/" itemprop="item"><span itemprop="name">Home</span></a>
+       <meta itemprop="position" content="" />
+     </li>
+     <span class="sep">/</span>
+   
+    
+        <li><a href="http://localhost:8000/courses/">Courses </a>
+        <span class="sep">/</span></li>
+    
+  
+   
+    
+        <li><a href="http://localhost:8000/courses/earth-analytics-bootcamp/">Earth analytics bootcamp </a>
+        <span class="sep">/</span></li>
+    
+  
+   
+    
+        <li><a href="http://localhost:8000/courses/earth-analytics-bootcamp/functions/"> Week 10.  Functions </a>
+        <span class="sep">/</span></li>
+    
+  
+   
+    
+        <li class="current">Write Custom Functions</li>
+    
+  
+</ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+
+
+
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+    
+    
+
+
+    
+
+    
+     <!--  Might be able to delete this This is the code that populates the side bar navigation if there is a class-->
+      
+
+
+
+
+
+<!-- make sure we're only grabbing pages for the course -->
+
+
+
+<!--<h3>Week 10 Lessons</h3>-->
+<!-- i don't think the code below is used as modules is defined lower down as well. -->
+
+<!-- This is how modules are sorted on the left hand side bar -->
+
+
+
+
+
+
+<h5><a href="http://localhost:8000/courses/earth-analytics-bootcamp/" ><i class="fa fa-home" aria-hidden="true"></i> Earth-analytics-bootcamp Home</a></h5>
+
+<!-- Just get the pages from this course -->
+
+
+
+
+
+
+<nav class="nav__list">
+
+
+
+
+
+
+<ul>
+  <li><span class="nav__sub-title"><i class="fa fa-book" aria-hidden="true"></i> Units</span>
+   <ul>
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/get-started-with-open-science/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       1. Get Started with Open Reproducible Science</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/python-variables-lists/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       2. Python Variables and Lists</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/git-github-version-control/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       3. Git/Github.com Workflow For Version Control</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/numpy-arrays/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       4. Numpy Arrays</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/pandas-dataframes/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       5. Pandas Dataframes</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/practice-data-structures/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       6. Practice Working With Data Structures</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/loops/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       7. Loops in Python</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/conditional-statements/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       8. Conditional Statements</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/git-github-collaboration/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       9. Git/Github.com For Collaboration</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+
+
+      
+       
+        <li class='active-section'> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/functions/"><i class="fa fa-folder-open" aria-hidden="true"></i>
+           10. FUNCTIONS</a></li>
+        
+
+<div class='active-menu'>
+      <ul>
+        
+        <!-- Note that class-order allows you to sort modules by class order if there are more than 1 in a class -->
+        
+
+        
+
+        
+
+        
+        
+          <li><span class="nav__sub-title grey"><i class="fa fa-caret-down" aria-hidden="true"></i> Functions </span></li>
+        <ul>
+
+      
+      <!-- count lessons -->
+
+        
+        
+        
+
+        
+        
+        
+          
+          <li><a href= http://localhost:8000/courses/earth-analytics-bootcamp/functions/intro-functions/><!--10.1 --> - Intro to Functions</a></li>
+          
+          
+
+        
+        
+        
+          
+          <li><a href= http://localhost:8000/courses/earth-analytics-bootcamp/functions/write-functions/ class='active'> <!--10.2 -->- Write Custom Functions</a></li>
+          
+          
+
+        
+        
+        
+          
+          <li><a href= http://localhost:8000/courses/earth-analytics-bootcamp/functions/apply-functions-numpy-arrays/><!--10.3 --> - Apply Functions to Numpy Arrays</a></li>
+          
+          
+
+        
+       </ul>
+        
+
+        
+      </ul>
+
+      <!-- BEGIN Learn how to lessons -->
+       <ul>
+         
+         
+       </ul>
+
+
+     </div>
+
+
+      <!-- END BEGIN Learn how to lessons -->
+
+      <!--  -->
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/practice-dry-code/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       11. Practice Writing DRY Code</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/data-wrangling/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       12. Data Wrangling</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/prep-final-project/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       13. Prepare For Final Project</a></li>
+    
+
+
+      
+
+    
+  </ul></li>
+ </ul>
+
+
+ <ul>
+   <li><span class="nav__sub-title"><i class="fa fa-folder-open" aria-hidden="true"></i> Overview</span>
+    <ul>
+     
+          
+         <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/">
+           Earth Analytics Bootcamp Home </a></li>
+         
+
+     
+          
+         <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-syllabus/">
+           Course Syllabus </a></li>
+         
+
+     
+          
+         <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-pre-course-learning/">
+           Pre-Course Learning Resources </a></li>
+         
+
+     
+          
+         <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-checklist/">
+           Pre-Course Checklist </a></li>
+         
+
+     
+          
+         <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-homework-1/">
+           Homework 1 </a></li>
+         
+
+     
+          
+         <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-homework-2/">
+           Homework 2 </a></li>
+         
+
+     
+          
+         <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-homework-3/">
+           Homework 3 </a></li>
+         
+
+     
+          
+         <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/pep-8-style-guide/">
+           Reference on PEP 8 Style Guide </a></li>
+         
+
+     
+          
+         <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-homework-4/">
+           Homework 4 </a></li>
+         
+
+     
+          
+         <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-final-project/">
+           Final Project </a></li>
+         
+
+     
+   </ul>
+ </li>
+</ul>
+</nav>
+
+<h5><a href="http://localhost:8000/courses/earth-analytics-bootcamp/" ><i class="fa fa-home" aria-hidden="true"></i> earth-analytics-bootcamp Home</a></h5>
+
+    
+
+    
+
+  
+  </div>
+
+
+
+
+
+
+<!-- begin science / science themes side bar nav -->
+
+
+
+  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+
+    <meta itemprop="headline" content="Write Custom Functions">
+    <meta itemprop="description" content="This lesson teaches you how to write custom functions in Python.">
+    <meta itemprop="datePublished" content="August 11, 2019">
+    <meta itemprop="dateModified" content="September 10, 2018">
+
+    <div class="page__inner-wrap">
+      
+
+        <header>
+          <!-- BEGIN: insert a welcome to the module block on pages that are part of a module set -->
+
+          <!-- END: insert welcome block -->
+          <h1 class="page__title" itemprop="headline">
+            Lesson 2. 
+             Write Custom Functions
+ </h1>
+            
+          
+
+          
+            <div class="page__meta">
+              
+              
+              <a href="http://localhost:8000/authors/jenny-palomino">Jenny Palomino</a>, 
+              
+              
+              <a href="http://localhost:8000/authors/leah-wasser">Leah Wasser</a>, 
+              
+              
+              <a href="http://localhost:8000/authors/software-carpentry">Software Carpentry</a>
+              
+            </div>
+          
+
+        <br/>
+
+        
+
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        <!-- would like to include the TOC automatically but this does weird things-->
+        
+        <aside class="sidebar__right">
+<nav class="toc">
+    <header><h4 class="nav__title"><i class="fa fa-file-text"></i> In This Lesson</h4></header>
+<ul class="toc__menu" id="markdown-toc">
+  <li><a href="#learning-objectives" id="markdown-toc-learning-objectives"><i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives</a></li>
+  <li><a href="#write-a-function-in-python" id="markdown-toc-write-a-function-in-python">Write a Function in Python</a></li>
+  <li><a href="#call-a-function-in-python" id="markdown-toc-call-a-function-in-python">Call a Function in Python</a></li>
+  <li><a href="#optional-challenge" id="markdown-toc-optional-challenge"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional Challenge</a></li>
+</ul>
+
+  </nav>
+</aside>
+
+<p>In this lesson, you will learn how to write custom functions in Python.</p>
+
+<div class="notice--success">
+
+  <h2 id="learning-objectives"><i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives</h2>
+
+  <p>After completing this lesson, you will be able to:</p>
+
+  <ul>
+    <li>Explain the structure of a function in Python</li>
+    <li>Define an input parameter to a function</li>
+    <li>Write custom functions in Python</li>
+  </ul>
+
+</div>
+
+<h2 id="write-a-function-in-python">Write a Function in Python</h2>
+
+<div class="language-python input highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># this is an example function that adds the value of five to any input parameter</span>
+<span class="c"># x is the placeholder for the input parameter and will be assigned when the function is called</span>
+
+<span class="k">def</span> <span class="nf">add_five</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    
+    <span class="c"># add the value of 5 to an input parameter</span>
+    <span class="c"># function can take a single value, single value variable, or numpy array as input</span>
+    <span class="c"># function can not take list or pandas dataframe as input</span>
+    
+    <span class="k">return</span> <span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">5</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>There are several parts of a function in <code class="highlighter-rouge">Python</code>:</p>
+
+<h3 id="def-keyword">Def Keyword</h3>
+
+<p>Functions begins with the keyword <strong><code class="highlighter-rouge">def</code></strong>: this keyword initiates the function definition. It is followed by the function name and input parameter in parenthesis <code class="highlighter-rouge">()</code>.</p>
+
+<p>Just like with loops and conditional statements, the colon <code class="highlighter-rouge">:</code> is used to indicate that the definition (i.e. code) of the function is below. Also, note that the code lines below are indented once, just like with loops and conditional statements.</p>
+
+<h3 id="function-name">Function Name</h3>
+
+<p>This is the name that you will use when you call the function (e.g. <code class="highlighter-rouge">add_five</code>).</p>
+
+<p>For example, <code class="highlighter-rouge">add_five(x)</code> is a function with the name <code class="highlighter-rouge">add_five</code>. You pass this function the parameter value for <code class="highlighter-rouge">x</code> within parenthesis <code class="highlighter-rouge">()</code>, and it adds the value <code class="highlighter-rouge">5</code> to <code class="highlighter-rouge">x</code> (i.e. the value that has been passed to the function).</p>
+
+<h3 id="input-parameters">Input Parameters</h3>
+
+<p>An input parameter is what you pass the function as the required information for the function to run. The function will take the value or variable provided as the input parameter and use it to perform some task.</p>
+
+<p>In the example above, <code class="highlighter-rouge">x</code> is actually a placeholder for the variable that will be acted upon in the function (i.e. the variable that will have the value of 5 added to it).</p>
+
+<p>Notice that <code class="highlighter-rouge">x</code> has not been explicitly defined outside of the function. It does not need to be because it will actually be defined by the user of the function when the function is called (e.g. <code class="highlighter-rouge">add_five(5)</code>).</p>
+
+<h3 id="return-statement">Return Statement</h3>
+
+<p>This statement returns the value of the code executed in the function, using the syntax <code class="highlighter-rouge">return (output)</code>.</p>
+
+<p>If the function is as simple as the example above, the return statement also contains the code that is being executed in the function to determine the output value. However, you can write more lines of code before the return statement, and then return the final output.</p>
+
+<h3 id="documentation-with-python-comments">Documentation With Python Comments</h3>
+
+<p>Documentation is not required for the function to work. However, good documentation will save you time in the future when you need to use this code again, and it also helps others understand how they can use your function.</p>
+
+<p>In the example above, the documentation has noted that the input parameter can be a single value variable or a <code class="highlighter-rouge">numpy array</code>, but it cannot be a list or <code class="highlighter-rouge">pandas dataframe</code>.</p>
+
+<h2 id="call-a-function-in-python">Call a Function in Python</h2>
+
+<p>Below is an example call to this function. Again, notice that you do not have to create a variable <code class="highlighter-rouge">x</code> in order to give the function a parameter value.</p>
+
+<p>You can simply give the function a value <code class="highlighter-rouge">3</code> as the input parameter, and the function will add the value <code class="highlighter-rouge">5</code> and return the value <code class="highlighter-rouge">8</code>.</p>
+
+<div class="language-python input highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># this is an example call to the add_five function using a single value</span>
+<span class="n">add_five</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="output execute_result highlighter-rouge"><div class="highlight"><pre class="highlight"><code>8
+</code></pre></div></div>
+
+<p>Notice that you will get an error if you try to print the value of <code class="highlighter-rouge">x</code>.</p>
+
+<p>Is <code class="highlighter-rouge">x</code> an explicit variable? What role does <code class="highlighter-rouge">x</code> play in the function?</p>
+
+<div class="language-python input highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># uncomment line to run, as it will result in an error</span>
+<span class="c">#print(x)</span>
+</code></pre></div></div>
+
+<p>Because the function is well documented, you know that you can also provide an existing <code class="highlighter-rouge">numpy array</code> as the input.</p>
+
+<div class="language-python input highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># import necessary package</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+
+<span class="c"># create numpy array that will be used as input parameter</span>
+<span class="n">arrayname</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.8</span><span class="p">,</span> <span class="mf">0.68</span><span class="p">])</span>
+
+<span class="c"># this is an example call to the add_five function</span>
+<span class="n">add_five</span><span class="p">(</span><span class="n">arrayname</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="output execute_result highlighter-rouge"><div class="highlight"><pre class="highlight"><code>array([6.8 , 5.68])
+</code></pre></div></div>
+
+<p>Notice the output that you receive when you call the original variable <code class="highlighter-rouge">arrayname</code>.</p>
+
+<p>Why have the original values not changed? Does the function actually assign new values to the input parameter?</p>
+
+<div class="language-python input highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># print data in `arrayname`</span>
+<span class="n">arrayname</span>
+</code></pre></div></div>
+
+<div class="output execute_result highlighter-rouge"><div class="highlight"><pre class="highlight"><code>array([1.8 , 0.68])
+</code></pre></div></div>
+
+<p><strong>Why would the function <code class="highlighter-rouge">add_five</code> not be able to take lists or <code class="highlighter-rouge">pandas dataframes</code> as an input?</strong> Look carefully at the code that the function executes.</p>
+
+<div class="notice--warning">
+
+  <h2 id="optional-challenge"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional Challenge</h2>
+
+  <p>Test your <code class="highlighter-rouge">Python</code> skills to:</p>
+
+  <ol>
+    <li>
+      <p>Write a function to convert an input parameter value from inches to millimeters. Recall that one inch is equal to 25.4 millimeters.</p>
+
+      <ul>
+        <li>See the example function <code class="highlighter-rouge">add_five()</code> that adds the value of 5 to the input parameter.</li>
+        <li>Begin with the <code class="highlighter-rouge">def</code> keyword and a clear function name that tells the user what the function does.</li>
+        <li>Use a placeholder name for the input parameter that is also clear and tells the user what the function is expecting.</li>
+        <li>Because your code is simple, your return statement can contain the code that calculates the output within parenthesis <code class="highlighter-rouge">()</code>, just like <code class="highlighter-rouge">add_five()</code>.</li>
+        <li>Be sure to add documentation about the input and output parameters of the function.</li>
+      </ul>
+    </li>
+    <li>
+      <p>Run your function on the value <code class="highlighter-rouge">1.8</code> (i.e. your input parameter).</p>
+    </li>
+  </ol>
+
+</div>
+
+<div class="output execute_result highlighter-rouge"><div class="highlight"><pre class="highlight"><code>45.72
+</code></pre></div></div>
+
+
+        
+
+        <!-- if the page is a course lesson, add pagination -->
+
+        
+         <!-- This is clunky code that forces pagination across lesson sets -->
+<!-- NOTE: it won't include slideshows as written which makes sense -->
+<!-- add forced pagination -->
+<!-- first, get total lesson count -->
+
+<div class="previous--next">
+
+
+
+
+
+<!-- if it's page one - then no previous button -->
+<!-- how do i figure out the link? i have to loop through again? -->
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+
+    
+      
+
+      
+      
+       <a href="http://localhost:8000/courses/earth-analytics-bootcamp/functions/apply-functions-numpy-arrays/" class="btn btn--info btn--large btn-success" style="float:right" >
+         Apply Functions to Numpy Arrays
+         <i class="fa fa-4 fa-arrow-circle-right" aria-hidden="true"></i></a>
+      
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+
+    
+      
+
+      
+      
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+
+    
+      
+        <a href="http://localhost:8000/courses/earth-analytics-bootcamp/functions/intro-functions/" class="btn btn--info btn--large btn-success">
+          <i class="fa fa-4 fa-arrow-circle-left fa-4" aria-hidden="true"></i>
+          Intro to Functions </a>
+      
+
+      
+      
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+</div>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <i class="fa fa-fw fa-tags" aria-hidden="true"></i> Tags
+  
+  <span class="a-main-tag">
+  <i class="fa fa-fw fa-tag" aria-hidden="true"></i><a href=http://localhost:8000/tags/reproducible-science-and-programming/>Reproducible science and programming</a>:
+  </span>
+  
+    
+    <a href=http://localhost:8000/tags/reproducible-science-and-programming/python/>python</a> 
+    
+    
+  
+
+
+
+
+
+
+
+
+        
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2018-09-10">September 10, 2018</time></p>
+        
+      </footer>
+
+      
+
+
+<section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=http://localhost:8000/courses/earth-analytics-bootcamp/functions/write-functions/" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:8000/courses/earth-analytics-bootcamp/functions/write-functions/" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://plus.google.com/share?url=http://localhost:8000/courses/earth-analytics-bootcamp/functions/write-functions/" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:8000/courses/earth-analytics-bootcamp/functions/write-functions/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+<br><br>
+  <a href="http://bit.ly/2jc5SXy" target="_blank">
+    <img src="http://localhost:8000/images/earth-data-analytics-professional-certificate-banner.png" alt="Get a professional Certificate in Earth Data Analytics at University of Colorado, Boulder" width="40%"></a>
+</section>
+
+
+       
+    </div>
+
+    
+      
+
+
+<div class="page__comments">
+  <h4 class="page__comments-title">Leave a Comment</h4>
+  
+    <section id="disqus_thread"></section>
+  
+</div>
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      
+        <h4 class="page__related-title">You May Also Enjoy</h4>
+      
+      <div class="grid__wrapper">
+        
+          
+
+
+
+
+<div class="grid__item">
+  
+    <a href="http://localhost:8000/courses/earth-analytics-bootcamp/data-wrangling/data-wrangling-numpy-arrays/">
+  
+    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+      
+      <h2 class="archive__item-title" itemprop="headline">Data Wrangling With Numpy Arrays
+</h2>
+
+
+     
+      
+        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  6 minute read
+	
+</p>
+      
+      <p class="archive__item-excerpt" itemprop="description">This lesson teaches you how to wrangle data (e.g. run multi-task functions, combine) with numpy arrays.
+</p>
+    </article>
+  </a>
+</div>
+
+        
+          
+
+
+
+
+<div class="grid__item">
+  
+    <a href="http://localhost:8000/courses/earth-analytics-bootcamp/data-wrangling/data-wrangling-pandas/">
+  
+    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+      
+      <h2 class="archive__item-title" itemprop="headline">Data Wrangling With Pandas
+</h2>
+
+
+     
+      
+        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  12 minute read
+	
+</p>
+      
+      <p class="archive__item-excerpt" itemprop="description">This lesson teaches you how to wrangle data (e.g. subselect, update, and combine) with pandas dataframes.
+</p>
+    </article>
+  </a>
+</div>
+
+        
+          
+
+
+
+
+<div class="grid__item">
+  
+    <a href="http://localhost:8000/courses/earth-analytics-bootcamp/prep-final-project/">
+  
+    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+      
+      <h2 class="archive__item-title" itemprop="headline">Prepare For Final Project
+</h2>
+
+
+     
+      
+        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  less than 1 minute read
+	
+</p>
+      
+      <p class="archive__item-excerpt" itemprop="description">
+
+     Today
+
+  
+
+
+</p>
+    </article>
+  </a>
+</div>
+
+        
+          
+
+
+
+
+<div class="grid__item">
+  
+    <a href="http://localhost:8000/courses/earth-analytics-bootcamp/data-wrangling/">
+  
+    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+      
+      <h2 class="archive__item-title" itemprop="headline">Data Wrangling
+</h2>
+
+
+     
+      
+        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  1 minute read
+	
+</p>
+      
+      <p class="archive__item-excerpt" itemprop="description">
+
+     Today
+
+  
+
+
+</p>
+    </article>
+  </a>
+</div>
+
+        
+      </div>
+    </div>
+  
+</div>
+
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+
+
+<!-- Adding analytics code -->
+
+        
+
+
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    <li>
+      <strong>&copy; 2018 Earth Lab -
+      <a href="http://localhost:8000/license"> View License. </a>
+      Questions? Feedback? Please file an issue on GitHub.</strong>
+    </li>
+  </ul>
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+    
+      <li><a href="https://twitter.com/earthlabcu"><i class="fa fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+    
+    
+    
+      <li><a href="http://github.com/earthlab"><i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+    
+    
+    <li><a href="http://localhost:8000/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    <script src="http://localhost:8000/assets/js/main.min.js"></script>
+
+
+
+
+
+
+  
+  <script type="text/javascript">
+  	/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  	var disqus_shortname = 'earthlabcu';
+
+  	/* * * DON'T EDIT BELOW THIS LINE * * */
+  	(function() {
+  		var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  		dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  	})();
+
+  	/* * * DON'T EDIT BELOW THIS LINE * * */
+  	(function () {
+  		var s = document.createElement('script'); s.async = true;
+  		s.type = 'text/javascript';
+  		s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  		(document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+  	}());
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+
+<script type="text/javascript"
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+</script>
+
+    
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-84081999-1', 'auto');
+    ga('send', 'pageview');
+</script>
+
+
+
+  </body>
+</html>
+
