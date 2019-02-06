@@ -1,0 +1,20 @@
+{
+  "creators": [
+    {
+      "affiliation": "Earth Lab, University of Colorado - Boulder",
+      "name": "Palomino, Jenny",
+      "orcid": "0000-0003-4879-9299"
+    },
+    {
+      "affiliation": "Earth Lab, University of Colorado - Boulder",
+      "name": "Wasser, Leah",
+      "orcid": "0000-0002-8177-6550"
+    }
+  ],
+  "keywords": [
+    "introduction",
+    "bootcamp",
+    "earth analytics"
+  ],
+  "license": "CC-BY-NC-ND-4.0"
+}
