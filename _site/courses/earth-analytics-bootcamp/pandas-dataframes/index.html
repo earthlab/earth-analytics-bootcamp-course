@@ -22,7 +22,7 @@
 
 
 
-<title>Pandas Dataframes | Earth Data Science - Earth Lab </title>
+<title>Introduction to Pandas Dataframes in Python | Earth Data Science - Earth Lab </title>
 
 
 
@@ -32,24 +32,24 @@
 
 <meta property="og:locale" content="en-US">
 <meta property="og:site_name" content="Earth Data Science - Earth Lab">
-<meta property="og:title" content="Pandas Dataframes">
+<meta property="og:title" content="Introduction to Pandas Dataframes in Python">
 
 
-  <link rel="canonical" href="http://localhost:8000/courses/earth-analytics-bootcamp/pandas-dataframes/">
-  <meta property="og:url" content="http://localhost:8000/courses/earth-analytics-bootcamp/pandas-dataframes/">
+  <link rel="canonical" href="http://localhost:4000/courses/earth-analytics-bootcamp/pandas-dataframes/">
+  <meta property="og:url" content="http://localhost:4000/courses/earth-analytics-bootcamp/pandas-dataframes/">
 
 
 
-  <meta content="     Today  " name="description">
-  <meta property="og:description" content="     Today  ">
+  <meta content="     This Week  " name="description">
+  <meta property="og:description" content="     This Week  ">
 
 
 <!-- twitter cards -->
 
   <meta name="twitter:site" content="@earthlabcu">
-  <meta name="twitter:title" content="Pandas Dataframes">
-  <meta name="twitter:description" content="     Today  ">
-  <meta name="twitter:url" content="http://localhost:8000/courses/earth-analytics-bootcamp/pandas-dataframes/">
+  <meta name="twitter:title" content="Introduction to Pandas Dataframes in Python">
+  <meta name="twitter:description" content="     This Week  ">
+  <meta name="twitter:url" content="http://localhost:4000/courses/earth-analytics-bootcamp/pandas-dataframes/">
 
   
     <meta name="twitter:card" content="summary">
@@ -74,10 +74,10 @@
   <meta property="og:type" content="article">
   <meta property="article:published_time" content="2019-08-02T00:00:00-06:00">
   
-    <link rel="next" href="http://localhost:8000/courses/earth-analytics-bootcamp/pandas-dataframes/intro-pandas-dataframes/" title="Intro to Pandas Dataframes">
+    <link rel="next" href="http://localhost:4000/courses/earth-analytics-bootcamp/git-github-collaboration/" title="Git/Github.com For Scientific Collaboration">
   
   
-    <link rel="prev" href="http://localhost:8000/courses/earth-analytics-bootcamp/numpy-arrays/" title="Numpy Arrays">
+    <link rel="prev" href="http://localhost:4000/courses/earth-analytics-bootcamp/numpy-arrays/" title="Numpy Arrays">
   
 
 
@@ -89,7 +89,7 @@
       "@context" : "http://schema.org",
       "@type" : "Person",
       "name" : "Earth Analytics",
-      "url" : "http://localhost:8000",
+      "url" : "http://localhost:4000",
       "sameAs" : null
     }
   </script>
@@ -102,7 +102,7 @@
 <!-- end SEO -->
 
 
-<link href="http://localhost:8000/feed.xml" type="application/atom+xml" rel="alternate" title="Earth Data Science - Earth Lab Feed">
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="Earth Data Science - Earth Lab Feed">
 
 <!-- http://t.co/dKP3o1e -->
 <meta name="HandheldFriendly" content="True">
@@ -118,8 +118,8 @@
 
 
 <!-- For all browsers
-<link rel="stylesheet" href="http://localhost:8000/assets/css/main.css">-->
-<link rel="stylesheet" href="http://localhost:8000/assets/css/main.css">
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.css">-->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.css">
 
 <meta http-equiv="cleartype" content="on">
 
@@ -128,6 +128,12 @@
 <!-- insert favicons. use http://realfavicongenerator.net/ -->
 
 <!-- end custom head snippets -->
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@1/dist/clipboard.min.js"></script>
+
+    <script src="http://localhost:4000/assets/js/copy-code.js"></script>
   </head>
 
   <body>
@@ -141,7 +147,7 @@
 <!-- search bar begin  - turning off for now-->
 
 <div class="search">
-<form role="search" method="get" action="http://localhost:8000/search/">
+<form role="search" method="get" action="http://localhost:4000/search/">
     <input id="q" name="q"
            placeholder="Search earth data science site" type="text">
 </form>
@@ -157,28 +163,25 @@
       <nav id="site-nav" class="greedy-nav">
         <button><div class="navicon"></div></button>
         <ul class="visible-links">
-          <li class="masthead__menu-item masthead__menu-item--lg"><a href="http://localhost:8000/"><img src="/images/earth_sm.png" alt="Earth Lab - Earth Data Science" style="height:80%;width:85%"></a></li>
+          <li class="masthead__menu-item masthead__menu-item--lg"><a href="http://localhost:4000/"><img src="/images/earth-lab-logo.png" alt="Earth Lab - Earth Data Science" style="height:80%;width:85%"></a></li>
           
             
-            <li class="masthead__menu-item"><a href="http://localhost:8000/tutorials/">Tutorials</a></li>
+            <li class="masthead__menu-item"><a href="http://localhost:4000/tutorials/">Tutorials</a></li>
           
             
-            <li class="masthead__menu-item"><a href="http://localhost:8000/courses/">Courses</a></li>
+            <li class="masthead__menu-item"><a href="http://localhost:4000/courses/">Courses</a></li>
           
             
-            <li class="masthead__menu-item"><a href="http://localhost:8000/workshops/">Workshops</a></li>
+            <li class="masthead__menu-item"><a href="http://localhost:4000/workshops/">Workshops</a></li>
           
             
-            <li class="masthead__menu-item"><a href="http://localhost:8000/tools/">Tools</a></li>
+            <li class="masthead__menu-item"><a href="http://localhost:4000/tools/">Tools</a></li>
           
             
-            <li class="masthead__menu-item"><a href="http://localhost:8000/blog/">Blog</a></li>
+            <li class="masthead__menu-item"><a href="http://localhost:4000/blog/">Blog</a></li>
           
             
-            <li class="masthead__menu-item"><a href="http://localhost:8000/events/">Events</a></li>
-          
-            
-            <li class="masthead__menu-item"><a href="http://localhost:8000/about/">About</a></li>
+            <li class="masthead__menu-item"><a href="http://localhost:4000/about/">About</a></li>
           
 
         </ul>
@@ -193,9 +196,14 @@
 
 
 
-
-
-
+  <div class="page__hero--overlay" style=" background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('http://localhost:4000/images/header-images/earth-data-analytics-professional-certificate-banner.jpg');">
+  <div class="wrapper">
+        <h1 class="page__title" itemprop="headline">
+          Earth Data Analytics Online Certificate
+        </h1>
+        <p><a href="http://bit.ly/2jc5SXy" target = "_blank" class="btn btn--light-outline btn--large">Enroll now! Learn more.</a></p>
+  </div>
+</div>
 
 
 
@@ -203,6 +211,9 @@
 
   
     
+
+
+
 
 
 
@@ -215,36 +226,46 @@
 
 <nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs">
  <ol itemscope itemtype="http://schema.org/BreadcrumbList">
-<a href="http://localhost:8000"></a>
+ <a href="http://localhost:4000"></a>
+ 
  
  <!-- there is an offset of 1 so subtract 2 from the final crumb number-->
  
    
    
      <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-       <a href="http://localhost:8000/" itemprop="item"><span itemprop="name">Home</span></a>
-       <meta itemprop="position" content="" />
+       <a href="http://localhost:4000/" itemprop="item"><span itemprop="name">Home</span></a>
+       <meta itemprop="position" content="1" />
      </li>
      <span class="sep">/</span>
    
     
-        <li><a href="http://localhost:8000/courses/">Courses </a>
+        
+        <li><a href="http://localhost:4000/courses/">Courses </a>
+        <meta itemprop="position" content="2" />
         <span class="sep">/</span></li>
     
   
    
     
-        <li><a href="http://localhost:8000/courses/earth-analytics-bootcamp/"> Earth analytics bootcamp </a>
+        
+        <li><a href="http://localhost:4000/courses/earth-analytics-bootcamp/">Earth analytics bootcamp </a>
+        <meta itemprop="position" content="3" />
         <span class="sep">/</span></li>
     
   
    
     
-        <li class="current">Pandas Dataframes</li>
+        <li class="current">Introduction to Pandas Dataframes in Python</li>
     
   
 </ol>
 </nav>
+
+<!-- from min mistakes -->
+
+
+
 
   
 
@@ -275,6 +296,8 @@
 
 
 
+
+
 <!-- make sure we're only grabbing pages for the course -->
 
 
@@ -289,7 +312,7 @@
 
 
 
-<h5><a href="http://localhost:8000/courses/earth-analytics-bootcamp/" ><i class="fa fa-home" aria-hidden="true"></i> Earth-analytics-bootcamp Home</a></h5>
+<h5><a href="http://localhost:4000/courses/earth-analytics-bootcamp/" ><i class="fa fa-home" aria-hidden="true"></i> Earth analytics bootcamp</a></h5>
 
 <!-- Just get the pages from this course -->
 
@@ -305,64 +328,125 @@
 
 
 
+
 <ul>
   <li><span class="nav__sub-title"><i class="fa fa-book" aria-hidden="true"></i> Units</span>
    <ul>
-    
 
-    <!-- Only list the week if it's not the week for the current landing page -->
-    
-    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/get-started-with-open-science/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
-       1. Get Started with Open Reproducible Science</a></li>
-    
-
-
-      
-
-    
-
-    <!-- Only list the week if it's not the week for the current landing page -->
-    
-    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/python-variables-lists/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
-       2. Python Variables and Lists</a></li>
-    
-
-
-      
-
-    
-
-    <!-- Only list the week if it's not the week for the current landing page -->
-    
-    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/git-github-version-control/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
-       3. Git/Github.com Workflow For Version Control</a></li>
-    
-
-
-      
-
-    
-
-    <!-- Only list the week if it's not the week for the current landing page -->
-    
-    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/numpy-arrays/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
-       4. Numpy Arrays</a></li>
-    
-
-
-      
-
-    
-
-    <!-- Only list the week if it's not the week for the current landing page -->
-    
-
-
-      
        
-      <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/pandas-dataframes/" class='active'> <!--<i class="fa fa-folder-open" aria-hidden="true"></i> -->
-         5. PANDAS DATAFRAMES</a></li>
+
         
+
+            <!-- Only list the week if it's not the week for the current landing page -->
+            
+                <li> <b>SECTION 1 <a href="http://localhost:4000/courses/earth-analytics-bootcamp/get-started-with-open-science/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+                 GET STARTED WITH OPEN REPRODUCIBLE SCIENCE</a></b>
+                </li>
+
+                    <!-- list the chapters for each section  updating this to show a chapter number if it's a textbook-->
+                    
+                     <ul>
+                        
+                            
+                        
+                            
+                        
+                    </ul>
+
+
+            
+
+            <!-- This is for the activate section in the nav which is grey -->
+
+            
+
+    
+
+            <!-- Only list the week if it's not the week for the current landing page -->
+            
+                <li> <b>SECTION 2 <a href="http://localhost:4000/courses/earth-analytics-bootcamp/python-variables-lists/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+                 INTRODUCTION TO PYTHON VARIABLES AND LISTS: EARTH DATA SCIENCE BOOTCAMP COURSE WEEK 2</a></b>
+                </li>
+
+                    <!-- list the chapters for each section  updating this to show a chapter number if it's a textbook-->
+                    
+                     <ul>
+                        
+                            
+                        
+                            
+                        
+                    </ul>
+
+
+            
+
+            <!-- This is for the activate section in the nav which is grey -->
+
+            
+
+    
+
+            <!-- Only list the week if it's not the week for the current landing page -->
+            
+                <li> <b>SECTION 3 <a href="http://localhost:4000/courses/earth-analytics-bootcamp/git-github-version-control/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+                 USE GIT & GITHUB FOR VERSION CONTROL OF SCIENTIFIC PROJECTS</a></b>
+                </li>
+
+                    <!-- list the chapters for each section  updating this to show a chapter number if it's a textbook-->
+                    
+                     <ul>
+                        
+                            
+                        
+                            
+                        
+                    </ul>
+
+
+            
+
+            <!-- This is for the activate section in the nav which is grey -->
+
+            
+
+    
+
+            <!-- Only list the week if it's not the week for the current landing page -->
+            
+                <li> <b>SECTION 4 <a href="http://localhost:4000/courses/earth-analytics-bootcamp/plot-data-python"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+                 PLOT DATA WITH MATPLOTLIB</a></b>
+                </li>
+
+                    <!-- list the chapters for each section  updating this to show a chapter number if it's a textbook-->
+                    
+                     <ul>
+                        
+                            
+                        
+                            
+                        
+                    </ul>
+
+
+            
+
+            <!-- This is for the activate section in the nav which is grey -->
+
+            
+
+    
+
+            <!-- Only list the week if it's not the week for the current landing page -->
+            
+
+            <!-- This is for the activate section in the nav which is grey -->
+
+            
+                
+                    <li>  <a href="http://localhost:4000/courses/earth-analytics-bootcamp/pandas-dataframes/" class='active'> SECTION 5<br><!--<i class="fa fa-folder-open" aria-hidden="true"></i> -->
+                          INTRODUCTION TO PANDAS DATAFRAMES IN PYTHON</a></li>
+                
 
 <div class='active-menu'>
       <ul>
@@ -374,55 +458,7 @@
 
         
 
-        
-        
-          <li><span class="nav__sub-title grey"><i class="fa fa-caret-down" aria-hidden="true"></i> Pandas dataframes </span></li>
-        <ul>
-
-      
-      <!-- count lessons -->
-
-        
-        
-        
-
-        
-        
-        
-          
-          <li><a href= http://localhost:8000/courses/earth-analytics-bootcamp/pandas-dataframes/intro-pandas-dataframes/><!--5.1 --> - Intro to Pandas Dataframes</a></li>
-          
-          
-
-        
-        
-        
-          
-          <li><a href= http://localhost:8000/courses/earth-analytics-bootcamp/pandas-dataframes/import-csv-files-pandas-dataframes/><!--5.2 --> - Import CSV Files Into Pandas Dataframes</a></li>
-          
-          
-
-        
-        
-        
-          
-          <li><a href= http://localhost:8000/courses/earth-analytics-bootcamp/pandas-dataframes/manipulate-plot-pandas-dataframes/><!--5.3 --> - Manipulate and Plot Pandas Dataframes</a></li>
-          
-          
-
-        
-        
-        
-          
-          <li><a href= http://localhost:8000/courses/earth-analytics-bootcamp/pandas-dataframes/selections-pandas-dataframes/><!--5.4 --> - Selections From Pandas Dataframes</a></li>
-          
-          
-
-        
-       </ul>
-        
-
-        
+         <li>Week 5 readings and homework for the earth-analytics-bootcamp course. </li> 
       </ul>
 
       <!-- BEGIN Learn how to lessons -->
@@ -442,91 +478,236 @@
 
     
 
-    <!-- Only list the week if it's not the week for the current landing page -->
-    
-    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/practice-data-structures/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
-       6. Practice Working With Data Structures</a></li>
-    
+            <!-- Only list the week if it's not the week for the current landing page -->
+            
+                <li> <b>SECTION 6 <a href="http://localhost:4000/courses/earth-analytics-bootcamp/numpy-arrays/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+                 NUMPY ARRAYS</a></b>
+                </li>
+
+                    <!-- list the chapters for each section  updating this to show a chapter number if it's a textbook-->
+                    
+                     <ul>
+                        
+                            
+                        
+                            
+                        
+                    </ul>
 
 
-      
+            
 
-    
+            <!-- This is for the activate section in the nav which is grey -->
 
-    <!-- Only list the week if it's not the week for the current landing page -->
-    
-    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/loops/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
-       7. Loops in Python</a></li>
-    
-
-
-      
-
-    
-
-    <!-- Only list the week if it's not the week for the current landing page -->
-    
-    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/conditional-statements/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
-       8. Conditional Statements</a></li>
-    
-
-
-      
+            
 
     
 
-    <!-- Only list the week if it's not the week for the current landing page -->
-    
-    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/git-github-collaboration/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
-       9. Git/Github.com For Collaboration</a></li>
-    
+            <!-- Only list the week if it's not the week for the current landing page -->
+            
+                <li> <b>SECTION 7 <a href="http://localhost:4000/courses/earth-analytics-bootcamp/git-github-collaboration/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+                 GIT/GITHUB.COM FOR SCIENTIFIC COLLABORATION</a></b>
+                </li>
+
+                    <!-- list the chapters for each section  updating this to show a chapter number if it's a textbook-->
+                    
+                     <ul>
+                        
+                            
+                        
+                            
+                        
+                    </ul>
 
 
-      
+            
 
-    
+            <!-- This is for the activate section in the nav which is grey -->
 
-    <!-- Only list the week if it's not the week for the current landing page -->
-    
-    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/functions/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
-       10. Functions</a></li>
-    
-
-
-      
-
-    
-
-    <!-- Only list the week if it's not the week for the current landing page -->
-    
-    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/practice-dry-code/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
-       11. Practice Writing DRY Code</a></li>
-    
-
-
-      
+            
 
     
 
-    <!-- Only list the week if it's not the week for the current landing page -->
+            <!-- Only list the week if it's not the week for the current landing page -->
+            
+                <li> <b>SECTION 8 <a href="http://localhost:4000/courses/earth-analytics-bootcamp/conditionals-loops-in-python/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+                 INTRO TO CONDITIONAL STATEMENTS IN PYTHON</a></b>
+                </li>
+
+                    <!-- list the chapters for each section  updating this to show a chapter number if it's a textbook-->
+                    
+                     <ul>
+                        
+                            
+                        
+                            
+                        
+                    </ul>
+
+
+            
+
+            <!-- This is for the activate section in the nav which is grey -->
+
+            
+
     
-    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/data-wrangling/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
-       12. Data Wrangling</a></li>
+
+            <!-- Only list the week if it's not the week for the current landing page -->
+            
+                <li> <b>SECTION 9 <a href="http://localhost:4000/courses/earth-analytics-bootcamp/functions-modular-code-python/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+                 LEARN TO WRITE FUNCTIONS IN PYTHON</a></b>
+                </li>
+
+                    <!-- list the chapters for each section  updating this to show a chapter number if it's a textbook-->
+                    
+                     <ul>
+                        
+                            
+                        
+                            
+                                <li>
+                                    <a href="http://localhost:4000/courses/earth-analytics-bootcamp/git-github-collaboration/guided-activity-undo-changes/"> 9.2   Git/GitHub For Collaboration </a>
+                                </li>
+                            
+                        
+                    </ul>
+
+
+            
+
+            <!-- This is for the activate section in the nav which is grey -->
+
+            
+
     
 
+            <!-- Only list the week if it's not the week for the current landing page -->
+            
+                <li> <b>SECTION 10 <a href="http://localhost:4000/courses/earth-analytics-bootcamp/review/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+                 REVIEW WEEK: EARTH ANALYTICS BOOTCAMP</a></b>
+                </li>
 
-      
+                    <!-- list the chapters for each section  updating this to show a chapter number if it's a textbook-->
+                    
+                     <ul>
+                        
+                            
+                        
+                            
+                        
+                    </ul>
+
+
+            
+
+            <!-- This is for the activate section in the nav which is grey -->
+
+            
 
     
 
-    <!-- Only list the week if it's not the week for the current landing page -->
-    
-    <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/prep-final-project/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
-       13. Prepare For Final Project</a></li>
-    
+            <!-- Only list the week if it's not the week for the current landing page -->
+            
+                <li> <b>SECTION 11 <a href="http://localhost:4000/courses/earth-analytics-bootcamp/time-series-data-python/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+                 LEARN TO WORK WITH TIME SERIES DATA IN PYTHON</a></b>
+                </li>
+
+                    <!-- list the chapters for each section  updating this to show a chapter number if it's a textbook-->
+                    
+                     <ul>
+                        
+                            
+                                <li>
+                                    <a href="http://localhost:4000/courses/earth-analytics-bootcamp/practice-dry-code/activity-dry-code/"> 11.2   Practice Writing DRY Code </a>
+                                </li>
+                            
+                        
+                            
+                        
+                    </ul>
 
 
-      
+            
+
+            <!-- This is for the activate section in the nav which is grey -->
+
+            
+
+    
+
+            <!-- Only list the week if it's not the week for the current landing page -->
+            
+                <li> <b>SECTION 12 <a href="http://localhost:4000/courses/earth-analytics-bootcamp/spatial-raster-data-python/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+                 INTRODUCTION TO SPATIAL RASTER DATA IN OPEN SOURCE PYTHON</a></b>
+                </li>
+
+                    <!-- list the chapters for each section  updating this to show a chapter number if it's a textbook-->
+                    
+                     <ul>
+                        
+                            
+                        
+                            
+                        
+                    </ul>
+
+
+            
+
+            <!-- This is for the activate section in the nav which is grey -->
+
+            
+
+    
+
+            <!-- Only list the week if it's not the week for the current landing page -->
+            
+                <li> <b>SECTION 13 <a href="http://localhost:4000/courses/earth-analytics-bootcamp/spatial-vector-data-python/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+                 INTRODUCTION TO SPATIAL VECTOR DATA IN OPEN SOURCE PYTHON</a></b>
+                </li>
+
+                    <!-- list the chapters for each section  updating this to show a chapter number if it's a textbook-->
+                    
+                     <ul>
+                        
+                            
+                        
+                            
+                        
+                    </ul>
+
+
+            
+
+            <!-- This is for the activate section in the nav which is grey -->
+
+            
+
+    
+
+            <!-- Only list the week if it's not the week for the current landing page -->
+            
+                <li> <b>SECTION 14 <a href="http://localhost:4000/courses/earth-analytics-bootcamp/prep-final-project/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+                 FINAL ASSIGNMENT</a></b>
+                </li>
+
+                    <!-- list the chapters for each section  updating this to show a chapter number if it's a textbook-->
+                    
+                     <ul>
+                        
+                            
+                        
+                            
+                        
+                    </ul>
+
+
+            
+
+            <!-- This is for the activate section in the nav which is grey -->
+
+            
 
     
   </ul></li>
@@ -538,62 +719,26 @@
     <ul>
      
           
-         <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/">
+         <li> <a href="http://localhost:4000/courses/earth-analytics-bootcamp/">
            Earth Analytics Bootcamp Home </a></li>
          
 
      
           
-         <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-syllabus/">
+         <li> <a href="http://localhost:4000/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-syllabus/">
            Course Syllabus </a></li>
          
 
      
           
-         <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-pre-course-learning/">
+         <li> <a href="http://localhost:4000/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-pre-course-learning/">
            Pre-Course Learning Resources </a></li>
          
 
      
           
-         <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-checklist/">
+         <li> <a href="http://localhost:4000/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-checklist/">
            Pre-Course Checklist </a></li>
-         
-
-     
-          
-         <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-homework-1/">
-           Homework 1 </a></li>
-         
-
-     
-          
-         <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-homework-2/">
-           Homework 2 </a></li>
-         
-
-     
-          
-         <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-homework-3/">
-           Homework 3 </a></li>
-         
-
-     
-          
-         <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/pep-8-style-guide/">
-           Reference on PEP 8 Style Guide </a></li>
-         
-
-     
-          
-         <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-homework-4/">
-           Homework 4 </a></li>
-         
-
-     
-          
-         <li> <a href="http://localhost:8000/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-final-project/">
-           Final Project </a></li>
          
 
      
@@ -602,7 +747,7 @@
 </ul>
 </nav>
 
-<h5><a href="http://localhost:8000/courses/earth-analytics-bootcamp/" ><i class="fa fa-home" aria-hidden="true"></i> earth-analytics-bootcamp Home</a></h5>
+<h5><a href="http://localhost:4000/courses/earth-analytics-bootcamp/" ><i class="fa fa-home" aria-hidden="true"></i> earth-analytics-bootcamp Home</a></h5>
 
     
 
@@ -622,47 +767,63 @@
 
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
 
-    <meta itemprop="headline" content="Pandas Dataframes">
-    <meta itemprop="description" content="     Today  ">
+    <meta itemprop="headline" content="Introduction to Pandas Dataframes in Python">
+    <meta itemprop="description" content="     This Week  ">
     <meta itemprop="datePublished" content="August 02, 2019">
-    
+    <meta itemprop="dateModified" content="January 28, 2021">
 
     <div class="page__inner-wrap">
-      
-
         <header>
+          
+
           <!-- BEGIN: insert a welcome to the module block on pages that are part of a module set -->
 
           <!-- END: insert welcome block -->
-          <h1 class="page__title" itemprop="headline">
+
+          
+              
+
             
-             Pandas Dataframes
- </h1>
+                <h1 class="page__title" itemprop="headline">
+                
+                 Introduction to Pandas Dataframes in Python
+
+                
+                </h1>
             
-          
 
           
 
-        <br/>
-
-        
-
           
+
+            <br/>
+
+            
+
+              
+            
+
+            <!-- For tools pages add authors and tool title -->
+
+            
         </header>
-      
+
+
 
       <section class="page__content" itemprop="text">
+
         <!-- would like to include the TOC automatically but this does weird things-->
         
-        <aside class="sidebar__right">
+          
+            <aside class="sidebar__right">
 <nav class="toc">
-    <header><h4 class="nav__title"><i class="fa fa-file-text"></i> Today</h4></header>
+    <header><h4 class="nav__title"><i class="fa fa-file-text"></i> This Week</h4></header>
 <ul class="toc__menu" id="markdown-toc">
-  <li><a href="#welcome-to-day-five" id="markdown-toc-welcome-to-day-five"><i class="fa fa-ship" aria-hidden="true"></i> Welcome to Day Five!</a></li>
+  <li><a href="#welcome-to-week-5" id="markdown-toc-welcome-to-week-5"><i class="fa fa-ship" aria-hidden="true"></i> Welcome to Week 5!</a></li>
   <li><a href="#learning-objectives" id="markdown-toc-learning-objectives"><i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives</a></li>
-  <li><a href="#-class-schedule" id="markdown-toc--class-schedule"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Class Schedule</a></li>
-  <li><a href="#-lessons-day-5" id="markdown-toc--lessons-day-5"><i class="fa fa-pencil"></i> Lessons Day 5</a></li>
-  <li><a href="#--continue-homework-2" id="markdown-toc---continue-homework-2"><i class="fa fa-pencil"></i>  Continue Homework 2</a></li>
+  <li><a href="#homework--readings" id="markdown-toc-homework--readings"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Homework &amp; Readings</a></li>
+  <li><a href="#earth-data-science-textbook-readings" id="markdown-toc-earth-data-science-textbook-readings"><i class="fa fa-book"></i> Earth Data Science Textbook Readings</a></li>
+  <li><a href="#example-homework-plots" id="markdown-toc-example-homework-plots">Example Homework Plots</a></li>
 </ul>
 
   </nav>
@@ -670,13 +831,13 @@
 
 <div class="notice--info">
 
-  <h2 id="welcome-to-day-five"><i class="fa fa-ship" aria-hidden="true"></i> Welcome to Day Five!</h2>
+  <h2 id="welcome-to-week-5"><i class="fa fa-ship" aria-hidden="true"></i> Welcome to Week 5!</h2>
 
-  <p>Welcome to Day Five of the Earth Analytics Bootcamp! Today, you will write <code class="highlighter-rouge">Python</code> code to import tabular data (.csv) as <code class="highlighter-rouge">pandas dataframes</code> and to summarize and manipulate <code class="highlighter-rouge">pandas dataframes</code>.</p>
+  <p>Welcome to Week 5 of the Earth Analytics Bootcamp course! This week, you will write <code class="highlighter-rouge">Python</code> code and use the <code class="highlighter-rouge">pandas</code> package to import tabular data (.csv) as a <code class="highlighter-rouge">pandas dataframe</code>. You will then learn to summarize and manipulate <code class="highlighter-rouge">pandas dataframes</code>.</p>
 
   <h2 id="learning-objectives"><i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives</h2>
 
-  <p>After completing the lessons for Day 5, you will be able to:</p>
+  <p>After completing the lessons for Week 5, you will be able to:</p>
 
   <ul>
     <li>Describe the <code class="highlighter-rouge">pandas dataframe</code> data structure</li>
@@ -686,56 +847,41 @@
     <li>Write <code class="highlighter-rouge">Python</code> code to select data from <code class="highlighter-rouge">pandas dataframe</code> using indexing based on locations and values</li>
   </ul>
 
+  <h2 id="homework--readings"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Homework &amp; Readings</h2>
+
+  <p><a href="https://github.com/earthlab-education/bootcamp-2020-05-pandas-template" target="_blank" class="btn btn--info btn--x-large"> <i class="fa fa-link" aria-hidden="true"></i> Click here to view the GitHub Repo with the assignment template. </a></p>
+
+  <h2 id="earth-data-science-textbook-readings"><i class="fa fa-book"></i> Earth Data Science Textbook Readings</h2>
+
+  <p>Please read the following chapters of the Intro to Earth Data Science online textbook to support completing this week’s assignment:</p>
+
+  <ul>
+    <li><a href="https://www.earthdatascience.org/courses/intro-to-earth-data-science/scientific-data-structures-python/pandas-dataframes/">Pandas Data Frames Python</a>.</li>
+  </ul>
+
+  <p><strong>Optional:</strong> You may also want to review the following chapters if you are new to using <code class="highlighter-rouge">Python</code>:</p>
+
+  <ul>
+    <li><a href="https://www.earthdatascience.org/courses/intro-to-earth-data-science/python-code-fundamentals/use-python-packages/">Chapter 11 in Section 4 - Introduction to Python Packages</a>.</li>
+    <li><a href="https://www.earthdatascience.org/courses/intro-to-earth-data-science/python-code-fundamentals/work-with-files-directories-paths-in-python/">Chapter 12 in Section 4 - files and directories in Python</a>.</li>
+  </ul>
+
 </div>
 
-<h2 id="-class-schedule"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Class Schedule</h2>
+<h2 id="example-homework-plots">Example Homework Plots</h2>
 
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Topic</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left">Review Day 4 / Questions</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Lesson 1: Intro to <code class="highlighter-rouge">Pandas Dataframes</code></td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Lesson 2: Import CSV Files into <code class="highlighter-rouge">Pandas Dataframes</code></td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Lesson 3: Manipulate and Plot <code class="highlighter-rouge">Pandas Dataframes</code></td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Lesson 4: Selections From <code class="highlighter-rouge">Pandas Dataframes</code></td>
-    </tr>
-  </tbody>
-</table>
+<p>The plots below are examples of what your plot could look like. Feel free to
+customize or modify plot settings as you see fit!</p>
 
-<h2 id="-lessons-day-5"><i class="fa fa-pencil"></i> Lessons Day 5</h2>
+<figure class="output display_data">
 
-<p>Today’s lessons provide the information and files that you need to continue homework 2. In the lessons, you will use <code class="highlighter-rouge">Python</code> in <code class="highlighter-rouge">Jupyter Notebook</code> to work with a new <code class="highlighter-rouge">Python</code> data structure: <code class="highlighter-rouge">pandas dataframes</code>.</p>
+<img src="http://localhost:4000/images/courses/ea-bootcamp/05-pandas/2019-08-02-pandas-landing-page/2019-08-02-pandas-landing-page_6_0.png" alt="Two line plots. The top plot is of the yearly maximum fire size in California by year. The bottom plot is of the yearly mean fire size in California by year." />
+<figcaption>Two line plots. The top plot is of the yearly maximum fire size in California by year. The bottom plot is of the yearly mean fire size in California by year.</figcaption>
 
-<h3 id="get-day-5-files-from-githubcom">Get Day 5 Files From Github.com</h3>
+</figure>
 
-<p>Fork and <code class="highlighter-rouge">git clone</code> today’s files from https://github.com/earthlab-education/ea-bootcamp-day-5 to the <code class="highlighter-rouge">earth-analytics-bootcamp</code> directory under your home directory.</p>
 
-<p>If needed, refer to the lesson on <a href="http://localhost:8000/courses/earth-analytics-bootcamp/get-started-with-open-science/get-files-from-github/">Get Files from Github.com.</a></p>
-
-<h2 id="--continue-homework-2"><i class="fa fa-pencil"></i>  Continue Homework 2</h2>
-
-<p><a class="btn btn--info btn--x-large" href="http://localhost:8000/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-homework-2/"> <i class="fa fa-info-circle"></i>
-View Homework 2</a></p>
-
-<div class="notice--success">
-  <p><i class="fa fa-star"></i> <strong>Important:</strong> Complete today’s lessons and hands-on activities (listed above) BEFORE continuing Homework 2.</p>
-</div>
-
-<p>The second homework (Homework 2) is due <strong>Tuesday, August 14th at 8:00 AM (U.S. Mountain Daylight Time)</strong>. See <a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20180814T08&amp;p1=1243" target="_blank">this link</a>  to convert the due date/time to your local time.</p>
-
+          
 
         
 
@@ -754,9 +900,45 @@ View Homework 2</a></p>
 
 
 
+
+
         
-          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2019-08-02T00:00:00-06:00">August 02, 2019</time></p>
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2021-01-28">January 28, 2021</time></p>
         
+        <!-- Add license information w/ DOI to the bottom -->
+        
+  
+  
+
+  
+  
+
+  
+     The Earth analytics bootcamp course is subject to the
+     <a href="http://localhost:4000/license" target="_blank">CC BY-NC-ND 4.0 License </a>.
+      Citation DOI: <a href="https://zenodo.org/badge/latestdoi/148345830" target="_blank"> https://zenodo.org/badge/latestdoi/148345830</a>
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
       </footer>
 
       
@@ -767,16 +949,16 @@ View Homework 2</a></p>
     <h4 class="page__share-title">Share on</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=http://localhost:8000/courses/earth-analytics-bootcamp/pandas-dataframes/" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=http://localhost:4000/courses/earth-analytics-bootcamp/pandas-dataframes/" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:8000/courses/earth-analytics-bootcamp/pandas-dataframes/" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/courses/earth-analytics-bootcamp/pandas-dataframes/" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://plus.google.com/share?url=http://localhost:8000/courses/earth-analytics-bootcamp/pandas-dataframes/" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+  <a href="https://plus.google.com/share?url=http://localhost:4000/courses/earth-analytics-bootcamp/pandas-dataframes/" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:8000/courses/earth-analytics-bootcamp/pandas-dataframes/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/courses/earth-analytics-bootcamp/pandas-dataframes/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 <br><br>
   <a href="http://bit.ly/2jc5SXy" target="_blank">
-    <img src="http://localhost:8000/images/earth-data-analytics-professional-certificate-banner.png" alt="Get a professional Certificate in Earth Data Analytics at University of Colorado, Boulder" width="40%"></a>
+    <img src="http://localhost:4000/images/earth-data-analytics-professional-certificate-banner.png" alt="Get a professional Certificate in Earth Data Analytics at University of Colorado, Boulder" width="40%"></a>
 </section>
 
 
@@ -788,7 +970,149 @@ View Homework 2</a></p>
 
   
   
+    <div class="page__related">
+      
+        <h4 class="page__related-title">You May Also Enjoy</h4>
+      
+      <div class="grid__wrapper">
+        
+          
+
+
+
+
+<div class="grid__item">
+  
+    <a href="http://localhost:4000/courses/earth-analytics-bootcamp/plot-data-python">
+  
+    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+      
+      <h2 class="archive__item-title" itemprop="headline">Plot Data With Matplotlib
+</h2>
+
+
+     
+      
+        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  1 minute read
+	
+</p>
+      
+      <p class="archive__item-excerpt" itemprop="description">
+
+     This Week
+
+  
+
+
+</p>
+    </article>
+  </a>
 </div>
+
+        
+          
+
+
+
+
+<div class="grid__item">
+  
+    <a href="http://localhost:4000/courses/use-data-open-source-python/hierarchical-data-formats-hdf/summarize-climate-data-by-season/">
+  
+    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+      
+      <h2 class="archive__item-title" itemprop="headline">Calculate Seasonal Summary Values from Climate Data Variables Stored in NetCDF 4 Format: Work With MACA v2 Climate Data in Python
+</h2>
+
+
+     
+      
+        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  25 minute read
+	
+</p>
+      
+      <p class="archive__item-excerpt" itemprop="description">Learn how to calculate seasonal summary values for MACA 2 climate data using xarray and region mask in open source Python.
+</p>
+    </article>
+  </a>
+</div>
+
+        
+          
+
+
+
+
+<div class="grid__item">
+  
+    <a href="http://localhost:4000/courses/use-data-open-source-python/hierarchical-data-formats-hdf/subset-netcdf4-climate-data-spatially-aoi/">
+  
+    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+      
+      <h2 class="archive__item-title" itemprop="headline">Calculate Summary Values Using Spatial Areas of Interest (AOIs) including Shapefiles for Climate Data Variables Stored in NetCDF 4 Format: Work With MACA v2 Climate Data in Python
+</h2>
+
+
+     
+      
+        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  33 minute read
+	
+</p>
+      
+      <p class="archive__item-excerpt" itemprop="description">Climate datasets stored in netcdf 4 format often cover the entire globe or an entire country. Learn how to subset climate data spatially and by time slices u...</p>
+    </article>
+  </a>
+</div>
+
+        
+          
+
+
+
+
+<div class="grid__item">
+  
+    <a href="http://localhost:4000/courses/use-data-open-source-python/hierarchical-data-formats-hdf/use-netcdf-in-python-xarray/">
+  
+    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+      
+      <h2 class="archive__item-title" itemprop="headline">How to Open and Process NetCDF 4 Data Format in Open Source Python
+</h2>
+
+
+     
+      
+        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  26 minute read
+	
+</p>
+      
+      <p class="archive__item-excerpt" itemprop="description">Historic and projected climate data are most often stored in netcdf 4 format. Learn how to open and process MACA version 2 climate data for the Continental U...</p>
+    </article>
+  </a>
+</div>
+
+        
+      </div>
+    </div>
+  
+</div>
+
 
 
     <div class="page__footer">
@@ -807,9 +1131,10 @@ View Homework 2</a></p>
 <div class="page__footer-follow">
   <ul class="social-icons">
     <li>
-      <strong>&copy; 2018 Earth Lab -
-      <a href="http://localhost:8000/license"> View License. </a>
-      Questions? Feedback? Please file an issue on GitHub.</strong>
+      <strong>&copy; 2021 Earth Lab -
+      <a href="http://localhost:4000/license"> All materials on this site
+        are subject to the CC BY-NC-ND 4.0 License. </a>
+      </strong>
     </li>
   </ul>
   <ul class="social-icons">
@@ -824,16 +1149,18 @@ View Homework 2</a></p>
       <li><a href="http://github.com/earthlab"><i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
     
     
-    <li><a href="http://localhost:8000/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    <li><a href="http://localhost:4000/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
   </ul>
 </div>
 
+<!--
 <div class="page__footer-copyright">Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+-->
 
       </footer>
     </div>
 
-    <script src="http://localhost:8000/assets/js/main.min.js"></script>
+    <script src="http://localhost:4000/assets/js/main.min.js"></script>
 
 
 
