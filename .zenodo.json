@@ -16,5 +16,7 @@
     "earth data science",
     "earth analytics course"
   ],
-  "license": "CC-BY-NC-ND-4.0"
+  "license": "CC-BY-NC-ND-4.0",
+  "upload_type": "publication",
+  "publication_type": "other"
 }
